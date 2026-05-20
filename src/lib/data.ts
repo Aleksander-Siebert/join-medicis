@@ -1,4 +1,35 @@
-import { Skill, Guide, CategoryItem } from "@/types";
+import { Skill, Guide, CategoryItem, Author, BlogArticle } from "@/types";
+
+export const authors: Author[] = [
+  {
+    slug: "aleksander-siebert",
+    name: "Aleksander Siebert",
+    role: "Growth Marketer · Fondateur Join Médicis",
+    bio: "Growth Marketer francophone obsédé par l'intersection IA & marketing. Fondateur de Join Médicis pour rendre l'IA accessible aux marketeurs sans compétences techniques.",
+    links: {
+      linkedin: "https://www.linkedin.com/in/aleksander-siebert/",
+      github: "https://github.com/aleksander-siebert",
+    },
+  },
+  {
+    slug: "jeremy-goillot",
+    name: "Jérémy Goillot",
+    role: "Head of Growth · Spendesk",
+    bio: "10+ ans en Growth B2B. Spécialiste cold outbound, content marketing et architecture de funnels.",
+    links: {
+      linkedin: "https://www.linkedin.com/",
+    },
+  },
+  {
+    slug: "claire-martin",
+    name: "Claire Martin",
+    role: "Senior SEO Consultant",
+    bio: "Consultante SEO indépendante, ex-Doctolib. Spécialiste briefs éditoriaux et architectures de clusters pour le marché francophone.",
+    links: {
+      linkedin: "https://www.linkedin.com/",
+    },
+  },
+];
 
 export const skills: Skill[] = [
   {
@@ -9,12 +40,16 @@ export const skills: Skill[] = [
     category: "strategie",
     subcategory: "Fondation",
     difficulty: "debutant",
-    llm: { claude: "full", chatgpt: "full", gemini: "full" },
+    llm: { claude: "full", chatgpt: "full", gemini: "full", mistral: "partial" },
     timeSaved: "30 min/usage",
     resultMetric: "Contexte mémorisé",
     testedBy: 31,
     version: "1.0.0",
     tags: ["fondation", "contexte", "b2b"],
+    authorSlug: "aleksander-siebert",
+    publishedAt: "2026-03-12",
+    downloads: 342,
+    views: 1820,
   },
   {
     slug: "cold-email-b2b-fr",
@@ -24,12 +59,16 @@ export const skills: Skill[] = [
     category: "prospection",
     subcategory: "Cold Email",
     difficulty: "debutant",
-    llm: { claude: "full", chatgpt: "full", gemini: "partial" },
+    llm: { claude: "full", chatgpt: "full", gemini: "partial", mistral: "partial" },
     timeSaved: "45 min/semaine",
     resultMetric: "+34% taux de réponse",
     testedBy: 23,
     version: "1.2.0",
     tags: ["prospection", "b2b", "email", "marche-fr"],
+    authorSlug: "jeremy-goillot",
+    publishedAt: "2026-04-02",
+    downloads: 287,
+    views: 1450,
   },
   {
     slug: "seo-brief-fr",
@@ -39,12 +78,16 @@ export const skills: Skill[] = [
     category: "seo",
     subcategory: "Brief éditorial",
     difficulty: "intermediaire",
-    llm: { claude: "full", chatgpt: "full", gemini: "full" },
+    llm: { claude: "full", chatgpt: "full", gemini: "full", mistral: "partial" },
     timeSaved: "1h30/brief",
     resultMetric: "Brief complet en 3 min",
     testedBy: 18,
     version: "1.1.0",
     tags: ["seo", "brief", "contenu"],
+    authorSlug: "claire-martin",
+    publishedAt: "2026-04-15",
+    downloads: 198,
+    views: 980,
   },
   {
     slug: "content-cluster-seo-fr",
@@ -60,6 +103,10 @@ export const skills: Skill[] = [
     testedBy: 14,
     version: "1.0.0",
     tags: ["seo", "cluster", "architecture-contenu"],
+    authorSlug: "claire-martin",
+    publishedAt: "2026-05-01",
+    downloads: 156,
+    views: 740,
   },
   {
     slug: "landing-audit-cro-fr",
@@ -75,6 +122,10 @@ export const skills: Skill[] = [
     testedBy: 11,
     version: "1.0.0",
     tags: ["cro", "landing-page", "conversion", "ux"],
+    authorSlug: "aleksander-siebert",
+    publishedAt: "2026-05-08",
+    downloads: 89,
+    views: 510,
   },
 ];
 
@@ -108,6 +159,42 @@ export const guides: Guide[] = [
     installTime: "10 minutes",
     difficulty: "intermediaire",
     tags: ["mcp", "notion", "workflow"],
+  },
+];
+
+export const blogArticles: BlogArticle[] = [
+  {
+    slug: "pourquoi-join-medicis",
+    title: "Pourquoi Join Médicis ?",
+    excerpt:
+      "83 % des marketeurs francophones utilisent l'IA, mais seulement 17 % l'ont vraiment intégrée. On vous raconte comment on compte combler ce vide.",
+    publishedAt: "2026-05-10",
+    authorSlug: "aleksander-siebert",
+    readingTime: "5 min",
+    tags: ["manifesto", "growth", "ia"],
+    comingSoon: true,
+  },
+  {
+    slug: "anatomie-skill-claude",
+    title: "Anatomie d'un Skill Claude bien construit",
+    excerpt:
+      "Frontmatter YAML, sections §0 à §3, dossier references — décortiqué étape par étape, avec les pièges à éviter.",
+    publishedAt: "2026-05-15",
+    authorSlug: "aleksander-siebert",
+    readingTime: "8 min",
+    tags: ["skills", "tutoriel", "claude"],
+    comingSoon: true,
+  },
+  {
+    slug: "growth-vs-ia",
+    title: "Growth × IA : 5 workflows qui changent la donne en 2026",
+    excerpt:
+      "Outbound personnalisé, briefs SEO auto, audits CRO assistés — les patterns qui marchent vraiment, par ceux qui les utilisent au quotidien.",
+    publishedAt: "2026-05-18",
+    authorSlug: "jeremy-goillot",
+    readingTime: "12 min",
+    tags: ["workflows", "growth", "ia"],
+    comingSoon: true,
   },
 ];
 
@@ -162,4 +249,5 @@ export const siteStats = {
   guidesCount: guides.length,
   membersCount: 47,
   projetsCount: 3,
+  authorsCount: authors.length,
 };

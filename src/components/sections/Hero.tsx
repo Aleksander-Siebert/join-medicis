@@ -17,6 +17,27 @@ const statsData = [
 export default function Hero() {
   return (
     <section className="relative pt-36 pb-24 px-6 overflow-hidden">
+      {/* Background image — Monet "Vétheuil", full opacity */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-center bg-no-repeat bg-cover"
+        style={{ backgroundImage: "url('/monet-vetheuil.webp')" }}
+      />
+      {/* Radial halo behind text — keeps painting visible on edges */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 55% at 50% 45%, rgba(250,247,240,0.85) 0%, rgba(250,247,240,0.55) 45%, rgba(250,247,240,0) 80%)",
+        }}
+      />
+      {/* Soft bottom fade to next section */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-transparent to-cream-50"
+      />
+
       {/* Decorative top line — Solomei-inspired */}
       <div
         aria-hidden="true"
@@ -33,21 +54,27 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="max-w-4xl mx-auto text-center">
+      <div className="relative max-w-4xl mx-auto text-center">
         {/* Overline label */}
-        <p className="text-xs tracking-widest uppercase text-ink-300 mb-10 font-sans">
+        <p className="text-xs tracking-widest uppercase text-ink-700 mb-10 font-sans font-medium">
           Bibliothèque open-source · Francophone · Growth Marketing
         </p>
 
         {/* Heading — Solomei-style serif, large and light */}
-        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-light text-ink-900 leading-[1.1] mb-6">
+        <h1
+          className="font-serif text-5xl md:text-6xl lg:text-7xl font-normal text-ink-900 leading-[1.1] mb-6"
+          style={{ textShadow: "0 1px 24px rgba(250,247,240,0.7)" }}
+        >
           La bibliothèque IA & Growth
           <br />
-          <em className="italic text-ink-700">pour les marketeurs francophones</em>
+          <em className="italic text-ink-800">pour les marketeurs francophones</em>
         </h1>
 
         {/* Tagline */}
-        <p className="text-base md:text-lg text-ink-500 max-w-2xl mx-auto leading-relaxed mb-14 font-sans">
+        <p
+          className="text-base md:text-lg text-ink-700 max-w-2xl mx-auto leading-relaxed mb-14 font-sans"
+          style={{ textShadow: "0 1px 12px rgba(250,247,240,0.8)" }}
+        >
           Skills Claude, projets prêts à l&rsquo;emploi, guides MCP, workflows n8n —
           tout en français, tout gratuit, tout open-source.
         </p>

@@ -114,40 +114,90 @@ function AboutTab({ skill }: { skill: Skill }) {
 }
 
 function ContentTab({ skill }: { skill: Skill }) {
+  const downloadUrl = `/skills/${skill.slug}.md`;
   return (
-    <div>
-      <div className="bg-ink-900 text-cream-100 p-8 font-mono text-sm leading-relaxed overflow-x-auto">
-        <p className="text-ink-300 mb-1"># {skill.name} — v{skill.version}</p>
-        <p className="text-ink-500 mb-6">
-          # Skill Join Médicis · Catégorie : {skill.category}
-        </p>
-        <p className="text-cream-200 mb-1">## §0 — Identité et paradigme</p>
-        <p className="text-ink-500 mb-5">
-          Tu es un expert en {skill.category} pour le marché B2B français.
-          Tu maîtrises les codes culturels et les standards professionnels
-          hexagonaux. Chaque output que tu produis est directement actionnable,
-          calibré pour être envoyé ou publié sans modification majeure.
-        </p>
-        <p className="text-cream-200 mb-1">## §1 — Déclenchement</p>
-        <p className="text-ink-500 mb-5">
-          Ce Skill s'active automatiquement sur toute demande liée à{" "}
-          {skill.name.toLowerCase()}. Il prend le relais dès que tu détectes
-          une intention de [placeholder]...
-        </p>
-        <p className="text-cream-200 mb-1">## §2 — Instructions principales</p>
-        <p className="text-ink-500 mb-5">
-          [Contenu complet disponible en téléchargement — le fichier .md
-          contient l'intégralité des instructions, variantes et exemples]
-        </p>
-        <p className="text-cream-200 mb-1">## §3 — Format de sortie</p>
-        <p className="text-ink-500">
-          Output structuré, en français natif, adapté au marché FR.
-          Pas de bullshit, pas de remplissage — seulement ce qui est
-          directement utilisable.
-        </p>
+    <div className="space-y-6">
+      {/* File explorer style header */}
+      <div className="border border-ink-100 bg-cream-100">
+        <div className="px-4 py-3 border-b border-ink-100 flex items-center justify-between">
+          <div className="flex items-center gap-2 text-xs text-ink-500 font-sans">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+            </svg>
+            <span className="font-mono">{skill.slug}/</span>
+          </div>
+          <a
+            href={downloadUrl}
+            download={`${skill.slug}.md`}
+            className="text-xs text-forest-700 hover:text-forest-900 transition-colors font-sans"
+          >
+            Télécharger tout →
+          </a>
+        </div>
+        <ul className="divide-y divide-ink-100 text-sm font-sans">
+          <li className="px-4 py-3 flex items-center justify-between hover:bg-cream-200 transition-colors">
+            <span className="flex items-center gap-2.5 text-ink-700">
+              <svg className="w-4 h-4 text-ink-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span className="font-mono">skill.md</span>
+              <span className="text-xs text-ink-300">— v{skill.version}</span>
+            </span>
+            <a
+              href={downloadUrl}
+              download={`${skill.slug}.md`}
+              className="text-xs text-ink-400 hover:text-forest-900 transition-colors"
+            >
+              ↓
+            </a>
+          </li>
+          <li className="px-4 py-3 flex items-center justify-between text-ink-300">
+            <span className="flex items-center gap-2.5">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+              </svg>
+              <span className="font-mono">references/</span>
+              <span className="text-xs">— documents sources</span>
+            </span>
+            <span className="text-xs">bientôt</span>
+          </li>
+        </ul>
       </div>
-      <p className="text-xs text-ink-300 mt-4 font-sans">
-        Le fichier complet est disponible en téléchargement ou sur GitHub.
+
+      {/* File preview */}
+      <div className="border border-ink-100">
+        <div className="px-4 py-2 border-b border-ink-100 bg-cream-200 text-xs text-ink-500 font-mono">
+          skill.md · aperçu des 30 premières lignes
+        </div>
+        <div className="bg-ink-900 text-cream-100 p-8 font-mono text-sm leading-relaxed overflow-x-auto">
+          <p className="text-ink-300 mb-1">---</p>
+          <p className="text-ink-300 mb-1">name: {skill.slug}</p>
+          <p className="text-ink-300 mb-1">version: {skill.version}</p>
+          <p className="text-ink-300 mb-1">category: {skill.category}</p>
+          <p className="text-ink-300 mb-1">difficulty: {skill.difficulty}</p>
+          <p className="text-ink-300 mb-1">time_saved: &ldquo;{skill.timeSaved}&rdquo;</p>
+          {skill.resultMetric && (
+            <p className="text-ink-300 mb-1">result_metric: &ldquo;{skill.resultMetric}&rdquo;</p>
+          )}
+          <p className="text-ink-300 mb-4">---</p>
+
+          <p className="text-cream-200 mb-1"># {skill.name}</p>
+          <p className="text-ink-500 mb-5">{skill.description}</p>
+
+          <p className="text-cream-200 mb-1">## §0 — Identité &amp; paradigme</p>
+          <p className="text-ink-500 mb-5">
+            [Définition du rôle et du paradigme — extrait. Le fichier complet
+            contient toutes les sections §0 à §N.]
+          </p>
+          <p className="text-cream-200 mb-1">## §1 — Déclenchement</p>
+          <p className="text-ink-500">
+            [Conditions d&rsquo;activation du Skill...]
+          </p>
+        </div>
+      </div>
+
+      <p className="text-xs text-ink-300 font-sans">
+        Le fichier complet est disponible en téléchargement ci-dessus ou sur GitHub.
       </p>
     </div>
   );

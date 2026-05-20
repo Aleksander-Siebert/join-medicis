@@ -130,7 +130,7 @@ export default function AboutPage() {
               {[
                 {
                   title: "Open-source absolu",
-                  desc: "Toutes les ressources sont en Licence MIT. Aucune barrière, aucun paywall.",
+                  desc: "Code en MIT, contenu en CC BY 4.0. Aucune barrière, aucun paywall.",
                 },
                 {
                   title: "Francophone natif",
@@ -150,6 +150,121 @@ export default function AboutPage() {
                   </p>
                 </div>
               ))}
+            </div>
+          </div>
+
+          <div className="h-px bg-ink-100" aria-hidden="true" />
+
+          {/* License */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <p className="text-xs tracking-widest uppercase text-ink-300 mb-3 font-sans">
+                La licence
+              </p>
+            </div>
+            <div className="md:col-span-2">
+              <p className="text-ink-700 leading-relaxed font-sans mb-4">
+                Un projet à double nature exige une double licence. Join Médicis
+                mêle du <em className="italic">code</em> (le site, les futurs
+                serveurs MCP) et du <em className="italic">contenu éditorial</em>{" "}
+                (les Skills <code className="font-mono text-sm">.md</code>, les
+                guides, les références) — deux objets juridiques différents
+                qu&rsquo;on ne traite pas pareil.
+              </p>
+              <p className="text-ink-500 leading-relaxed font-sans mb-8">
+                C&rsquo;est le modèle adopté par Wikipédia, MDN, ou la
+                documentation de la plupart des projets open-source matures.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-ink-100 mb-8">
+                <div className="bg-cream-100 p-6">
+                  <p className="text-xs tracking-widest uppercase text-ink-300 mb-2 font-sans">
+                    Code
+                  </p>
+                  <h3 className="font-serif text-2xl font-light text-ink-900 mb-3">
+                    MIT
+                  </h3>
+                  <p className="text-sm text-ink-500 leading-relaxed font-sans mb-4">
+                    Site Next.js, composants, scripts, serveurs MCP. La licence
+                    la plus permissive du paysage software : tu peux copier,
+                    modifier, redistribuer, intégrer en commercial — sans rien
+                    demander, à condition de conserver la mention de copyright.
+                  </p>
+                  <a
+                    href="https://opensource.org/license/mit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-forest-900 hover:text-forest-700 transition-colors font-sans underline underline-offset-4"
+                  >
+                    Texte officiel MIT →
+                  </a>
+                </div>
+                <div className="bg-cream-100 p-6">
+                  <p className="text-xs tracking-widest uppercase text-ink-300 mb-2 font-sans">
+                    Contenu
+                  </p>
+                  <h3 className="font-serif text-2xl font-light text-ink-900 mb-3">
+                    CC BY 4.0
+                  </h3>
+                  <p className="text-sm text-ink-500 leading-relaxed font-sans mb-4">
+                    Skills <code className="font-mono text-xs">.md</code>,
+                    guides, documents de référence. Tu peux les utiliser,
+                    modifier, redistribuer — y compris en commercial — à
+                    condition de <em className="italic">créditer</em> l&rsquo;auteur
+                    et de mentionner Join Médicis.
+                  </p>
+                  <a
+                    href="https://creativecommons.org/licenses/by/4.0/deed.fr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-forest-900 hover:text-forest-700 transition-colors font-sans underline underline-offset-4"
+                  >
+                    Texte officiel CC BY 4.0 →
+                  </a>
+                </div>
+              </div>
+
+              <p className="text-xs tracking-widest uppercase text-ink-300 mb-4 font-sans">
+                Ce que ça veut dire concrètement
+              </p>
+              <ul className="space-y-3 text-sm text-ink-500 leading-relaxed font-sans">
+                <li className="flex gap-3">
+                  <span className="text-forest-900 mt-0.5 shrink-0">✓</span>
+                  <span>
+                    Tu peux utiliser n&rsquo;importe quel Skill dans ton entreprise,
+                    pour tes clients, en interne ou en formation.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-forest-900 mt-0.5 shrink-0">✓</span>
+                  <span>
+                    Tu peux modifier un Skill, le forker, l&rsquo;adapter à ton
+                    contexte — tant que tu cites l&rsquo;auteur original.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-forest-900 mt-0.5 shrink-0">✓</span>
+                  <span>
+                    Tu peux intégrer le code du site dans un produit commercial
+                    sans demander d&rsquo;autorisation.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-ink-300 mt-0.5 shrink-0">✗</span>
+                  <span>
+                    Tu ne peux pas republier un Skill sous ton nom sans mentionner
+                    Join Médicis et l&rsquo;auteur d&rsquo;origine.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-ink-300 mt-0.5 shrink-0">✗</span>
+                  <span>
+                    Tu ne peux pas faire payer un Skill que tu as récupéré ici en
+                    le présentant comme exclusif — il reste librement accessible
+                    à tous.
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

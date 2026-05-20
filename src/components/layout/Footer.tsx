@@ -26,7 +26,7 @@ export default function Footer() {
               La bibliothèque IA & Growth pour les marketeurs francophones.
             </p>
             <p className="mt-4 text-xs text-ink-300 tracking-widest uppercase font-sans">
-              Open-source · Licence MIT
+              Open-source · Code MIT · Contenu CC BY 4.0
             </p>
           </div>
 
@@ -38,9 +38,10 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { href: "/skills", label: "Skills Claude" },
+                { href: "/ressources/mcp", label: "Serveurs MCP" },
                 { href: "/ressources/projets", label: "Projets Claude" },
-                { href: "/guides", label: "Guides MCP" },
                 { href: "/ressources/ecosysteme", label: "Écosystème" },
+                { href: "/docs", label: "Documentation" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link
@@ -51,6 +52,10 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li className="flex items-center gap-2">
+                <span className="text-sm text-ink-300 font-sans">Plugins</span>
+                <span className="text-xs bg-cream-200 text-ink-300 px-1.5 py-0.5">Bientôt</span>
+              </li>
               <li className="flex items-center gap-2">
                 <span className="text-sm text-ink-300 font-sans">Automations</span>
                 <span className="text-xs bg-cream-200 text-ink-300 px-1.5 py-0.5">Bientôt</span>
@@ -65,7 +70,10 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
+                { href: "/blog", label: "Blog" },
+                { href: "/authors", label: "Auteurs" },
                 { href: "/contribuer", label: "Contribuer" },
+                { href: "/request", label: "Demander un Skill" },
                 { href: "/a-propos", label: "À propos" },
                 { href: "/contact", label: "Contact" },
               ].map((item) => (
@@ -115,7 +123,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-ink-100 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-ink-300 font-sans">
-            © {new Date().getFullYear()} Join Médicis · Open-source sous Licence MIT
+            © {new Date().getFullYear()} Join Médicis · Code MIT · Contenu CC BY 4.0
           </p>
           <div className="flex items-center gap-6">
             {[

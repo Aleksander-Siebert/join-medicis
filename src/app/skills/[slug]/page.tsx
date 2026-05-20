@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { skills } from "@/lib/data";
+import { skills, authors } from "@/lib/data";
 import SkillCard from "@/components/ui/SkillCard";
 import SkillTabs from "@/components/ui/SkillTabs";
 import type { Metadata } from "next";
+import type { LLMSupport } from "@/types";
 
 const difficultyLabels = {
   debutant: "Débutant",
@@ -27,14 +28,46 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+function LLMBadge({ name, support }: { name: string; support?: LLMSupport }) {
+  if (!support || support === "none") return null;
+  const isFull = support === "full";
+  return (
+    <span
+      className={`text-xs px-2.5 py-1 font-sans ${
+        isFull
+          ? "bg-forest-50 text-forest-700 border border-forest-100"
+          : "bg-cream-200 text-ink-500 border border-cream-300"
+      }`}
+    >
+      {name} {isFull ? "✓" : "~"}
+    </span>
+  );
+}
+
+function formatDate(iso?: string) {
+  if (!iso) return null;
+  return new Date(iso).toLocaleDateString("fr-FR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
 export default async function SkillPage({ params }: Props) {
   const { slug } = await params;
   const skill = skills.find((s) => s.slug === slug);
   if (!skill) notFound();
 
+  const author = skill.authorSlug
+    ? authors.find((a) => a.slug === skill.authorSlug)
+    : null;
+
   const related = skills
     .filter((s) => s.slug !== skill.slug && s.category === skill.category)
     .slice(0, 3);
+
+  const downloadUrl = `/skills/${skill.slug}.md`;
+  const publishedDate = formatDate(skill.publishedAt);
 
   return (
     <div className="pt-16 min-h-screen">
@@ -58,33 +91,91 @@ export default async function SkillPage({ params }: Props) {
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Left — title & meta */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex flex-wrap items-center gap-3 mb-5">
               <span className="text-xs tracking-widest uppercase text-ink-300 font-sans">
                 {skill.category}
               </span>
-              <span
-                className="w-1 h-1 bg-ink-200 rounded-full"
-                aria-hidden="true"
-              />
+              <span className="w-1 h-1 bg-ink-200 rounded-full" aria-hidden="true" />
               <span className="text-xs text-ink-300 font-sans">
                 {difficultyLabels[skill.difficulty]}
               </span>
-              <span
-                className="w-1 h-1 bg-ink-200 rounded-full"
-                aria-hidden="true"
-              />
-              <span className="text-xs text-ink-300 font-sans">
-                v{skill.version}
-              </span>
+              <span className="w-1 h-1 bg-ink-200 rounded-full" aria-hidden="true" />
+              <span className="text-xs text-ink-300 font-sans">v{skill.version}</span>
+              {publishedDate && (
+                <>
+                  <span className="w-1 h-1 bg-ink-200 rounded-full" aria-hidden="true" />
+                  <span className="text-xs text-ink-300 font-sans">
+                    Publié le {publishedDate}
+                  </span>
+                </>
+              )}
             </div>
 
             <h1 className="font-serif text-4xl md:text-5xl font-light text-ink-900 mb-5">
               {skill.name}
             </h1>
 
+            {/* Author */}
+            {author && (
+              <Link
+                href={`/authors/${author.slug}`}
+                className="inline-flex items-center gap-3 mb-6 group"
+              >
+                <span
+                  className="w-9 h-9 rounded-full bg-forest-900 text-cream-50 flex items-center justify-center font-serif text-sm shrink-0"
+                  aria-hidden="true"
+                >
+                  {author.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")
+                    .slice(0, 2)}
+                </span>
+                <span>
+                  <span className="block text-xs text-ink-300 font-sans">
+                    Maintenu par
+                  </span>
+                  <span className="block text-sm text-ink-700 group-hover:text-forest-900 transition-colors font-sans font-medium">
+                    {author.name}
+                  </span>
+                </span>
+              </Link>
+            )}
+
             <p className="text-ink-500 leading-relaxed text-base font-sans max-w-2xl">
               {skill.description}
             </p>
+
+            {/* Stats line */}
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-6 text-xs text-ink-400 font-sans">
+              {typeof skill.views === "number" && (
+                <span>
+                  <span className="font-medium text-ink-700">{skill.views}</span> vues
+                </span>
+              )}
+              {typeof skill.downloads === "number" && (
+                <>
+                  <span className="w-1 h-1 bg-ink-200 rounded-full" aria-hidden="true" />
+                  <span>
+                    <span className="font-medium text-ink-700">{skill.downloads}</span>{" "}
+                    téléchargements
+                  </span>
+                </>
+              )}
+            </div>
+
+            {/* LLM badges */}
+            <div className="mt-6">
+              <p className="text-xs tracking-widest uppercase text-ink-300 mb-2.5 font-sans">
+                LLM compatibles
+              </p>
+              <div className="flex flex-wrap items-center gap-2">
+                <LLMBadge name="Claude" support={skill.llm.claude} />
+                <LLMBadge name="ChatGPT" support={skill.llm.chatgpt} />
+                <LLMBadge name="Gemini" support={skill.llm.gemini} />
+                <LLMBadge name="Mistral" support={skill.llm.mistral} />
+              </div>
+            </div>
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2 mt-6">
@@ -113,9 +204,7 @@ export default async function SkillPage({ params }: Props) {
                 <p className="text-xs tracking-widest uppercase text-ink-300 mb-1.5 font-sans">
                   Résultat observé
                 </p>
-                <p className="font-serif text-xl text-forest-900">
-                  {skill.resultMetric}
-                </p>
+                <p className="font-serif text-xl text-forest-900">{skill.resultMetric}</p>
               </div>
             )}
 
@@ -129,9 +218,16 @@ export default async function SkillPage({ params }: Props) {
             </div>
 
             <div className="pt-2 space-y-2.5">
-              <button className="w-full px-4 py-3 bg-forest-900 text-cream-50 text-sm hover:bg-forest-700 transition-colors tracking-wide font-sans">
-                Télécharger le Skill
-              </button>
+              <a
+                href={downloadUrl}
+                download={`${skill.slug}.md`}
+                className="w-full px-4 py-3 bg-forest-900 text-cream-50 text-sm hover:bg-forest-700 transition-colors tracking-wide font-sans flex items-center justify-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+                </svg>
+                Télécharger .md
+              </a>
               <a
                 href="https://github.com/aleksander-siebert"
                 target="_blank"

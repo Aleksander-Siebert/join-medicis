@@ -7,8 +7,11 @@ import { usePathname } from "next/navigation";
 const ressourcesLinks = [
   { label: "Projets Claude", href: "/ressources/projets" },
   { label: "Écosystème", href: "/ressources/ecosysteme" },
+  { label: "Serveurs MCP", href: "/ressources/mcp" },
+  { label: "Plugins", href: "/ressources/plugins", soon: true },
   { label: "Automations n8n", href: "/ressources/automations", soon: true },
   { label: "Agents IA", href: "/ressources/agents", soon: true },
+  { label: "Documentation", href: "/docs" },
 ];
 
 const GitHubIcon = () => (
@@ -39,7 +42,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-7">
           <Link
             href="/skills"
             className={`text-sm transition-colors tracking-wide font-sans ${
@@ -92,12 +95,21 @@ export default function Navbar() {
           </div>
 
           <Link
-            href="/guides"
+            href="/blog"
             className={`text-sm transition-colors tracking-wide font-sans ${
-              isActive("/guides") ? "text-ink-900" : "text-ink-500 hover:text-ink-900"
+              isActive("/blog") ? "text-ink-900" : "text-ink-500 hover:text-ink-900"
             }`}
           >
-            Guides
+            Blog
+          </Link>
+
+          <Link
+            href="/authors"
+            className={`text-sm transition-colors tracking-wide font-sans ${
+              isActive("/authors") ? "text-ink-900" : "text-ink-500 hover:text-ink-900"
+            }`}
+          >
+            Auteurs
           </Link>
 
           <Link
@@ -125,7 +137,7 @@ export default function Navbar() {
             href="/contribuer"
             className="px-5 py-2 text-sm bg-forest-900 text-cream-50 hover:bg-forest-700 transition-colors tracking-wide font-sans"
           >
-            Contribuer
+            Join the Renaissance →
           </Link>
         </div>
 
@@ -152,9 +164,12 @@ export default function Navbar() {
         <div className="lg:hidden bg-cream-100 border-t border-ink-100 px-6 py-5 space-y-1">
           {[
             { href: "/skills", label: "Skills" },
-            { href: "/guides", label: "Guides" },
+            { href: "/ressources/mcp", label: "Serveurs MCP" },
             { href: "/ressources/projets", label: "Projets Claude" },
             { href: "/ressources/ecosysteme", label: "Écosystème" },
+            { href: "/blog", label: "Blog" },
+            { href: "/authors", label: "Auteurs" },
+            { href: "/docs", label: "Documentation" },
             { href: "/a-propos", label: "À propos" },
           ].map((item) => (
             <Link
@@ -172,7 +187,7 @@ export default function Navbar() {
               onClick={() => setMobile(false)}
               className="block text-center py-3 bg-forest-900 text-cream-50 text-sm font-sans"
             >
-              Contribuer
+              Join the Renaissance →
             </Link>
           </div>
         </div>
