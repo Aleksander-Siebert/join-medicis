@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { skills } from "@/lib/data";
 import SkillCard from "@/components/ui/SkillCard";
+import FAQ, { type FAQItem } from "@/components/sections/FAQ";
 
 const CATEGORIES = [
   { id: "all", label: "Tous" },
@@ -13,21 +14,46 @@ const CATEGORIES = [
   { id: "strategie", label: "Stratégie" },
 ];
 
-const DIFFICULTIES = [
-  { id: "debutant", label: "Débutant" },
-  { id: "intermediaire", label: "Intermédiaire" },
-  { id: "avance", label: "Avancé" },
+const SKILLS_FAQ: FAQItem[] = [
+  {
+    question: "Comment j'installe un Skill sur Claude ?",
+    answer:
+      "Trois étapes : (1) tu cliques sur « Télécharger .md » sur la fiche du Skill, (2) tu ouvres Claude.ai → Nouveau projet → Instructions du projet, (3) tu colles le contenu du fichier. C'est tout — le Skill est actif sur toutes les conversations du projet. Compte 2 à 5 minutes la première fois.",
+  },
+  {
+    question: "Je peux utiliser un Skill sur ChatGPT ou Gemini ?",
+    answer:
+      "Oui, dans la majorité des cas. Chaque fiche Skill indique le niveau de compatibilité par LLM : « ✓ » = optimisé, « ~ » = fonctionne mais résultats légèrement différents. Sur ChatGPT, tu colles le contenu dans un Custom GPT. Sur Gemini, dans les Gems. Sur Mistral Le Chat, dans les Personas.",
+  },
+  {
+    question: "Quelle est la différence avec un prompt qu'on trouve sur internet ?",
+    answer:
+      "Un prompt internet, c'est en général 2 phrases sans structure ni tests. Un Skill, c'est un système complet : identité, déclencheurs, méthodologie, format de sortie, garde-fous, anti-patterns. Et surtout, c'est testé sur 10+ cas réels avant publication, avec une métrique de résultat mesurée.",
+  },
+  {
+    question: "Je peux combiner plusieurs Skills dans le même projet ?",
+    answer:
+      "Oui, et c'est même recommandé pour les workflows complexes. Tu peux par exemple combiner « Growth Context » (fondation) + « Brief SEO » + « Cluster de contenu ». Claude gère les instructions en parallèle. Limite pratique : 3 à 4 Skills par projet pour rester lisible — au-delà, mieux vaut séparer en deux projets.",
+  },
+  {
+    question: "Et si le Skill ne marche pas sur mon cas d'usage ?",
+    answer:
+      "Deux options. (1) Fork-le : la licence CC BY 4.0 t'autorise à modifier librement le fichier, adapte-le à ton contexte. (2) Signale-nous le cas via la page Contact — si le Skill échoue sur des cas raisonnables, on le met à jour. La version est trackée (semver) pour que tu saches quand re-télécharger.",
+  },
+  {
+    question: "À quelle fréquence sont publiés les nouveaux Skills ?",
+    answer:
+      "L'objectif est 2 à 4 nouveaux Skills par mois, plus des mises à jour des Skills existants. La roadmap est priorisée par les demandes via la page « Demander un Skill » et par l'usage interne. Suis le repo GitHub ou la newsletter LinkedIn pour ne rien rater.",
+  },
 ];
 
 export default function SkillsPage() {
   const [category, setCategory] = useState("all");
-  const [difficulty, setDifficulty] = useState("all");
   const [search, setSearch] = useState("");
 
   const filtered = useMemo(() => {
     return skills.filter((s) => {
       if (category !== "all" && s.category !== category) return false;
-      if (difficulty !== "all" && s.difficulty !== difficulty) return false;
       if (search) {
         const q = search.toLowerCase();
         if (
@@ -39,7 +65,7 @@ export default function SkillsPage() {
       }
       return true;
     });
-  }, [category, difficulty, search]);
+  }, [category, search]);
 
   return (
     <div className="pt-16 min-h-screen">
@@ -103,22 +129,6 @@ export default function SkillsPage() {
             ))}
           </div>
 
-          {/* Difficulty filters */}
-          <div className="flex flex-wrap gap-2">
-            {DIFFICULTIES.map((d) => (
-              <button
-                key={d.id}
-                onClick={() => setDifficulty(difficulty === d.id ? "all" : d.id)}
-                className={`px-3 py-1.5 text-xs transition-colors font-sans ${
-                  difficulty === d.id
-                    ? "bg-ink-900 text-cream-50"
-                    : "bg-cream-200 text-ink-500 hover:bg-cream-300"
-                }`}
-              >
-                {d.label}
-              </button>
-            ))}
-          </div>
         </div>
       </div>
 
@@ -150,6 +160,14 @@ export default function SkillsPage() {
           )}
         </div>
       </div>
+
+      {/* FAQ */}
+      <FAQ
+        items={SKILLS_FAQ}
+        eyebrow="Skills · FAQ"
+        title="Tout sur les Skills"
+        subtitle="Installation, compatibilité, fréquence de publication — les questions concrètes côté utilisation."
+      />
     </div>
   );
 }
