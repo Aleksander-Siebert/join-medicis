@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
 
 const config: Config = {
   content: [
@@ -35,9 +36,39 @@ const config: Config = {
           50: "#F2F7F4",
         },
       },
+      typography: ({ theme }: { theme: (path: string) => string }) => ({
+        editorial: {
+          css: {
+            "--tw-prose-body": theme("colors.ink.700"),
+            "--tw-prose-headings": theme("colors.ink.900"),
+            "--tw-prose-links": theme("colors.forest.900"),
+            "--tw-prose-bold": theme("colors.ink.900"),
+            "--tw-prose-quotes": theme("colors.ink.700"),
+            "--tw-prose-quote-borders": theme("colors.forest.900"),
+            "--tw-prose-code": theme("colors.ink.900"),
+            "--tw-prose-pre-bg": theme("colors.ink.900"),
+            "--tw-prose-pre-code": theme("colors.cream.100"),
+            "--tw-prose-bullets": theme("colors.ink.300"),
+            "--tw-prose-counters": theme("colors.ink.300"),
+            "--tw-prose-hr": theme("colors.ink.100"),
+            h1: { fontFamily: theme("fontFamily.serif").toString(), fontWeight: "300" },
+            h2: { fontFamily: theme("fontFamily.serif").toString(), fontWeight: "400" },
+            h3: { fontFamily: theme("fontFamily.serif").toString(), fontWeight: "400" },
+            a: { textDecoration: "underline", textUnderlineOffset: "4px" },
+            code: {
+              fontWeight: "400",
+              backgroundColor: theme("colors.cream.200"),
+              padding: "0.15rem 0.4rem",
+              borderRadius: "0",
+            },
+            "code::before": { content: '""' },
+            "code::after": { content: '""' },
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [typography],
 };
 
 export default config;

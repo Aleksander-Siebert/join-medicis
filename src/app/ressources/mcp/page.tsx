@@ -1,6 +1,45 @@
 import Link from "next/link";
 import { guides } from "@/lib/data";
+import FAQ, { type FAQItem } from "@/components/sections/FAQ";
 import type { Metadata } from "next";
+
+const MCP_FAQ: FAQItem[] = [
+  {
+    question: "Concrètement, MCP c'est quoi ?",
+    answer:
+      "MCP (Model Context Protocol) est un standard open-source créé par Anthropic. C'est un pont entre Claude et un outil externe : une fois le serveur MCP installé, Claude peut lire et écrire dans Notion, Search Console, HubSpot, etc. — sans que tu copies/colles. Tu lui dis « regarde dans mon Notion » et il le fait directement.",
+  },
+  {
+    question: "Quelle différence entre MCP et un Skill ?",
+    answer:
+      "Un Skill configure le comportement de Claude (le prompt système). Un MCP lui donne accès à un outil externe. Les deux se combinent à merveille — par exemple : Skill « Brief SEO » + MCP Search Console = Claude qui rédige tes briefs en se basant sur tes vrais classements GSC, sans aucun export manuel.",
+  },
+  {
+    question: "C'est compliqué à installer ?",
+    answer:
+      "Non, mais il faut suivre les étapes. Compte 5 à 15 minutes par serveur la première fois — installation d'un fichier de config, génération d'un token d'API, redémarrage de Claude Desktop. Chaque guide est pas-à-pas avec captures d'écran. Aucun terminal complexe, aucun code à écrire.",
+  },
+  {
+    question: "Je dois être développeur pour utiliser MCP ?",
+    answer:
+      "Non. La plupart des serveurs MCP s'installent comme une extension : tu modifies un fichier JSON, tu colles un token, tu redémarres Claude. Si tu sais ouvrir un éditeur de texte et coller du JSON, tu peux installer un MCP. Les guides sont écrits pour des marketeurs, pas pour des devs.",
+  },
+  {
+    question: "Est-ce que mes données sont en sécurité ?",
+    answer:
+      "Le serveur MCP tourne en local sur ta machine (ou sur un serveur que tu contrôles). Quand Claude appelle une fonction MCP, la requête passe par le serveur local — Anthropic ne voit jamais directement tes données Notion ou HubSpot. Tu gardes le contrôle total. Pour les tokens d'API, ils sont stockés dans ton fichier de config local, pas envoyés ailleurs.",
+  },
+  {
+    question: "Ça marche aussi sur ChatGPT, Gemini, Mistral ?",
+    answer:
+      "MCP a été créé par Anthropic, donc l'expérience la plus fluide est sur Claude Desktop et Claude Code. ChatGPT et Gemini supportent leurs propres équivalents (Custom GPTs avec Actions, Gemini Extensions) mais ne sont pas compatibles MCP nativement à date. La documentation se concentre sur Claude pour cette raison.",
+  },
+  {
+    question: "Et si l'outil que j'utilise n'a pas encore de serveur MCP ?",
+    answer:
+      "Trois options : (1) regarde sur le repo officiel anthropic/mcp-servers — la liste grossit chaque semaine, (2) demande-nous via la page « Demander un Skill » qu'on en publie un guide quand il existe, (3) si tu es à l'aise avec un peu de code (Node.js ou Python), tu peux créer ton propre serveur MCP — la spec est documentée chez Anthropic.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Serveurs MCP",
@@ -127,6 +166,14 @@ export default function MCPPage() {
           </div>
         </div>
       </div>
+
+      {/* FAQ */}
+      <FAQ
+        items={MCP_FAQ}
+        eyebrow="MCP · FAQ"
+        title="Tout sur les serveurs MCP"
+        subtitle="Installation, sécurité, compatibilité — les questions concrètes qu'on nous pose sur le Model Context Protocol."
+      />
     </div>
   );
 }
