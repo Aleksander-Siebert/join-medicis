@@ -29,6 +29,15 @@ export const authors: Author[] = [
       linkedin: "https://www.linkedin.com/",
     },
   },
+  {
+    slug: "corey-haines",
+    name: "Corey Haines",
+    role: "Marketing Skills · marketingskills.io",
+    bio: "Auteur de la bibliothèque open-source marketingskills (MIT). Spécialiste SEO programmatique et AI SEO. Ses Skills sont republiés ici avec attribution.",
+    links: {
+      github: "https://github.com/coreyhaines31/marketingskills",
+    },
+  },
 ];
 
 export const skills: Skill[] = [
@@ -122,6 +131,42 @@ export const skills: Skill[] = [
     downloads: 89,
     views: 510,
   },
+  {
+    slug: "programmatic-seo",
+    name: "Programmatic SEO",
+    description:
+      "Construit des architectures de pages SEO à grande échelle (location pages, comparison pages, directory pages). Évite les pénalités thin content via une vraie valeur par page.",
+    category: "seo",
+    subcategory: "pSEO",
+    llm: { claude: "full", chatgpt: "partial", gemini: "partial" },
+    timeSaved: "8h/projet pSEO",
+    resultMetric: "Stratégie pSEO complète en 15 min",
+    testedBy: 24,
+    version: "2.0.0",
+    tags: ["seo", "pseo", "templates", "scale", "mit"],
+    authorSlug: "corey-haines",
+    publishedAt: "2026-05-20",
+    downloads: 64,
+    views: 380,
+  },
+  {
+    slug: "ai-seo",
+    name: "AI SEO (AEO / GEO)",
+    description:
+      "Optimise le contenu pour être cité par ChatGPT, Perplexity, Claude, Gemini et AI Overviews. Couvre l'AEO, le GEO, le LLMO et la visibilité dans les réponses génératives.",
+    category: "seo",
+    subcategory: "AEO / GEO",
+    llm: { claude: "full", chatgpt: "full", gemini: "partial" },
+    timeSaved: "3h/audit AI SEO",
+    resultMetric: "Plan AI visibility en 20 min",
+    testedBy: 18,
+    version: "2.0.1",
+    tags: ["seo", "aeo", "geo", "llmo", "chatgpt", "mit"],
+    authorSlug: "corey-haines",
+    publishedAt: "2026-05-22",
+    downloads: 47,
+    views: 290,
+  },
 ];
 
 export const guides: Guide[] = [
@@ -194,8 +239,8 @@ export const homeCategories: CategoryItem[] = [
   {
     id: "seo",
     label: "SEO & Contenu",
-    description: "Briefs, clusters éditoriaux, optimisation on-page",
-    count: 2,
+    description: "Briefs, clusters, programmatic SEO, AI SEO",
+    count: 4,
     href: "/skills?category=seo",
   },
   {
