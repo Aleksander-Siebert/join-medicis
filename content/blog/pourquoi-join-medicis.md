@@ -37,7 +37,7 @@ Aucune de ces options ne marche pour le Growth Marketer francophone qui veut **g
 Une bibliothèque où chaque ressource est :
 
 - **Testée** sur 10+ cas réels avant publication, avec une métrique de résultat mesurée
-- **Documentée** comme on aimerait que ce soit fait : structure claire, mode débutant, exemples concrets
+- **Documentée** comme on aimerait que ce soit fait : structure claire, étapes d'installation, exemples concrets
 - **Déployable en moins de 5 minutes**, sans terminal, sans clé API exposée, sans expertise dev
 
 Le tout en open-source — code en MIT, contenu en CC BY 4.0 — pour que la communauté puisse forker, améliorer, contribuer.

@@ -34,7 +34,7 @@ const checklist = [
   "Frontmatter YAML complet (tous les champs renseignés)",
   "Skill testé sur au moins 3 cas d'usage différents",
   "Métriques de résultat documentées (chiffrées ou estimées)",
-  "Mode Débutant inclus (3 étapes d'installation)",
+  "Étapes d'installation claires (3 max)",
   "Section compatibilité LLM complète",
   "Rédigé en français natif (pas une traduction)",
   "Pas de clé API ou credential dans le fichier",

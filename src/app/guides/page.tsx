@@ -8,12 +8,6 @@ export const metadata: Metadata = {
     "Guides pas à pas pour connecter Claude à vos outils marketing via le protocole MCP.",
 };
 
-const difficultyConfig = {
-  debutant: { label: "Débutant", className: "bg-forest-100 text-forest-900" },
-  intermediaire: { label: "Intermédiaire", className: "bg-cream-300 text-ink-700" },
-  avance: { label: "Avancé", className: "bg-ink-900 text-cream-50" },
-};
-
 export default function GuidesPage() {
   return (
     <div className="pt-16 min-h-screen">
@@ -73,7 +67,6 @@ export default function GuidesPage() {
       <div className="px-6 py-12">
         <div className="max-w-5xl mx-auto space-y-px bg-ink-100">
           {guides.map((guide) => {
-            const diff = difficultyConfig[guide.difficulty];
             return (
               <Link
                 key={guide.slug}
@@ -81,12 +74,9 @@ export default function GuidesPage() {
                 className="group flex items-start justify-between bg-cream-100 hover:bg-cream-50 transition-colors p-8 gap-6"
               >
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="mb-3">
                     <span className="text-xs tracking-widest uppercase text-ink-300 font-sans">
                       {guide.target}
-                    </span>
-                    <span className={`text-xs px-2 py-0.5 font-sans ${diff.className}`}>
-                      {diff.label}
                     </span>
                   </div>
                   <h2 className="font-serif text-2xl font-light text-ink-900 group-hover:text-forest-900 transition-colors mb-2">

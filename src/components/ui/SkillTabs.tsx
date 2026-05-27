@@ -77,7 +77,7 @@ function AboutTab({ skill }: { skill: Skill }) {
 
       <div>
         <p className="text-xs tracking-widest uppercase text-ink-300 mb-4 font-sans">
-          Mode Débutant — 3 étapes
+          Installation — 3 étapes
         </p>
         <div className="space-y-6">
           {[
@@ -174,7 +174,6 @@ function ContentTab({ skill }: { skill: Skill }) {
           <p className="text-ink-300 mb-1">name: {skill.slug}</p>
           <p className="text-ink-300 mb-1">version: {skill.version}</p>
           <p className="text-ink-300 mb-1">category: {skill.category}</p>
-          <p className="text-ink-300 mb-1">difficulty: {skill.difficulty}</p>
           <p className="text-ink-300 mb-1">time_saved: &ldquo;{skill.timeSaved}&rdquo;</p>
           {skill.resultMetric && (
             <p className="text-ink-300 mb-1">result_metric: &ldquo;{skill.resultMetric}&rdquo;</p>

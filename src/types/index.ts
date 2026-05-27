@@ -1,4 +1,3 @@
-export type Difficulty = "debutant" | "intermediaire" | "avance";
 export type Category = "seo" | "prospection" | "cro" | "analytics" | "strategie" | "contenu" | "mcp";
 export type LLMSupport = "full" | "partial" | "none";
 export type LLMName = "claude" | "chatgpt" | "gemini" | "mistral";
@@ -30,7 +29,6 @@ export interface Skill {
   description: string;
   category: Category;
   subcategory?: string;
-  difficulty: Difficulty;
   llm: LLMCompatibility;
   timeSaved: string;
   resultMetric?: string;
@@ -49,7 +47,6 @@ export interface Guide {
   description: string;
   target: string;
   installTime: string;
-  difficulty: Difficulty;
   tags: string[];
 }
 

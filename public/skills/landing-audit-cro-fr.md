@@ -3,7 +3,6 @@ name: landing-audit-cro-fr
 version: 1.0.0
 description: "Audit complet d'une landing page B2B SaaS, orienté conversion."
 category: cro
-difficulty: avance
 llm_compatibility: [claude, chatgpt, gemini]
 time_saved: "2h / audit"
 result_metric: "+12% conversion moyenne post-applications"

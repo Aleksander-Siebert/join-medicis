@@ -1,12 +1,6 @@
 import Link from "next/link";
 import { Skill } from "@/types";
 
-const difficultyConfig = {
-  debutant: { label: "Débutant", className: "bg-forest-100 text-forest-900" },
-  intermediaire: { label: "Intermédiaire", className: "bg-cream-300 text-ink-700" },
-  avance: { label: "Avancé", className: "bg-ink-900 text-cream-50" },
-};
-
 const categoryLabels: Record<string, string> = {
   seo: "SEO & Contenu",
   prospection: "Prospection",
@@ -39,18 +33,13 @@ function LLMTag({
 }
 
 export default function SkillCard({ skill }: { skill: Skill }) {
-  const diff = difficultyConfig[skill.difficulty];
-
   return (
     <Link href={`/skills/${skill.slug}`} className="group block h-full">
       <article className="border border-ink-100 bg-cream-100 hover:bg-cream-50 hover:border-ink-200 transition-all duration-200 p-6 h-full flex flex-col">
-        {/* Category + Difficulty */}
-        <div className="flex items-start justify-between mb-4">
+        {/* Category */}
+        <div className="mb-4">
           <span className="text-xs tracking-widest uppercase text-ink-300 font-sans">
             {categoryLabels[skill.category] ?? skill.category}
-          </span>
-          <span className={`text-xs px-2 py-0.5 font-sans ${diff.className}`}>
-            {diff.label}
           </span>
         </div>
 

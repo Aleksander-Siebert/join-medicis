@@ -14,7 +14,7 @@ const defaultFaqs: FAQItem[] = [
   {
     question: "Je n'ai aucune compétence technique. C'est pour moi ?",
     answer:
-      "Oui, et c'est même la cible principale. Aucun terminal, aucune clé API à manipuler, aucun code à toucher. Tu télécharges un fichier .md, tu le colles dans un projet Claude — c'est tout. Chaque Skill a un mode débutant avec les étapes détaillées.",
+      "Oui, et c'est même la cible principale. Aucun terminal, aucune clé API à manipuler, aucun code à toucher. Tu télécharges un fichier .md, tu le colles dans un projet Claude — c'est tout. Chaque Skill a des étapes d'installation détaillées.",
   },
   {
     question: "Tout est vraiment gratuit ?",

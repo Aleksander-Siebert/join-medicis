@@ -47,12 +47,6 @@ export const metadata: Metadata = {
     "La bibliothèque de serveurs MCP (Model Context Protocol) pour connecter Claude à tes outils favoris.",
 };
 
-const difficultyLabels: Record<string, string> = {
-  debutant: "Débutant",
-  intermediaire: "Intermédiaire",
-  avance: "Avancé",
-};
-
 export default function MCPPage() {
   return (
     <div className="pt-16 min-h-screen">
@@ -125,12 +119,9 @@ export default function MCPPage() {
                 href={`/guides/${guide.slug}`}
                 className="bg-cream-100 p-6 hover:bg-cream-200 transition-colors group flex flex-col"
               >
-                <div className="flex items-center justify-between mb-4">
+                <div className="mb-4">
                   <span className="text-xs tracking-widest uppercase text-ink-300 font-sans">
                     {guide.target}
-                  </span>
-                  <span className="text-xs bg-cream-200 text-ink-500 px-2 py-0.5 font-sans">
-                    {difficultyLabels[guide.difficulty]}
                   </span>
                 </div>
 

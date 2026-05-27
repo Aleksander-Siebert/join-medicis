@@ -3,7 +3,6 @@ name: cold-email-b2b-fr
 version: 1.2.0
 description: "Write ultra-personalized cold emails for the French B2B market."
 category: prospection
-difficulty: debutant
 llm_compatibility: [claude, chatgpt, gemini, mistral]
 time_saved: "45 min / week"
 result_metric: "+34% reply rate"

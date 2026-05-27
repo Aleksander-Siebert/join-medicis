@@ -3,7 +3,6 @@ name: seo-brief-fr
 version: 1.1.0
 description: "Génère un brief SEO structuré depuis une URL ou un mot-clé."
 category: seo
-difficulty: intermediaire
 llm_compatibility: [claude, chatgpt, gemini, mistral]
 time_saved: "1h30 / brief"
 result_metric: "Brief complet en 3 minutes"

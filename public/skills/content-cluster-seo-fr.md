@@ -3,7 +3,6 @@ name: content-cluster-seo-fr
 version: 1.0.0
 description: "Construit une architecture de cluster éditorial depuis un topic central."
 category: seo
-difficulty: intermediaire
 llm_compatibility: [claude, chatgpt, gemini]
 time_saved: "3h / cluster"
 result_metric: "Architecture complète en 10 minutes"

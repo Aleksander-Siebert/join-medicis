@@ -3,7 +3,6 @@ name: growth-context-fr
 version: 1.0.0
 description: "Fondation : donne à Claude le contexte complet de ton business."
 category: strategie
-difficulty: debutant
 llm_compatibility: [claude, chatgpt, gemini, mistral]
 time_saved: "30 min / usage"
 result_metric: "Contexte mémorisé"
