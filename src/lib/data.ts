@@ -1,4 +1,11 @@
-import { Skill, Guide, CategoryItem, Author, BlogArticle } from "@/types";
+import {
+  Skill,
+  Guide,
+  CategoryItem,
+  Author,
+  BlogArticle,
+  EcosystemResource,
+} from "@/types";
 
 export const authors: Author[] = [
   {
@@ -6,6 +13,19 @@ export const authors: Author[] = [
     name: "Aleksander Siebert",
     role: "Growth Marketer · Fondateur Join Médicis",
     bio: "Growth Marketer francophone obsédé par l'intersection IA & marketing. Fondateur de Join Médicis pour rendre l'IA accessible aux marketeurs sans compétences techniques.",
+    tags: ["#Growth", "#IA", "#SEO", "#Claude", "#B2B", "#NoCode"],
+    expertise: [
+      "Growth Marketing",
+      "IA & Automatisation",
+      "SEO & Contenu",
+      "CRO & Landing Pages",
+      "Cold Outbound",
+      "Stratégie B2B",
+    ],
+    quote:
+      "Je crois que l'IA doit être accessible à tous les marketeurs — sans jargon, sans code, sans hype.",
+    location: "Basé en France",
+    memberSince: "Janvier 2025",
     links: {
       linkedin: "https://www.linkedin.com/in/aleksander-siebert/",
       github: "https://github.com/aleksander-siebert",
@@ -16,6 +36,15 @@ export const authors: Author[] = [
     name: "Jérémy Goillot",
     role: "Head of Growth · Spendesk",
     bio: "10+ ans en Growth B2B. Spécialiste cold outbound, content marketing et architecture de funnels.",
+    tags: ["#Growth", "#Outbound", "#B2B", "#ColdEmail", "#Funnels"],
+    expertise: [
+      "Cold Outbound",
+      "Content Marketing",
+      "Architecture de Funnels",
+      "Growth B2B",
+    ],
+    location: "Paris, France",
+    memberSince: "Janvier 2025",
     links: {
       linkedin: "https://www.linkedin.com/",
     },
@@ -25,6 +54,15 @@ export const authors: Author[] = [
     name: "Claire Martin",
     role: "Senior SEO Consultant",
     bio: "Consultante SEO indépendante, ex-Doctolib. Spécialiste briefs éditoriaux et architectures de clusters pour le marché francophone.",
+    tags: ["#SEO", "#Contenu", "#Clusters", "#Editorial"],
+    expertise: [
+      "SEO Éditorial",
+      "Briefs de Contenu",
+      "Clusters Thématiques",
+      "Architecture de Contenu",
+    ],
+    location: "France",
+    memberSince: "Janvier 2025",
     links: {
       linkedin: "https://www.linkedin.com/",
     },
@@ -34,8 +72,18 @@ export const authors: Author[] = [
     name: "Corey Haines",
     role: "Marketing Skills · marketingskills.io",
     bio: "Auteur de la bibliothèque open-source marketingskills (MIT). Spécialiste SEO programmatique et AI SEO. Ses Skills sont republiés ici avec attribution.",
+    tags: ["#SEO", "#pSEO", "#AISEO", "#MIT", "#OpenSource"],
+    expertise: [
+      "Programmatic SEO",
+      "AI SEO (AEO / GEO)",
+      "Skills Open-Source",
+      "SEO à grande échelle",
+    ],
+    location: "marketingskills.io",
+    memberSince: "Janvier 2025",
     links: {
       github: "https://github.com/coreyhaines31/marketingskills",
+      website: "https://marketingskills.io",
     },
   },
 ];
@@ -46,6 +94,7 @@ export const skills: Skill[] = [
     name: "Growth Context",
     description:
       "Le Skill fondation : donne à Claude le contexte complet de ton business (produit, ICP, canaux, stack). Prérequis recommandé pour tous les autres Skills.",
+    image: "/skill-images/demo-growth-context.webp",
     category: "strategie",
     subcategory: "Fondation",
     llm: { claude: "full", chatgpt: "full", gemini: "full", mistral: "partial" },
@@ -288,3 +337,78 @@ export const siteStats = {
   projetsCount: 3,
   authorsCount: authors.length,
 };
+
+export const ecosystem: EcosystemResource[] = [
+  {
+    slug: "lemlist",
+    name: "Skills Lemlist",
+    org: "Lemlist",
+    category: "entreprises",
+    tagline:
+      "Les Skills officiels de Lemlist pour personnaliser les séquences d'outreach avec Claude.",
+    description:
+      "Lemlist met à disposition des Skills officiels pour piloter ses séquences de cold outreach directement avec Claude. L'objectif : personnaliser à l'échelle sans perdre la voix de marque, et industrialiser la rédaction des emails et des relances.",
+    url: "https://www.lemlist.com",
+    type: "Skills",
+    lang: "EN + FR",
+    highlights: [
+      "Personnalisation des séquences d'outreach assistée par IA",
+      "Pensé pour les équipes Sales & Growth B2B",
+      "Compatible avec les workflows lemlist existants",
+    ],
+  },
+  {
+    slug: "corey-haines",
+    name: "Marketing Skills",
+    org: "Corey Haines",
+    category: "individus",
+    tagline:
+      "La collection de référence en anglais (17k★ GitHub). Base de travail de nombreux Skills Join Médicis.",
+    description:
+      "Marketing Skills est la bibliothèque open-source de Corey Haines, devenue une référence dans la communauté. Elle couvre le SEO programmatique, l'AI SEO et de nombreux workflows growth. Plusieurs Skills Join Médicis s'en inspirent et la créditent.",
+    url: "https://github.com/coreyhaines31/marketingskills",
+    type: "Skills",
+    lang: "EN",
+    highlights: [
+      "17k★ sur GitHub, licence MIT",
+      "Spécialisée SEO programmatique & AI SEO",
+      "Source de plusieurs Skills republiés ici avec attribution",
+    ],
+  },
+  {
+    slug: "lawvable",
+    name: "Skills Lawvable",
+    org: "Lawvable",
+    category: "entreprises",
+    tagline:
+      "Preuve de concept du modèle bibliothèque sectorielle : 70+ Skills juridiques, UX de référence.",
+    description:
+      "Lawvable applique le modèle de bibliothèque de Skills au secteur juridique, avec plus de 70 Skills spécialisés. C'est une excellente démonstration de ce qu'une bibliothèque sectorielle bien construite peut offrir, tant côté contenu que côté expérience utilisateur.",
+    url: "https://lawvable.com",
+    type: "Skills",
+    lang: "FR",
+    highlights: [
+      "70+ Skills juridiques spécialisés",
+      "Modèle de bibliothèque sectorielle",
+      "Référence UX pour Join Médicis",
+    ],
+  },
+  {
+    slug: "anthropic",
+    name: "Anthropic & Claude",
+    org: "Anthropic",
+    category: "entreprises",
+    tagline:
+      "L'éditeur de Claude : documentation officielle, Skills et bonnes pratiques pour construire avec l'IA.",
+    description:
+      "Anthropic est la société à l'origine de Claude, l'environnement de référence de tous les Skills Join Médicis. Sa documentation officielle, ses guides et ses ressources sur les Skills et les MCP sont la source primaire pour comprendre et exploiter le modèle.",
+    url: "https://www.anthropic.com",
+    type: "Plateforme",
+    lang: "EN + FR",
+    highlights: [
+      "Créateur de Claude (modèles Opus, Sonnet, Haiku)",
+      "Documentation officielle Skills & MCP",
+      "Environnement de référence de Join Médicis",
+    ],
+  },
+];

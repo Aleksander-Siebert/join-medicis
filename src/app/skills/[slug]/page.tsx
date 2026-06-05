@@ -6,6 +6,8 @@ import SkillCard from "@/components/ui/SkillCard";
 import SkillTabs from "@/components/ui/SkillTabs";
 import LiveSkillStats from "@/components/ui/LiveSkillStats";
 import SkillDownloadButton from "@/components/ui/SkillDownloadButton";
+import FAQ from "@/components/sections/FAQ";
+import { buildSkillFaq } from "@/lib/skill-faq";
 import type { Metadata } from "next";
 import type { LLMSupport } from "@/types";
 
@@ -67,6 +69,17 @@ export default async function SkillPage({ params }: Props) {
 
   const downloadUrl = `/skills/${skill.slug}.md`;
   const publishedDate = formatDate(skill.publishedAt);
+  const faqItems = buildSkillFaq(skill);
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
 
   // Fetch current live stats server-side so initial render isn't zero
   const liveStats = await getSkillStats(skill.slug);
@@ -226,6 +239,18 @@ export default async function SkillPage({ params }: Props) {
 
       {/* Tabs */}
       <SkillTabs skill={skill} />
+
+      {/* FAQ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <FAQ
+        items={faqItems}
+        eyebrow="FAQ"
+        title={`« ${skill.name} » — questions fréquentes`}
+        subtitle="Installation, compatibilité, licence : l'essentiel pour démarrer avec ce Skill."
+      />
 
       {/* Related skills */}
       {related.length > 0 && (

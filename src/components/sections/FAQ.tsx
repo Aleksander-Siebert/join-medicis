@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import type { FAQItem } from "@/types";
 
-export type FAQItem = { question: string; answer: string };
+export type { FAQItem };
 
 const defaultFaqs: FAQItem[] = [
   {

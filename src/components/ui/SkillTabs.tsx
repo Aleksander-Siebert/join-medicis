@@ -6,8 +6,7 @@ import { Skill } from "@/types";
 const TABS = [
   { id: "about", label: "À propos" },
   { id: "content", label: "Contenu" },
-  { id: "demo", label: "Démo" },
-  { id: "try", label: "Essayer", badge: "V1.5" },
+  { id: "demo", label: "Démo", badge: "Bientôt" },
 ] as const;
 
 type TabId = (typeof TABS)[number]["id"];
@@ -44,8 +43,7 @@ export default function SkillTabs({ skill }: { skill: Skill }) {
         <div className="py-10">
           {active === "about" && <AboutTab skill={skill} />}
           {active === "content" && <ContentTab skill={skill} />}
-          {active === "demo" && <DemoTab skill={skill} />}
-          {active === "try" && <TryTab />}
+          {active === "demo" && <DemoTab />}
         </div>
       </div>
     </div>
@@ -202,50 +200,22 @@ function ContentTab({ skill }: { skill: Skill }) {
   );
 }
 
-function DemoTab({ skill }: { skill: Skill }) {
-  return (
-    <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink-100">
-        <div className="bg-cream-200 p-8">
-          <p className="text-xs tracking-widest uppercase text-ink-300 mb-4 font-sans">
-            Input exemple
-          </p>
-          <p className="text-sm text-ink-600 leading-relaxed font-sans italic">
-            &ldquo;[Placeholder] — Exemple d&rsquo;une demande typique pour ce
-            Skill. Téléchargez le Skill et testez avec vos propres cas
-            d&rsquo;usage pour voir les résultats réels.&rdquo;
-          </p>
-        </div>
-        <div className="bg-forest-900 p-8">
-          <p className="text-xs tracking-widest uppercase text-forest-600 mb-4 font-sans">
-            Output Claude
-          </p>
-          <p className="text-sm text-cream-200 leading-relaxed font-sans">
-            [Placeholder] — L&rsquo;output structuré apparaîtra ici. Déployez
-            le Skill dans un Projet Claude pour voir les résultats sur vos
-            propres données.
-          </p>
-        </div>
-      </div>
-      <p className="text-xs text-ink-300 font-sans">
-        Résultat observé sur 3+ cas d&rsquo;usage : {skill.resultMetric ?? skill.timeSaved}
-      </p>
-    </div>
-  );
-}
-
-function TryTab() {
+function DemoTab() {
   return (
     <div className="bg-cream-200 py-20 text-center">
-      <p className="font-serif text-3xl font-light text-ink-700 mb-3">
-        Sandbox Interactive
+      <p className="text-xs tracking-widest uppercase text-ink-300 mb-4 font-sans">
+        Démo
       </p>
-      <p className="text-sm text-ink-500 mb-8 font-sans max-w-sm mx-auto">
-        Testez ce Skill directement dans le navigateur avec votre clé API
-        Claude. Disponible dans la version 1.5.
+      <p className="font-serif text-3xl font-light text-ink-700 mb-3">
+        Bientôt disponible
+      </p>
+      <p className="text-sm text-ink-500 mb-8 font-sans max-w-md mx-auto">
+        Une démonstration de ce Skill (input exemple → output Claude) arrive
+        prochainement. En attendant, téléchargez le Skill pour le tester sur
+        vos propres cas d&rsquo;usage.
       </p>
       <span className="inline-block px-5 py-2.5 bg-cream-300 text-ink-300 text-sm font-sans">
-        Disponible en V1.5 — Bientôt
+        Bientôt disponible
       </span>
     </div>
   );

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Skill } from "@/types";
 
 const categoryLabels: Record<string, string> = {
@@ -35,7 +36,21 @@ function LLMTag({
 export default function SkillCard({ skill }: { skill: Skill }) {
   return (
     <Link href={`/skills/${skill.slug}`} className="group block h-full">
-      <article className="border border-ink-100 bg-cream-100 hover:bg-cream-50 hover:border-ink-200 transition-all duration-200 p-6 h-full flex flex-col">
+      <article className="border border-ink-100 bg-cream-100 hover:bg-cream-50 hover:border-ink-200 transition-all duration-200 h-full flex flex-col overflow-hidden">
+        {/* Cover image */}
+        {skill.image && (
+          <div className="relative aspect-[16/9] bg-cream-200 overflow-hidden">
+            <Image
+              src={skill.image}
+              alt={skill.name}
+              fill
+              sizes="(max-width: 768px) 100vw, 400px"
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+        )}
+
+        <div className="p-6 flex flex-col flex-1">
         {/* Category */}
         <div className="mb-4">
           <span className="text-xs tracking-widest uppercase text-ink-300 font-sans">
@@ -83,6 +98,7 @@ export default function SkillCard({ skill }: { skill: Skill }) {
             </svg>
             Testé par {skill.testedBy} membres
           </div>
+        </div>
         </div>
       </article>
     </Link>

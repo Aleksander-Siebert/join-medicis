@@ -15,6 +15,18 @@ export interface Author {
   role: string;
   bio: string;
   avatar?: string;
+  /** Hashtags affichés sous le nom. À défaut, dérivés des Skills de l'auteur. */
+  tags?: string[];
+  /** Domaines d'expertise (pills). À défaut, dérivés des catégories de ses Skills. */
+  expertise?: string[];
+  /** Citation éditoriale affichée en exergue. */
+  quote?: string;
+  /** Localisation affichée dans l'en-tête (ex. « Basé en France »). */
+  location?: string;
+  /** Email de contact public affiché dans l'en-tête. */
+  email?: string;
+  /** Date d'arrivée affichée dans la carte de stats (ex. « Janvier 2025 »). */
+  memberSince?: string;
   links?: {
     linkedin?: string;
     github?: string;
@@ -27,6 +39,8 @@ export interface Skill {
   slug: string;
   name: string;
   description: string;
+  /** Image de couverture (chemin local dans /public, ex. "/skill-images/x.webp", ou URL https). */
+  image?: string;
   category: Category;
   subcategory?: string;
   llm: LLMCompatibility;
@@ -39,6 +53,13 @@ export interface Skill {
   publishedAt?: string;
   downloads?: number;
   views?: number;
+  /** FAQ spécifique au Skill. À défaut, 5 questions sont générées depuis ses données. */
+  faq?: FAQItem[];
+}
+
+export interface FAQItem {
+  question: string;
+  answer: string;
 }
 
 export interface Guide {
@@ -68,4 +89,32 @@ export interface CategoryItem {
   count: number;
   href: string;
   comingSoon?: boolean;
+}
+
+export type EcosystemCategory =
+  | "entreprises"
+  | "individus"
+  | "gouvernement"
+  | "autres";
+
+export interface EcosystemResource {
+  slug: string;
+  name: string;
+  /** Organisation / éditeur (ex. "Lemlist"). */
+  org: string;
+  category: EcosystemCategory;
+  /** Phrase courte affichée sur la carte. */
+  tagline: string;
+  /** Description longue affichée sur la page détail. */
+  description: string;
+  /** Logo : chemin local dans /public (ex. "/ecosystem-logos/lemlist.svg") ou URL https. */
+  logo?: string;
+  /** URL officielle de la ressource (CTA externe sur la page détail). */
+  url?: string;
+  /** Étiquette de nature (ex. "Skills", "Outil", "MCP"). */
+  type?: string;
+  /** Langue(s) (ex. "FR", "EN", "EN + FR"). */
+  lang?: string;
+  /** Points clés listés sur la page détail. */
+  highlights?: string[];
 }
