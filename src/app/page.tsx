@@ -4,7 +4,7 @@ import HowItWorks from "@/components/sections/HowItWorks";
 import CategoryGrid from "@/components/sections/CategoryGrid";
 import RecentSkills from "@/components/sections/RecentSkills";
 import FAQ from "@/components/sections/FAQ";
-import NewsletterCTA from "@/components/sections/NewsletterCTA";
+import SupportProject from "@/components/sections/SupportProject";
 
 export default function HomePage() {
   return (
@@ -15,7 +15,7 @@ export default function HomePage() {
       <CategoryGrid />
       <RecentSkills />
       <FAQ />
-      <NewsletterCTA />
+      <SupportProject />
     </>
   );
 }
