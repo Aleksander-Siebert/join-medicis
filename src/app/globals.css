@@ -24,7 +24,7 @@
   h2,
   h3,
   h4 {
-    font-family: var(--font-cormorant), Georgia, serif;
+    font-family: var(--font-fraunces), Georgia, serif;
     color: #0F0E0C;
   }
 
@@ -48,7 +48,7 @@
 
   /* Renaissance drop cap for editorial paragraphs */
   .drop-cap::first-letter {
-    font-family: var(--font-cormorant), Georgia, serif;
+    font-family: var(--font-fraunces), Georgia, serif;
     font-size: 3.5em;
     line-height: 0.85;
     float: left;

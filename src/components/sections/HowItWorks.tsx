@@ -192,7 +192,7 @@ export default function HowItWorks() {
         </div>
 
         {/* Steps */}
-        <div className="relative grid md:grid-cols-3 gap-10 md:gap-6">
+        <div className="relative grid md:grid-cols-3 gap-10 md:gap-8">
           {/* Dashed connecting line under the badges */}
           <div
             aria-hidden="true"

@@ -1,8 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const BLOG_URL = "https://join-medicis.vercel.app/blog";
+const HOVER_OPEN_DELAY = 220;
+const HOVER_CLOSE_DELAY = 180;
 
 type Feature = {
   label: string;
@@ -51,6 +53,8 @@ const features: Feature[] = [
 
 export default function Mission() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const openTimer = useRef<number | null>(null);
+  const closeTimer = useRef<number | null>(null);
 
   useEffect(() => {
     if (openIndex === null) return;
@@ -58,12 +62,43 @@ export default function Mission() {
       if (e.key === "Escape") setOpenIndex(null);
     };
     document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
     };
   }, [openIndex]);
+
+  useEffect(() => {
+    return () => {
+      if (openTimer.current) window.clearTimeout(openTimer.current);
+      if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    };
+  }, []);
+
+  const scheduleOpen = (i: number) => {
+    if (closeTimer.current) {
+      window.clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+    if (openIndex === i) return;
+    if (openTimer.current) window.clearTimeout(openTimer.current);
+    openTimer.current = window.setTimeout(() => setOpenIndex(i), HOVER_OPEN_DELAY);
+  };
+
+  const scheduleClose = () => {
+    if (openTimer.current) {
+      window.clearTimeout(openTimer.current);
+      openTimer.current = null;
+    }
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    closeTimer.current = window.setTimeout(() => setOpenIndex(null), HOVER_CLOSE_DELAY);
+  };
+
+  const cancelClose = () => {
+    if (closeTimer.current) {
+      window.clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
 
   const open = openIndex !== null ? features[openIndex] : null;
 
@@ -101,6 +136,10 @@ export default function Mission() {
                 <li key={f.label}>
                   <button
                     type="button"
+                    onMouseEnter={() => scheduleOpen(i)}
+                    onMouseLeave={scheduleClose}
+                    onFocus={() => scheduleOpen(i)}
+                    onBlur={scheduleClose}
                     onClick={() => setOpenIndex(i)}
                     aria-haspopup="dialog"
                     aria-expanded={openIndex === i}
@@ -151,7 +190,11 @@ export default function Mission() {
             onClick={() => setOpenIndex(null)}
             className="absolute inset-0 bg-ink-900/60 backdrop-blur-sm"
           />
-          <div className="relative max-w-xl w-full bg-cream-50 border border-ink-100 shadow-2xl">
+          <div
+            className="relative max-w-xl w-full bg-cream-50 border border-ink-100 shadow-2xl"
+            onMouseEnter={cancelClose}
+            onMouseLeave={scheduleClose}
+          >
             <div className="p-8 md:p-10">
               <div className="flex items-center justify-between mb-6">
                 <span className="text-xs tracking-[0.2em] uppercase text-forest-900 font-sans font-semibold">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Aurora from "@/components/effects/Aurora";
 
 const LINKEDIN_PROFILE = "https://www.linkedin.com/in/aleksander-siebert/";
 // TODO: replace with the real LinkedIn newsletter URL once published
@@ -62,7 +63,7 @@ function ShareCard() {
   };
 
   return (
-    <article className="group flex flex-col h-full p-7 bg-forest-800/40 border border-forest-700/50 hover:border-cream-50/30 transition-colors">
+    <article className="group flex flex-col h-full p-7 bg-forest-800/55 backdrop-blur-sm border border-forest-700/60 hover:border-cream-50/40 transition-colors rounded-[25px]">
       <span className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-cream-50/10 text-cream-50 mb-5">
         <ShareIcon />
       </span>
@@ -108,29 +109,25 @@ function ShareCard() {
 export default function SupportProject() {
   return (
     <section className="relative py-24 px-6 border-t border-ink-100 bg-forest-900 overflow-hidden">
+      {/* Aurora background — reactbits.dev/backgrounds/aurora */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <Aurora
+          colorStops={["#0E3F2D", "#3E8E6F", "#B89253"]}
+          blend={0.55}
+          amplitude={1.1}
+          speed={0.45}
+        />
+      </div>
+      {/* Subtle dark overlay to keep card text readable */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none bg-forest-900/55"
+      />
       {/* Decorative top line */}
       <div
         aria-hidden="true"
         className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-12 bg-forest-700"
       />
-
-      {/* Decorative ornament SVG */}
-      <div
-        aria-hidden="true"
-        className="absolute right-12 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none hidden lg:block"
-      >
-        <svg width="120" height="120" viewBox="0 0 60 60" fill="none" stroke="#FAF7F2" strokeWidth="0.6">
-          <path d="M30 5 C40 10, 50 20, 45 30 C40 40, 20 45, 15 35 C10 25, 20 10, 30 15 C40 20, 50 30, 42 38 C34 46, 18 42, 14 32 C10 22, 22 8, 32 12" strokeLinecap="round" />
-        </svg>
-      </div>
-      <div
-        aria-hidden="true"
-        className="absolute left-12 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none hidden lg:block scale-x-[-1]"
-      >
-        <svg width="120" height="120" viewBox="0 0 60 60" fill="none" stroke="#FAF7F2" strokeWidth="0.6">
-          <path d="M30 5 C40 10, 50 20, 45 30 C40 40, 20 45, 15 35 C10 25, 20 10, 30 15 C40 20, 50 30, 42 38 C34 46, 18 42, 14 32 C10 22, 22 8, 32 12" strokeLinecap="round" />
-        </svg>
-      </div>
 
       <div className="relative max-w-6xl mx-auto">
         <div className="text-center mb-14">
@@ -145,9 +142,9 @@ export default function SupportProject() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-3 gap-6">
           {/* LinkedIn follow */}
-          <article className="group flex flex-col h-full p-7 bg-forest-800/40 border border-forest-700/50 hover:border-cream-50/30 transition-colors">
+          <article className="group flex flex-col h-full p-7 bg-forest-800/55 backdrop-blur-sm border border-forest-700/60 hover:border-cream-50/40 transition-colors rounded-[25px]">
             <span className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-cream-50/10 text-cream-50 mb-5">
               <LinkedInIcon />
             </span>
@@ -169,7 +166,7 @@ export default function SupportProject() {
           </article>
 
           {/* Newsletter */}
-          <article className="group flex flex-col h-full p-7 bg-forest-800/40 border border-forest-700/50 hover:border-cream-50/30 transition-colors">
+          <article className="group flex flex-col h-full p-7 bg-forest-800/55 backdrop-blur-sm border border-forest-700/60 hover:border-cream-50/40 transition-colors rounded-[25px]">
             <span className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-cream-50/10 text-cream-50 mb-5">
               <MailIcon />
             </span>

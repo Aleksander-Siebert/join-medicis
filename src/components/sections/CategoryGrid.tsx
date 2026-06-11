@@ -13,13 +13,13 @@ export default function CategoryGrid() {
           <div className="flex-1 h-px bg-ink-100" aria-hidden="true" />
         </div>
 
-        {/* Grid — thin borders between cells like Solomei's grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-ink-100">
+        {/* Grid — rounded cards with breathing room */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {homeCategories.map((cat) => (
             <Link
               key={cat.id}
               href={cat.href}
-              className="group bg-cream-100 hover:bg-cream-50 transition-colors p-8"
+              className="group bg-cream-50 border border-ink-100 hover:border-forest-900/30 hover:bg-cream-100 transition-all p-8 rounded-[25px]"
             >
               <div className="flex items-start justify-between mb-4">
                 <h3 className="font-serif text-xl font-light text-ink-900 group-hover:text-forest-900 transition-colors leading-snug">

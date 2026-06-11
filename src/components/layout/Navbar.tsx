@@ -33,8 +33,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <span className="font-serif text-xl font-light tracking-wide text-ink-900">
-            Join Médicis
+          <span className="font-serif text-xl font-normal tracking-wide text-ink-900">
+            Join Méd<em className="italic">ici</em>s
           </span>
           <span className="hidden sm:block text-xs tracking-widest uppercase text-ink-300 border-l border-ink-100 pl-3 font-sans">
             bibliothèque IA & Growth
@@ -46,7 +46,7 @@ export default function Navbar() {
           <Link
             href="/skills"
             className={`text-sm transition-colors tracking-wide font-sans ${
-              isActive("/skills") ? "text-ink-900" : "text-ink-500 hover:text-ink-900"
+              isActive("/skills") ? "text-ink-900 font-semibold" : "text-ink-800 hover:text-forest-900 font-medium"
             }`}
           >
             Skills
@@ -59,7 +59,7 @@ export default function Navbar() {
           >
             <button
               className={`flex items-center gap-1 text-sm transition-colors tracking-wide font-sans ${
-                isActive("/ressources") ? "text-ink-900" : "text-ink-500 hover:text-ink-900"
+                isActive("/ressources") ? "text-ink-900 font-semibold" : "text-ink-800 hover:text-forest-900 font-medium"
               }`}
             >
               Ressources
@@ -79,7 +79,7 @@ export default function Navbar() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="flex items-center justify-between px-4 py-2.5 text-sm text-ink-500 hover:bg-cream-200 hover:text-ink-900 transition-colors font-sans"
+                      className="flex items-center justify-between px-4 py-2.5 text-sm text-ink-800 hover:bg-cream-200 hover:text-ink-900 transition-colors font-sans font-medium"
                     >
                       {link.label}
                       {link.soon && (
@@ -97,7 +97,7 @@ export default function Navbar() {
           <Link
             href="/blog"
             className={`text-sm transition-colors tracking-wide font-sans ${
-              isActive("/blog") ? "text-ink-900" : "text-ink-500 hover:text-ink-900"
+              isActive("/blog") ? "text-ink-900 font-semibold" : "text-ink-800 hover:text-forest-900 font-medium"
             }`}
           >
             Blog
@@ -106,7 +106,7 @@ export default function Navbar() {
           <Link
             href="/authors"
             className={`text-sm transition-colors tracking-wide font-sans ${
-              isActive("/authors") ? "text-ink-900" : "text-ink-500 hover:text-ink-900"
+              isActive("/authors") ? "text-ink-900 font-semibold" : "text-ink-800 hover:text-forest-900 font-medium"
             }`}
           >
             Auteurs
@@ -115,7 +115,7 @@ export default function Navbar() {
           <Link
             href="/a-propos"
             className={`text-sm transition-colors tracking-wide font-sans ${
-              isActive("/a-propos") ? "text-ink-900" : "text-ink-500 hover:text-ink-900"
+              isActive("/a-propos") ? "text-ink-900 font-semibold" : "text-ink-800 hover:text-forest-900 font-medium"
             }`}
           >
             À propos
@@ -176,7 +176,7 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               onClick={() => setMobile(false)}
-              className="block py-3 text-sm text-ink-700 border-b border-ink-100 last:border-0 font-sans"
+              className="block py-3 text-sm text-ink-900 border-b border-ink-100 last:border-0 font-sans font-medium"
             >
               {item.label}
             </Link>

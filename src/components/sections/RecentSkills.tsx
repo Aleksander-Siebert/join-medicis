@@ -26,9 +26,9 @@ export default function RecentSkills() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-ink-100">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {recent.map((skill) => (
-            <div key={skill.slug} className="bg-cream-100">
+            <div key={skill.slug} className="bg-cream-50 border border-ink-100 rounded-[25px] overflow-hidden hover:border-forest-900/30 transition-all">
               <SkillCard skill={skill} />
             </div>
           ))}
