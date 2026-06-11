@@ -125,10 +125,10 @@ export default function Navbar() {
         {/* Right side */}
         <div className="hidden lg:flex items-center gap-4">
           <a
-            href="https://github.com/aleksander-siebert"
+            href="https://github.com/Aleksander-Siebert/join-medicis"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-ink-300 hover:text-ink-900 transition-colors"
+            className="text-ink-500 hover:text-forest-900 transition-colors"
             aria-label="GitHub"
           >
             <GitHubIcon />

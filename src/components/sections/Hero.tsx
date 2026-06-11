@@ -88,10 +88,10 @@ export default function Hero() {
             Explorer les Skills →
           </Link>
           <a
-            href="https://github.com/aleksander-siebert"
+            href="https://github.com/Aleksander-Siebert/join-medicis"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-3.5 border border-ink-200 text-ink-700 text-sm tracking-wide hover:border-ink-400 hover:text-ink-900 transition-colors flex items-center gap-2.5 font-sans"
+            className="px-8 py-3.5 border border-ink-300 text-ink-900 text-sm tracking-wide hover:border-forest-900 hover:text-forest-900 transition-colors flex items-center gap-2.5 font-sans font-medium"
           >
             <GitHubIcon />
             Voir sur GitHub

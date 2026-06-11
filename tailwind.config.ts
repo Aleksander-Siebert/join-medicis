@@ -21,20 +21,47 @@ const config: Config = {
           300: "#E8E1D5",
         },
         ink: {
-          900: "#1A1916",
-          700: "#3A3935",
-          500: "#6B6A65",
-          300: "#9C9B96",
+          900: "#0F0E0C",
+          800: "#1A1916",
+          700: "#2A2925",
+          500: "#525049",
+          300: "#8E8C85",
+          200: "#B6B4AE",
           100: "#D4D2CC",
         },
         forest: {
-          900: "#1A3328",
-          800: "#1E3D30",
-          700: "#2A5442",
-          600: "#3B7359",
-          100: "#EAF2EE",
-          50: "#F2F7F4",
+          900: "#0E3F2D",
+          800: "#143C2A",
+          700: "#1F5B43",
+          600: "#2D7259",
+          500: "#3E8E6F",
+          100: "#E8F1ED",
+          50: "#F1F7F4",
         },
+        gold: {
+          700: "#8E6A2A",
+          500: "#B89253",
+          300: "#D4B681",
+        },
+      },
+      keyframes: {
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-6px)" },
+        },
+        fadeUp: {
+          "0%": { opacity: "0", transform: "translateY(12px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        shimmer: "shimmer 6s linear infinite",
+        float: "float 6s ease-in-out infinite",
+        fadeUp: "fadeUp 0.7s ease-out forwards",
       },
       typography: ({ theme }: { theme: (path: string) => string }) => ({
         editorial: {
