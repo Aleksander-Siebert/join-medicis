@@ -5,6 +5,7 @@ publishedAt: "2026-05-15"
 authorSlug: aleksander-siebert
 readingTime: "8 min"
 tags: [skills, tutoriel, claude]
+collection: skills-mcp
 ---
 
 Un bon Skill Claude n'a rien à voir avec un bon prompt. Là où un prompt est une phrase, un Skill est une **architecture** : il définit une identité, des déclencheurs, une méthodologie et des garde-fous.

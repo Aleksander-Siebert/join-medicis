@@ -5,6 +5,7 @@ publishedAt: "2026-05-22"
 authorSlug: aleksander-siebert
 readingTime: "5 min"
 tags: [manifesto, growth, ia]
+collection: join-medicis-news
 ---
 
 ## Le constat qui a tout déclenché

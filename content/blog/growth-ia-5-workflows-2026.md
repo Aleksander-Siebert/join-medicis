@@ -5,6 +5,7 @@ publishedAt: "2026-05-08"
 authorSlug: jeremy-goillot
 readingTime: "12 min"
 tags: [workflows, growth, ia]
+collection: ai-growth-marketing
 ---
 
 Trois ans après l'arrivée de ChatGPT dans nos vies, la question n'est plus *« est-ce que l'IA peut aider en Growth ? »* mais *« quels workflows valent vraiment la peine d'être industrialisés ? »*

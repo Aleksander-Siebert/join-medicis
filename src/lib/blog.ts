@@ -11,6 +11,7 @@ export interface BlogPost {
   authorSlug: string;
   readingTime: string;
   tags: string[];
+  collection: string | null;
 }
 
 export interface BlogPostWithContent extends BlogPost {
@@ -34,7 +35,12 @@ function toPostMeta(slug: string, data: matter.GrayMatterFile<string>["data"]): 
     authorSlug: String(data.authorSlug ?? ""),
     readingTime: String(data.readingTime ?? ""),
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
+    collection: data.collection ? String(data.collection) : null,
   };
+}
+
+export function getPostsByCollection(collectionSlug: string): BlogPost[] {
+  return getAllPosts().filter((p) => p.collection === collectionSlug);
 }
 
 export function getAllPostSlugs(): string[] {
