@@ -41,7 +41,7 @@ export default function Footer() {
                 { href: "/ressources/mcp", label: "Serveurs MCP" },
                 { href: "/ressources/projets", label: "Projets Claude" },
                 { href: "/ressources/ecosysteme", label: "Écosystème" },
-                { href: "/docs", label: "Documentation" },
+                { href: "/glossaire", label: "Glossaire" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link

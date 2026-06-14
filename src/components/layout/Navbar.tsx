@@ -11,7 +11,7 @@ const ressourcesLinks = [
   { label: "Plugins", href: "/ressources/plugins", soon: true },
   { label: "Automations n8n", href: "/ressources/automations", soon: true },
   { label: "Agents IA", href: "/ressources/agents", soon: true },
-  { label: "Documentation", href: "/docs" },
+  { label: "Glossaire", href: "/glossaire" },
 ];
 
 const GitHubIcon = () => (
@@ -169,7 +169,7 @@ export default function Navbar() {
             { href: "/ressources/ecosysteme", label: "Écosystème" },
             { href: "/blog", label: "Blog" },
             { href: "/authors", label: "Auteurs" },
-            { href: "/docs", label: "Documentation" },
+            { href: "/glossaire", label: "Glossaire" },
             { href: "/a-propos", label: "À propos" },
           ].map((item) => (
             <Link

@@ -49,35 +49,8 @@ export default async function CollectionPage({
   const otherCollections = collections.filter((c) => c.slug !== slug);
 
   return (
-    <div className="pt-16 min-h-screen bg-cream-100">
-      <div className="grid lg:grid-cols-[340px_1fr] min-h-[calc(100vh-4rem)]">
-        {/* ============ LEFT SIDEBAR (same identity as blog home) ============ */}
-        <aside className="relative bg-cream-100 px-8 py-12 lg:py-16 flex flex-col">
-          <p className="text-sm tracking-wide text-ink-500 mb-12 font-sans">
-            <em className="italic font-serif text-base">by</em>{" "}
-            <span className="font-semibold text-ink-900">Join Méd<em className="italic">ici</em>s</span>
-          </p>
-
-          <h1 className="font-serif text-5xl md:text-6xl font-medium text-ink-900 leading-[0.95] mb-2">
-            Bibliotheca
-          </h1>
-          <p className="text-ink-700 leading-relaxed font-sans max-w-sm mb-10">
-            Collection éditoriale curée par Join Médicis.
-          </p>
-
-          <Link
-            href="/blog"
-            className="mt-auto inline-flex items-center gap-2 text-sm text-ink-700 hover:text-forest-900 transition-colors font-sans w-fit"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Toutes les collections
-          </Link>
-        </aside>
-
-        {/* ============ DARK MAIN PANEL ============ */}
-        <section className="relative bg-ink-900 text-cream-50 px-8 py-12 lg:py-16 overflow-hidden rounded-tl-[25px] rounded-bl-[25px] lg:rounded-l-[25px]">
+    <div className="pt-16 min-h-screen bg-ink-900 text-cream-50">
+      <section className="relative px-6 md:px-10 lg:px-16 py-12 lg:py-16 overflow-hidden max-w-7xl mx-auto">
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 text-sm text-cream-50/75 hover:text-cream-50 transition-colors font-sans mb-12 group"
@@ -102,9 +75,9 @@ export default async function CollectionPage({
               <p className="text-xs tracking-[0.2em] uppercase text-cream-50/60 mb-4 font-sans font-semibold">
                 {collection.shortLabel}
               </p>
-              <h2 className="font-serif text-4xl md:text-5xl font-medium text-cream-50 leading-[1.05] mb-6">
+              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-cream-50 leading-[1.05] mb-6">
                 {collection.label}
-              </h2>
+              </h1>
               <p className="text-base md:text-lg text-cream-50/85 leading-relaxed font-sans max-w-2xl">
                 {collection.longDescription}
               </p>
@@ -208,8 +181,7 @@ export default async function CollectionPage({
               Survolez pour mettre en pause.
             </p>
           </div>
-        </section>
-      </div>
+      </section>
     </div>
   );
 }
