@@ -34,14 +34,8 @@ export default function BlogHomePage() {
             <span className="font-semibold text-ink-900">Join Méd<em className="italic">ici</em>s</span>
           </p>
 
-          <div className="flex items-end gap-3 mb-7">
-            <span className="font-serif italic text-5xl md:text-6xl font-light text-ink-900 leading-none">
-              the
-            </span>
-            <BookmarkIcon />
-          </div>
-          <h1 className="font-serif text-5xl md:text-6xl font-medium text-ink-900 leading-[0.95] mb-8">
-            Bibliotheca
+          <h1 className="font-serif text-6xl md:text-7xl font-medium text-ink-900 leading-[0.95] mb-8">
+            Biblio<em className="italic font-normal">the</em>ca
           </h1>
           <p className="text-ink-700 leading-relaxed font-sans max-w-sm mb-10">
             La bibliothèque éditoriale du projet — Skills, MCP, agents, vibe coding, growth IA, et journal de bord en accès libre.
@@ -178,22 +172,3 @@ function ColumnList({
   );
 }
 
-function BookmarkIcon() {
-  return (
-    <svg
-      width="36"
-      height="46"
-      viewBox="0 0 36 46"
-      fill="none"
-      aria-hidden="true"
-      className="mb-1"
-    >
-      <rect x="2" y="2" width="32" height="42" rx="2" fill="#1A1916" stroke="#0F0E0C" strokeWidth="1.2" />
-      <rect x="6" y="6" width="24" height="34" fill="#2A2925" />
-      <path d="M21 4 L21 16 L18 13 L15 16 L15 4 Z" fill="#FEFCF8" />
-      <text x="18" y="13" textAnchor="middle" fontFamily="serif" fontStyle="italic" fontSize="7" fill="#1A1916">
-        j
-      </text>
-    </svg>
-  );
-}

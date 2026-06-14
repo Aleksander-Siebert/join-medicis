@@ -55,7 +55,7 @@ export default function BookCarousel({ collections }: Props) {
             className="group/book shrink-0 snap-start focus:outline-none focus-visible:ring-2 focus-visible:ring-cream-50/40 rounded"
             aria-label={c.label}
           >
-            <BookCover collection={c} size="md" />
+            <BookCover collection={c} size="md" transitionName={`book-${c.slug}`} />
           </Link>
         ))}
       </div>

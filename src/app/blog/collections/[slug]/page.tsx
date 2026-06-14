@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import BookCover from "@/components/blog/BookCover";
+import RotatingBookStrip from "@/components/blog/RotatingBookStrip";
 import { getAllCollectionSlugs, getCollectionBySlug, collections } from "@/lib/collections";
 import { getPostsByCollection } from "@/lib/blog";
 
@@ -90,7 +91,12 @@ export default async function CollectionPage({
           {/* Book + Description grid */}
           <div className="grid lg:grid-cols-[auto_1fr] gap-12 lg:gap-16 items-start mb-16">
             <div className="flex justify-center lg:justify-start">
-              <BookCover collection={collection} size="lg" upright />
+              <BookCover
+                collection={collection}
+                size="lg"
+                upright
+                transitionName={`book-${collection.slug}`}
+              />
             </div>
             <div>
               <p className="text-xs tracking-[0.2em] uppercase text-cream-50/60 mb-4 font-sans font-semibold">
@@ -192,25 +198,15 @@ export default async function CollectionPage({
             </ul>
           </div>
 
-          {/* Other collections strip */}
+          {/* Other collections — rotating marquee */}
           <div className="pt-10 border-t border-cream-50/10">
             <h3 className="text-xs tracking-[0.2em] uppercase text-cream-50/65 mb-5 font-sans font-semibold">
               Autres collections
             </h3>
-            <div className="flex gap-4 overflow-x-auto pb-4 -mx-2 px-2" style={{ scrollbarWidth: "none" }}>
-              {otherCollections.map((c) => (
-                <Link
-                  key={c.slug}
-                  href={`/blog/collections/${c.slug}`}
-                  className="group shrink-0 w-[160px]"
-                >
-                  <BookCover collection={c} size="sm" />
-                  <p className="mt-3 font-sans text-sm text-cream-50/90 group-hover:text-cream-50 leading-tight">
-                    {c.label}
-                  </p>
-                </Link>
-              ))}
-            </div>
+            <RotatingBookStrip collections={otherCollections} speed={30} />
+            <p className="mt-3 text-xs text-cream-50/45 font-sans italic">
+              Survolez pour mettre en pause.
+            </p>
           </div>
         </section>
       </div>

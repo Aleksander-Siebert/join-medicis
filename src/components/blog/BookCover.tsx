@@ -4,6 +4,8 @@ type Props = {
   collection: BookCollection;
   size?: "sm" | "md" | "lg";
   upright?: boolean;
+  /** Shared view-transition-name to morph the book between routes. */
+  transitionName?: string;
 };
 
 const SIZE_MAP = {
@@ -139,13 +141,23 @@ function CoverArt({ collection }: { collection: BookCollection }) {
   );
 }
 
-export default function BookCover({ collection, size = "md", upright = false }: Props) {
+export default function BookCover({
+  collection,
+  size = "md",
+  upright = false,
+  transitionName,
+}: Props) {
   const { w, h } = SIZE_MAP[size];
 
   return (
     <div
       className="book-perspective relative inline-block"
-      style={{ width: w, height: h, perspective: "2200px" }}
+      style={{
+        width: w,
+        height: h,
+        perspective: "2200px",
+        ...(transitionName ? { viewTransitionName: transitionName } : {}),
+      }}
     >
       <div
         className={`book relative w-full h-full transition-transform duration-700 ease-out ${

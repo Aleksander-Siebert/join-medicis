@@ -88,3 +88,24 @@
     );
   }
 }
+
+/* View Transitions — slow down and ease the route morph for book covers */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.55s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-group(*[style*="book-"]),
+::view-transition-image-pair(*[style*="book-"]) {
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.25, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation: none !important;
+  }
+}
