@@ -21,7 +21,7 @@ export default function Hero() {
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-10 bg-center bg-no-repeat bg-cover"
-        style={{ backgroundImage: "url('/michelangelo-creation-adam.jpg')" }}
+        style={{ backgroundImage: "url('/michelangelo-creation-adam.webp')" }}
       />
       {/* Slightly stronger halo behind text — fresco is more textured than Monet */}
       <div

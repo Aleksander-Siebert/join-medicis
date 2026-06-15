@@ -183,7 +183,14 @@ export default function Aurora(props: AuroraProps) {
     ctn.appendChild(gl.canvas);
 
     let animateId = 0;
+    let isVisible = true;
+    let isTabVisible = typeof document === "undefined" || !document.hidden;
+
     const update = (t: number) => {
+      if (!isVisible || !isTabVisible) {
+        animateId = 0;
+        return;
+      }
       animateId = requestAnimationFrame(update);
       const current = propsRef.current;
       const time = current.time ?? t * 0.01;
@@ -199,12 +206,46 @@ export default function Aurora(props: AuroraProps) {
       });
       renderer.render({ scene: mesh });
     };
-    animateId = requestAnimationFrame(update);
 
+    const start = () => {
+      if (animateId !== 0) return;
+      animateId = requestAnimationFrame(update);
+    };
+    const stop = () => {
+      if (animateId === 0) return;
+      cancelAnimationFrame(animateId);
+      animateId = 0;
+    };
+
+    // Pause whenever the container scrolls out of the viewport.
+    // 200px rootMargin so the shader is ready before it appears.
+    const io = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (!entry) return;
+        isVisible = entry.isIntersecting;
+        if (isVisible && isTabVisible) start();
+        else stop();
+      },
+      { rootMargin: "200px" },
+    );
+    io.observe(ctn);
+
+    // Also pause when the tab itself is hidden.
+    const onVisibility = () => {
+      isTabVisible = !document.hidden;
+      if (isVisible && isTabVisible) start();
+      else stop();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
+    start();
     resize();
 
     return () => {
-      cancelAnimationFrame(animateId);
+      stop();
+      io.disconnect();
+      document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("resize", resize);
       if (ctn && gl.canvas.parentNode === ctn) {
         ctn.removeChild(gl.canvas);
