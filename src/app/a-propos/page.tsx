@@ -51,8 +51,8 @@ export default function AboutPage() {
                 workflow Growth qui me prenait des heures chaque semaine.
               </p>
               <p>
-                À l&rsquo;époque, je faisais du Growth & Digital Marketing —
-                outbound, SEO, contenu, automation. Le métier classique :
+                À l&rsquo;époque, je faisais du Growth & Digital Marketing :
+                outbound, SEO, contenu, automation. Le métier classique,
                 trouver ce qui marche, scaler ce qui marche, recommencer.
               </p>
               <p>
@@ -67,7 +67,7 @@ export default function AboutPage() {
                 partager. Puis à structurer ce qui est devenu Join Médicis :
                 une bibliothèque <em className="italic">gratuite</em>,{" "}
                 <em className="italic">open-source</em>, en français. Skills
-                Claude, MCP, agents, workflows n8n — exactement ce que
+                Claude, MCP, agents, workflows n8n. Exactement ce que
                 j&rsquo;aurais voulu trouver au démarrage.
               </p>
             </div>
@@ -158,7 +158,7 @@ export default function AboutPage() {
 
           <div className="space-y-5 text-ink-900 leading-relaxed font-sans text-base md:text-lg max-w-3xl">
             <p>
-              Skills, agents IA, MCP, automatisations — la majorité de ces
+              Skills, agents IA, MCP, automatisations. La majorité de ces
               briques sont déjà disponibles, mais leur accès reste verrouillé
               par la barrière de la langue, le jargon technique, et la culture
               US des early adopters.
@@ -168,7 +168,7 @@ export default function AboutPage() {
               <em className="italic">gratuitement</em>, en français, en{" "}
               <em className="italic">open-source</em>. L&rsquo;objectif : que
               chaque marketer francophone puisse intégrer Claude (ou Mistral,
-              ou Gemini) dans son workflow en moins de trente minutes — sans
+              ou Gemini) dans son workflow en moins de trente minutes, sans
               passer par un consultant, sans formation payante, sans terminal.
             </p>
           </div>
@@ -193,17 +193,32 @@ export default function AboutPage() {
           className="absolute inset-0 pointer-events-none bg-forest-900/55"
         />
 
-        <div className="relative max-w-4xl mx-auto text-center">
-          <span aria-hidden="true" className="block font-serif text-7xl text-cream-50/30 leading-none mb-4">
-            “
-          </span>
-          <blockquote className="font-serif italic text-3xl md:text-4xl lg:text-5xl text-cream-50 leading-[1.15] mb-8 text-balance">
-            Le futur est déjà là — il n&rsquo;est juste pas équitablement
-            distribué.
-          </blockquote>
-          <p className="text-xs tracking-[0.25em] uppercase font-sans font-semibold text-cream-50/80">
-            William Gibson
-          </p>
+        <div className="relative max-w-6xl mx-auto grid lg:grid-cols-[auto_1fr] gap-10 lg:gap-14 items-center">
+          {/* Portrait — William Gibson, Wikimedia CC BY-SA */}
+          <figure className="shrink-0 mx-auto lg:mx-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/william-gibson.jpg"
+              alt="William Gibson, portrait 60ᵉ anniversaire"
+              width={220}
+              height={293}
+              loading="lazy"
+              className="w-[180px] md:w-[220px] aspect-[3/4] object-cover rounded-[18px] shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)] grayscale"
+            />
+          </figure>
+
+          <div className="text-center lg:text-left">
+            <span aria-hidden="true" className="block font-serif text-7xl text-cream-50/30 leading-none mb-2">
+              “
+            </span>
+            <blockquote className="font-serif italic text-3xl md:text-4xl lg:text-5xl text-cream-50 leading-[1.15] mb-6 text-balance">
+              Le futur est déjà là. Il n&rsquo;est juste pas équitablement
+              distribué.
+            </blockquote>
+            <p className="text-xs tracking-[0.25em] uppercase font-sans font-semibold text-cream-50/85">
+              William Gibson
+            </p>
+          </div>
         </div>
       </section>
 
@@ -232,7 +247,7 @@ export default function AboutPage() {
             </h2>
             <p className="text-base md:text-lg text-ink-700 max-w-2xl mx-auto leading-relaxed font-sans">
               Un projet à double nature exige une double licence. Code en MIT,
-              contenu en CC BY 4.0 — le modèle Wikipédia, MDN, et la doc de la
+              contenu en CC BY 4.0. Le modèle Wikipédia, MDN, et la doc de la
               plupart des projets open-source matures.
             </p>
           </div>
@@ -253,7 +268,7 @@ export default function AboutPage() {
               <p className="text-base text-ink-700 leading-relaxed font-sans mb-6">
                 Site Next.js, composants, scripts, serveurs MCP. La licence la
                 plus permissive du paysage software : tu peux copier, modifier,
-                redistribuer, intégrer en commercial — sans rien demander, à
+                redistribuer, intégrer en commercial, sans rien demander, à
                 condition de conserver la mention de copyright.
               </p>
               <a
@@ -287,7 +302,7 @@ export default function AboutPage() {
                   .md
                 </code>
                 , guides, documents de référence. Tu peux les utiliser,
-                modifier, redistribuer — y compris en commercial — à condition
+                modifier, redistribuer (y compris en commercial), à condition
                 de <em className="italic">créditer</em> l&rsquo;auteur et de
                 mentionner Join Médicis.
               </p>

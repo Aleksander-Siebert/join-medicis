@@ -1,5 +1,3 @@
-"use client";
-
 const inspirations = [
   {
     name: "Solomei",
@@ -29,7 +27,7 @@ const inspirations = [
     name: "Silicon Carne",
     url: "https://siliconcarne.substack.com/",
     reason:
-      "Carlos Diaz est le GOAT — on apprend plein de choses avec son ton tranché et son angle franco-américain.",
+      "Carlos Diaz est le GOAT. On apprend plein de choses avec son ton tranché et son angle franco-américain.",
     tilt: 1.4,
     tapeColor: "#F5E8D4",
   },
@@ -55,26 +53,23 @@ export default function Inspirations() {
   return (
     <section className="py-24 px-6 md:px-10 bg-cream-100">
       <div className="max-w-7xl mx-auto">
-        <p className="font-serif italic text-2xl md:text-3xl text-ink-900 mb-10 flex items-center gap-3">
+        <p className="font-serif italic text-2xl md:text-3xl text-ink-900 mb-12 flex items-center gap-3">
           Mes inspirations
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
             <path d="M12 5v14M5 12l7 7 7-7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </p>
 
-        <div
-          className="flex gap-5 overflow-x-auto pb-8 -mx-6 px-6 snap-x snap-mandatory scroll-smooth"
-          style={{ scrollbarWidth: "none" }}
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-8">
           {inspirations.map((item) => (
             <a
               key={item.name}
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative shrink-0 w-[280px] snap-start"
+              className="group relative block"
               style={{ transform: `rotate(${item.tilt}deg)` }}
-              aria-label={`${item.name} — ${item.reason}`}
+              aria-label={`${item.name}. ${item.reason}`}
             >
               {/* Tape on top */}
               <span
@@ -87,7 +82,7 @@ export default function Inspirations() {
               />
 
               <div
-                className="relative bg-cream-50 border border-ink-100 rounded-[18px] p-7 pt-9 h-full shadow-sm group-hover:shadow-md transition-shadow"
+                className="relative bg-cream-50 border border-ink-100 rounded-[18px] p-7 pt-9 h-full group-hover:translate-y-[-2px] transition-transform"
                 style={{
                   boxShadow:
                     "0 1px 3px rgba(0,0,0,0.05), 0 8px 24px -8px rgba(0,0,0,0.08)",
@@ -109,10 +104,6 @@ export default function Inspirations() {
             </a>
           ))}
         </div>
-
-        <p className="mt-6 text-xs text-ink-500 font-sans italic">
-          Faites défiler horizontalement pour découvrir les autres.
-        </p>
       </div>
     </section>
   );
