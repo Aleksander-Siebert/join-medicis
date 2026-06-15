@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Aurora from "@/components/effects/Aurora";
+import AuroraGradient from "@/components/effects/AuroraGradient";
 import Inspirations from "@/components/about/Inspirations";
 import SupportProject from "@/components/sections/SupportProject";
 
@@ -179,19 +179,8 @@ export default function AboutPage() {
       {/* INNOVATION QUOTE — Aurora green */}
       {/* ============================================================ */}
       <section className="relative px-6 md:px-10 py-28 bg-forest-900 text-cream-50 overflow-hidden">
-        {/* Aurora background — same recipe as SupportProject */}
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <Aurora
-            colorStops={["#0E3F2D", "#3E8E6F", "#B89253"]}
-            blend={0.55}
-            amplitude={1.1}
-            speed={0.45}
-          />
-        </div>
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 pointer-events-none bg-forest-900/55"
-        />
+        {/* CSS-only animated gradient (cheap substitute for Aurora WebGL) */}
+        <AuroraGradient />
 
         <div className="relative max-w-6xl mx-auto grid lg:grid-cols-[auto_1fr] gap-10 lg:gap-14 items-center">
           {/* Portrait — William Gibson, Wikimedia CC BY-SA */}
