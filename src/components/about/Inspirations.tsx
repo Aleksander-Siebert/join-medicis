@@ -51,7 +51,7 @@ const inspirations = [
 
 export default function Inspirations() {
   return (
-    <section className="py-24 px-6 md:px-10 bg-cream-100">
+    <section className="py-24 px-6 md:px-10">
       <div className="max-w-7xl mx-auto">
         <p className="font-serif italic text-2xl md:text-3xl text-ink-900 mb-12 flex items-center gap-3">
           Mes inspirations

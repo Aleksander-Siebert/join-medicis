@@ -19,7 +19,7 @@ const LinkedInIcon = () => (
 
 export default function AboutPage() {
   return (
-    <div className="pt-16 min-h-screen bg-cream-100">
+    <div className="pt-16 min-h-screen bg-page-gradient">
       {/* ============================================================ */}
       {/* HERO eyebrow */}
       {/* ============================================================ */}
@@ -142,7 +142,7 @@ export default function AboutPage() {
       {/* ============================================================ */}
       {/* PROJECT VISION */}
       {/* ============================================================ */}
-      <section className="px-6 md:px-10 py-24 border-t border-ink-100 bg-cream-50">
+      <section className="px-6 md:px-10 py-24 border-t border-ink-100">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center gap-6 mb-10 ornament-line">
             <span className="text-xs tracking-[0.2em] uppercase text-forest-900 font-sans font-semibold shrink-0">
@@ -219,13 +219,7 @@ export default function AboutPage() {
       {/* ============================================================ */}
       {/* WHY OPEN SOURCE — Lawve-style cards */}
       {/* ============================================================ */}
-      <section
-        className="relative px-6 md:px-10 py-28 overflow-hidden"
-        style={{
-          background:
-            "linear-gradient(180deg, #F1F7F4 0%, #FAF7F2 60%, #FAF7F2 100%)",
-        }}
-      >
+      <section className="relative px-6 md:px-10 py-28 overflow-hidden border-t border-ink-100">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-xs tracking-[0.2em] uppercase text-forest-900 font-sans font-semibold mb-4">

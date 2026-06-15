@@ -89,6 +89,17 @@
   }
 }
 
+/* Soft pastel page background — Mike Oss inspired
+   Pale blue tint top-left + pale forest tint bottom-right on a near-white
+   base. Zero animation, near-zero render cost. */
+.bg-page-gradient {
+  background-color: #FBFBFC;
+  background-image:
+    radial-gradient(ellipse 75% 65% at 12% 16%, rgba(210, 224, 244, 0.55) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 70% at 88% 82%, rgba(212, 232, 218, 0.55) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(250, 247, 240, 0.45) 0%, transparent 70%);
+}
+
 /* Static animated gradient — cheaper substitute for the WebGL Aurora */
 .aurora-gradient {
   background-color: #0E3F2D;
