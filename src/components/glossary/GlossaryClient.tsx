@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import Aurora from "@/components/effects/Aurora";
 import {
   glossary,
   ALPHABET,
@@ -100,19 +101,19 @@ export default function GlossaryClient() {
         ref={heroRef}
         className="relative bg-forest-900 text-cream-50 pt-32 pb-12 px-6 md:px-10 overflow-hidden"
       >
-        {/* Subtle dot grid background */}
+        {/* Aurora background — same recipe as SupportProject */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <Aurora
+            colorStops={["#0E3F2D", "#3E8E6F", "#B89253"]}
+            blend={0.55}
+            amplitude={1.1}
+            speed={0.45}
+          />
+        </div>
+        {/* Dark overlay to keep the text + alphabet nav readable */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 pointer-events-none opacity-30"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, rgba(254,252,248,0.18) 1px, transparent 1px)",
-            backgroundSize: "22px 22px",
-            maskImage:
-              "radial-gradient(ellipse 60% 60% at 50% 40%, black 30%, transparent 100%)",
-            WebkitMaskImage:
-              "radial-gradient(ellipse 60% 60% at 50% 40%, black 30%, transparent 100%)",
-          }}
+          className="absolute inset-0 pointer-events-none bg-forest-900/55"
         />
 
         <div className="relative max-w-5xl mx-auto">
