@@ -66,7 +66,7 @@ export default async function EcosystemResourcePage({ params }: Props) {
             Accueil
           </Link>
           <span>/</span>
-          <Link href="/ressources/ecosysteme" className="hover:text-ink-500 transition-colors">
+          <Link href="/ecosysteme" className="hover:text-ink-500 transition-colors">
             Écosystème
           </Link>
           <span>/</span>
@@ -78,7 +78,7 @@ export default async function EcosystemResourcePage({ params }: Props) {
       <div className="border-b border-ink-100 px-6 py-14">
         <div className="max-w-4xl mx-auto">
           <Link
-            href="/ressources/ecosysteme"
+            href="/ecosysteme"
             className="inline-flex items-center gap-1.5 text-xs text-ink-400 hover:text-ink-700 transition-colors font-sans mb-8"
           >
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -211,7 +211,7 @@ export default async function EcosystemResourcePage({ params }: Props) {
               {related.map((r) => (
                 <Link
                   key={r.slug}
-                  href={`/ressources/ecosysteme/${r.slug}`}
+                  href={`/ecosysteme/${r.slug}`}
                   className="group bg-cream-100 border border-ink-100 p-5 hover:border-forest-600 transition-colors"
                 >
                   <EcosystemLogo resource={r} size={40} className="mb-3" />

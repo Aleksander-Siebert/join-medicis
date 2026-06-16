@@ -37,7 +37,7 @@ export default function AboutPage() {
       <section className="px-6 md:px-10 pb-24">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-start">
           <div>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-ink-900 leading-[1.05] mb-10">
+            <h1 className="font-sans tracking-tight text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 leading-[1.05] mb-10">
               Je fais du Growth depuis dix ans,
               <br />
               <em className="italic text-forest-900">
@@ -150,7 +150,7 @@ export default function AboutPage() {
             </span>
           </div>
 
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-ink-900 leading-[1.05] mb-10 max-w-4xl">
+          <h2 className="font-sans tracking-tight text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 leading-[1.05] mb-10 max-w-4xl">
             Rendre accessible{" "}
             <em className="italic text-forest-900">aux marketeurs</em> les
             fonctions avancées de l&rsquo;IA.
@@ -225,7 +225,7 @@ export default function AboutPage() {
             <p className="text-xs tracking-[0.2em] uppercase text-forest-900 font-sans font-semibold mb-4">
               Pourquoi l&rsquo;open source
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-ink-900 leading-[1.05] mb-5 text-balance">
+            <h2 className="font-sans tracking-tight text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 leading-[1.05] mb-5 text-balance">
               Notre IA, <em className="italic text-forest-900">vos règles</em>.
             </h2>
             <p className="text-base md:text-lg text-ink-700 max-w-2xl mx-auto leading-relaxed font-sans">
@@ -241,11 +241,11 @@ export default function AboutPage() {
                 <p className="text-xs tracking-[0.2em] uppercase text-ink-500 font-sans font-semibold">
                   Code
                 </p>
-                <span className="font-serif text-2xl text-forest-900 font-medium">
+                <span className="font-sans text-xl text-forest-900 font-bold">
                   MIT
                 </span>
               </div>
-              <h3 className="font-serif text-2xl md:text-3xl text-ink-900 font-medium leading-tight mb-4">
+              <h3 className="font-sans tracking-tight text-2xl md:text-3xl text-ink-900 font-bold leading-tight mb-4">
                 Aucune autorisation requise.
               </h3>
               <p className="text-base text-ink-700 leading-relaxed font-sans mb-6">
@@ -272,11 +272,11 @@ export default function AboutPage() {
                 <p className="text-xs tracking-[0.2em] uppercase text-ink-500 font-sans font-semibold">
                   Contenu
                 </p>
-                <span className="font-serif text-2xl text-forest-900 font-medium">
+                <span className="font-sans text-xl text-forest-900 font-bold">
                   CC BY 4.0
                 </span>
               </div>
-              <h3 className="font-serif text-2xl md:text-3xl text-ink-900 font-medium leading-tight mb-4">
+              <h3 className="font-sans tracking-tight text-2xl md:text-3xl text-ink-900 font-bold leading-tight mb-4">
                 Créditez, c&rsquo;est tout.
               </h3>
               <p className="text-base text-ink-700 leading-relaxed font-sans mb-6">

@@ -88,7 +88,7 @@ export default function EcosystemePage() {
               {cat.items.map((item) => (
                 <Link
                   key={item.slug}
-                  href={`/ressources/ecosysteme/${item.slug}`}
+                  href={`/ecosysteme/${item.slug}`}
                   className="group flex flex-col bg-cream-100 border border-ink-100 p-6 hover:border-forest-600 hover:shadow-[0_2px_24px_-12px_rgba(26,51,40,0.4)] transition-all duration-200"
                 >
                   {/* Logo + meta */}

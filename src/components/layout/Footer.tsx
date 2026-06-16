@@ -40,7 +40,7 @@ export default function Footer() {
                 { href: "/skills", label: "Skills Claude" },
                 { href: "/ressources/mcp", label: "Serveurs MCP" },
                 { href: "/ressources/projets", label: "Projets Claude" },
-                { href: "/ressources/ecosysteme", label: "Écosystème" },
+                { href: "/ecosysteme", label: "Écosystème" },
                 { href: "/glossaire", label: "Glossaire" },
               ].map((item) => (
                 <li key={item.href}>

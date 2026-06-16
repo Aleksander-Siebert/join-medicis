@@ -126,11 +126,11 @@ const MENUS: Menu[] = [
   {
     id: "communaute",
     label: "Communauté",
-    activePrefix: ["/contribuer", "/glossaire", "/ressources/ecosysteme", "/authors"],
+    activePrefix: ["/contribuer", "/glossaire", "/ecosysteme", "/authors"],
     items: [
       { label: "Contribuer", desc: "Ajoutez vos ressources à la bibliothèque", href: "/contribuer", icon: I.contribuer, tile: "forest" },
       { label: "Glossaire", desc: "Tous les termes de l'IA, expliqués simplement", href: "/glossaire", icon: I.glossaire, tile: "slate" },
-      { label: "Écosystème", desc: "Les acteurs de l'IA francophone à suivre", href: "/ressources/ecosysteme", icon: I.ecosysteme, tile: "blue" },
+      { label: "Écosystème", desc: "Les acteurs de l'IA francophone à suivre", href: "/ecosysteme", icon: I.ecosysteme, tile: "blue" },
       { label: "Auteurs", desc: "Celles et ceux qui font vivre le projet", href: "/authors", icon: I.auteurs, tile: "gold" },
     ],
   },
@@ -140,7 +140,7 @@ const MENUS: Menu[] = [
     activePrefix: ["/contact", "/blog", "/a-propos"],
     items: [
       { label: "Contact", desc: "Une question ? Écrivez-nous directement", href: "/contact", icon: I.contact, tile: "slate" },
-      { label: "Growth with Claude 🐙", desc: "Notre newsletter Growth & IA sur LinkedIn", href: "https://www.linkedin.com/newsletters/growth-with-claude/", icon: I.newsletter, tile: "terracotta", external: true },
+      { label: "Growth with Claude 🐙", desc: "Notre newsletter Growth & IA sur LinkedIn", href: "https://www.linkedin.com/newsletters/growth-with-claude%F0%9F%90%99-7443262733011189760/", icon: I.newsletter, tile: "terracotta", external: true },
       { label: "Blog", desc: "Articles, analyses et retours d'expérience", href: "/blog", icon: I.blog, tile: "plum" },
       { label: "Join Médicis", desc: "La vision et l'histoire du projet", href: "/a-propos", icon: I.about, tile: "forest" },
     ],
@@ -216,8 +216,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center group shrink-0">
-          <span className="font-serif text-2xl font-medium tracking-wide text-ink-900">
-            Join Méd<em className="italic font-normal">ici</em>s
+          <span className="font-sans text-xl font-bold tracking-tight text-ink-900">
+            Join Médicis
           </span>
         </Link>
 

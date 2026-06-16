@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AuroraGradient from "@/components/effects/AuroraGradient";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -8,21 +9,18 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="pt-16 min-h-screen">
-      <div className="border-b border-ink-100 px-6 py-20">
-        <div className="max-w-xl mx-auto text-center">
-          <div
-            className="w-px h-16 bg-gradient-to-b from-transparent to-ink-100 mx-auto mb-12"
-            aria-hidden="true"
-          />
-          <p className="text-xs tracking-widest uppercase text-ink-300 mb-4 font-sans">
+      <div className="relative bg-forest-900 text-cream-50 px-6 py-24 overflow-hidden">
+        <AuroraGradient />
+        <div className="relative max-w-xl mx-auto text-center">
+          <p className="text-xs tracking-[0.2em] uppercase text-cream-50/70 mb-4 font-sans font-semibold">
             Contact
           </p>
-          <h1 className="font-serif text-5xl font-light text-ink-900 mb-6">
-            Parlons-en
+          <h1 className="font-serif text-5xl md:text-6xl font-medium text-cream-50 mb-6 leading-[1.05]">
+            Parlons-en !
           </h1>
-          <p className="text-ink-500 font-sans leading-relaxed">
+          <p className="text-cream-50/85 font-sans leading-relaxed text-base md:text-lg">
             Une question sur un Skill, une proposition de partenariat, ou
-            une idée de contribution ? Écrivez-nous.
+            une idée de contribution ? Écrivez-nous !
           </p>
         </div>
       </div>

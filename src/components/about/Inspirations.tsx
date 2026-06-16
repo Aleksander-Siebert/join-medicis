@@ -53,7 +53,7 @@ export default function Inspirations() {
   return (
     <section className="py-24 px-6 md:px-10">
       <div className="max-w-7xl mx-auto">
-        <p className="font-serif italic text-2xl md:text-3xl text-ink-900 mb-12 flex items-center gap-3">
+        <p className="font-sans font-bold tracking-tight text-2xl md:text-3xl text-ink-900 mb-12 flex items-center gap-3">
           Mes inspirations
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
             <path d="M12 5v14M5 12l7 7 7-7" strokeLinecap="round" strokeLinejoin="round" />

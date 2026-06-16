@@ -108,7 +108,7 @@ export default function GlossaryClient() {
           <p className="text-xs tracking-[0.2em] uppercase text-cream-50/70 mb-4 font-sans font-semibold">
             Glossaire IA
           </p>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.95] mb-5">
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.95] mb-5 text-cream-50">
             Tous les termes <em className="italic text-cream-50">qui comptent</em>.
           </h1>
           <p className="text-base md:text-lg text-cream-50/85 leading-relaxed max-w-2xl font-sans">
