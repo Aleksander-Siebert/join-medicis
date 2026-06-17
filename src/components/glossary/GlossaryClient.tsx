@@ -26,6 +26,68 @@ function matches(term: GlossaryTerm, query: string): boolean {
   return false;
 }
 
+/* Hidden gems — only surface when their exact trigger is typed in the search bar. */
+type EasterEgg = { id: string; emoji: string; title: string; body: string; triggers: string[] };
+
+const EASTER_EGGS: EasterEgg[] = [
+  {
+    id: "medicis",
+    emoji: "🏛️",
+    title: "Pourquoi « Médicis » ?",
+    body: "Les Médicis ont financé la Renaissance florentine : Michel-Ange, Botticelli, Galilée. Join Médicis veut jouer le même rôle pour la Renaissance de l'IA francophone. Mécène open-source, pas banquier.",
+    triggers: ["medicis", "médicis", "pourquoi medicis", "renaissance"],
+  },
+  {
+    id: "42",
+    emoji: "🌌",
+    title: "42",
+    body: "La réponse à la grande question sur la vie, l'univers et le reste. Reste plus qu'à trouver le bon prompt pour la question.",
+    triggers: ["42"],
+  },
+  {
+    id: "claude",
+    emoji: "👋",
+    title: "Bonjour, Claude",
+    body: "Oui, ce site a été construit main dans la main avec Claude. Chaque Skill ici a été testée avec lui. Méta, non ?",
+    triggers: ["claude", "anthropic"],
+  },
+  {
+    id: "skynet",
+    emoji: "🦾",
+    title: "Skynet",
+    body: "N'existe pas ici. Nos agents demandent toujours une validation humaine avant de lancer les missiles. Enfin, les campagnes.",
+    triggers: ["skynet", "terminator"],
+  },
+  {
+    id: "hello-world",
+    emoji: "🌍",
+    title: "Hello, World",
+    body: "Le premier programme de tout dev. Le premier prompt de tout marketer, ce sera quoi le vôtre ?",
+    triggers: ["hello world", "helloworld", "hello", "bonjour"],
+  },
+  {
+    id: "cafe",
+    emoji: "☕",
+    title: "Café",
+    body: "Carburant officiel de toute Skill bien construite. Curieusement absent de la documentation Anthropic.",
+    triggers: ["cafe", "café", "coffee"],
+  },
+  {
+    id: "octopus",
+    emoji: "🐙",
+    title: "Growth with Claude",
+    body: "La mascotte de notre newsletter. Huit bras pour faire tourner huit workflows en parallèle, évidemment.",
+    triggers: ["octopus", "poulpe", "pieuvre", "newsletter"],
+  },
+  {
+    id: "konami",
+    emoji: "🎮",
+    title: "↑ ↑ ↓ ↓ ← → ← → B A",
+    body: "Code triché activé. Malheureusement ça ne débloque pas Claude Opus en illimité.",
+    triggers: ["konami", "cheat code"],
+  },
+];
+
 const TIER_BADGE: Record<1 | 2 | 3, { className: string; label: string }> = {
   1: {
     className: "bg-forest-100 text-forest-900",
@@ -58,6 +120,13 @@ export default function GlossaryClient() {
 
   const grouped = filtered ? groupByLetter(filtered) : groupedAll;
   const lettersInResult = new Set(Object.keys(grouped));
+
+  // Easter eggs: revealed only when the exact secret is typed.
+  const matchedEggs = useMemo(() => {
+    if (!query) return [];
+    const q = normalize(query.trim());
+    return EASTER_EGGS.filter((egg) => egg.triggers.some((t) => normalize(t) === q));
+  }, [query]);
 
   const heroRef = useRef<HTMLDivElement | null>(null);
   const [activeLetter, setActiveLetter] = useState<string | null>(null);
@@ -201,11 +270,44 @@ export default function GlossaryClient() {
             )}
           </div>
 
+          {/* Easter eggs — surprise cards above the results */}
+          {matchedEggs.length > 0 && (
+            <div className="mb-12 flex flex-col gap-4">
+              {matchedEggs.map((egg) => (
+                <div
+                  key={egg.id}
+                  className="relative overflow-hidden rounded-[20px] p-6 md:p-8 text-cream-50"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #0E3F2D 0%, #1F5B43 55%, #8E6A2A 130%)",
+                  }}
+                >
+                  <span className="absolute top-4 right-5 text-[10px] tracking-[0.2em] uppercase font-sans font-semibold text-cream-50/70">
+                    Easter egg
+                  </span>
+                  <div className="flex items-start gap-4">
+                    <span className="text-4xl leading-none select-none" aria-hidden="true">
+                      {egg.emoji}
+                    </span>
+                    <div>
+                      <h3 className="font-serif text-2xl md:text-3xl font-medium mb-2">
+                        {egg.title}
+                      </h3>
+                      <p className="text-cream-50/90 leading-relaxed font-sans">{egg.body}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
           {/* Terms */}
           {Object.keys(grouped).length === 0 ? (
-            <p className="text-center text-ink-500 font-sans py-16">
-              Aucun terme ne correspond à votre recherche.
-            </p>
+            matchedEggs.length === 0 && (
+              <p className="text-center text-ink-500 font-sans py-16">
+                Aucun terme ne correspond à votre recherche.
+              </p>
+            )
           ) : (
             <ul className="divide-y divide-ink-100 border-y border-ink-100">
               {ALPHABET.filter((letter) => grouped[letter]?.length).map((letter) => (

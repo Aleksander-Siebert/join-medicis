@@ -44,16 +44,6 @@ export default function Hero() {
         className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-transparent via-ink-100 to-transparent"
       />
 
-      {/* Decorative SVG — thin tangled line, editorial feel */}
-      <div
-        aria-hidden="true"
-        className="absolute top-16 left-1/2 -translate-x-1/2 opacity-20 pointer-events-none"
-      >
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="#1A1916" strokeWidth="0.8">
-          <path d="M30 5 C40 10, 50 20, 45 30 C40 40, 20 45, 15 35 C10 25, 20 10, 30 15 C40 20, 50 30, 42 38 C34 46, 18 42, 14 32 C10 22, 22 8, 32 12" strokeLinecap="round" />
-        </svg>
-      </div>
-
       <div className="relative max-w-4xl mx-auto text-center">
         {/* Overline label */}
         <p
@@ -63,14 +53,14 @@ export default function Hero() {
           Bibliothèque open-source · Francophone · Growth Marketing
         </p>
 
-        {/* Heading — Solomei-style serif, large and dark for contrast over fresco */}
+        {/* Heading — Inter (matches the old navbar tagline), large and dark over the fresco */}
         <h1
-          className="font-serif text-5xl md:text-6xl lg:text-7xl font-medium text-ink-900 leading-[1.1] mb-6"
+          className="font-sans tracking-tight text-5xl md:text-6xl lg:text-7xl font-bold text-ink-900 leading-[1.1] mb-6"
           style={{ textShadow: "0 1px 24px rgba(250,247,240,0.85)" }}
         >
           La bibliothèque IA & Growth
           <br />
-          <em className="italic text-ink-900">pour les marketeurs francophones</em>
+          <span className="text-forest-900">pour les marketeurs francophones</span>
         </h1>
 
         {/* Tagline */}
@@ -78,8 +68,8 @@ export default function Hero() {
           className="text-base md:text-lg text-ink-900 max-w-2xl mx-auto leading-relaxed mb-14 font-sans font-medium"
           style={{ textShadow: "0 1px 12px rgba(250,247,240,0.85)" }}
         >
-          Skills Claude, projets prêts à l&rsquo;emploi, guides MCP, workflows n8n —
-          tout en français, tout gratuit, tout open-source.
+          Skills Claude, projets prêts à l&rsquo;emploi, guides MCP, workflows n8n.
+          Tout en français, tout gratuit, tout open-source.
         </p>
 
         {/* CTAs */}
