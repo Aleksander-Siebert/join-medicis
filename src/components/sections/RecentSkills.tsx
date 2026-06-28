@@ -16,7 +16,7 @@ export default function RecentSkills() {
             <div className="w-16 h-px bg-ink-100" aria-hidden="true" />
           </div>
           <Link
-            href="/skills"
+            href="/ressources/skills"
             className="text-sm text-ink-500 hover:text-ink-900 transition-colors flex items-center gap-1 font-sans"
           >
             Voir tout
@@ -36,7 +36,7 @@ export default function RecentSkills() {
 
         <div className="mt-10 text-center">
           <Link
-            href="/skills"
+            href="/ressources/skills"
             className="inline-flex items-center gap-2 text-sm text-ink-500 hover:text-ink-900 transition-colors border-b border-ink-100 hover:border-ink-400 pb-0.5 font-sans"
           >
             Voir les {skills.length} Skills disponibles →

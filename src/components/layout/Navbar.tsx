@@ -114,9 +114,9 @@ const MENUS: Menu[] = [
   {
     id: "ressources",
     label: "Ressources",
-    activePrefix: ["/skills", "/ressources"],
+    activePrefix: ["/ressources/skills", "/ressources"],
     items: [
-      { label: "Skills", desc: "Compétences Claude prêtes à charger", href: "/skills", icon: I.skills, tile: "forest" },
+      { label: "Skills", desc: "Compétences Claude prêtes à charger", href: "/ressources/skills", icon: I.skills, tile: "forest" },
       { label: "MCP", desc: "Connectez vos outils directement à Claude", href: "/ressources/mcp", icon: I.mcp, tile: "blue" },
       { label: "Plugins", desc: "Étendez Claude avec des extensions", href: "/ressources/plugins", icon: I.plugins, tile: "plum", soon: true },
       { label: "Automations", desc: "Workflows n8n et Make orchestrés", href: "/ressources/automations", icon: I.automations, tile: "gold", soon: true },
@@ -126,12 +126,12 @@ const MENUS: Menu[] = [
   {
     id: "communaute",
     label: "Communauté",
-    activePrefix: ["/contribuer", "/glossaire", "/ecosysteme", "/authors"],
+    activePrefix: ["/contribuer", "/glossaire", "/ecosysteme", "/auteurs"],
     items: [
       { label: "Contribuer", desc: "Ajoutez vos ressources à la bibliothèque", href: "/contribuer", icon: I.contribuer, tile: "forest" },
       { label: "Glossaire", desc: "Tous les termes de l'IA, expliqués simplement", href: "/glossaire", icon: I.glossaire, tile: "slate" },
       { label: "Écosystème", desc: "Les acteurs de l'IA francophone à suivre", href: "/ecosysteme", icon: I.ecosysteme, tile: "blue" },
-      { label: "Auteurs", desc: "Celles et ceux qui font vivre le projet", href: "/authors", icon: I.auteurs, tile: "gold" },
+      { label: "Auteurs", desc: "Celles et ceux qui font vivre le projet", href: "/auteurs", icon: I.auteurs, tile: "gold" },
     ],
   },
   {

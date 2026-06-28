@@ -37,7 +37,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                { href: "/skills", label: "Skills Claude" },
+                { href: "/ressources/skills", label: "Skills Claude" },
                 { href: "/ressources/mcp", label: "Serveurs MCP" },
                 { href: "/ressources/projets", label: "Projets Claude" },
                 { href: "/ecosysteme", label: "Écosystème" },
@@ -71,7 +71,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { href: "/blog", label: "Blog" },
-                { href: "/authors", label: "Auteurs" },
+                { href: "/auteurs", label: "Auteurs" },
                 { href: "/contribuer", label: "Contribuer" },
                 { href: "/request", label: "Demander un Skill" },
                 { href: "/a-propos", label: "À propos" },

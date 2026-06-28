@@ -129,7 +129,7 @@ export default function RequestPage() {
             <p className="text-xs text-ink-300 font-sans">
               On répond à toutes les demandes sous 5 jours. En attendant, jette
               un œil aux{" "}
-              <Link href="/skills" className="underline hover:text-ink-500">
+              <Link href="/ressources/skills" className="underline hover:text-ink-500">
                 Skills déjà publiés
               </Link>
               .

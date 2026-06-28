@@ -75,7 +75,7 @@ export default function Hero() {
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
           <Link
-            href="/skills"
+            href="/ressources/skills"
             className="px-8 py-3.5 bg-forest-900 text-cream-50 text-sm tracking-wide hover:bg-forest-700 transition-colors font-sans"
           >
             Explorer les Skills →

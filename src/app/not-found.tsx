@@ -26,7 +26,7 @@ export default function NotFound() {
             Retour à l&rsquo;accueil
           </Link>
           <Link
-            href="/skills"
+            href="/ressources/skills"
             className="px-6 py-3 border border-ink-200 text-ink-700 text-sm font-sans hover:border-ink-400 transition-colors"
           >
             Explorer les Skills

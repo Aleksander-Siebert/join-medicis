@@ -95,7 +95,7 @@ export default async function SkillPage({ params }: Props) {
             Accueil
           </Link>
           <span>/</span>
-          <Link href="/skills" className="hover:text-ink-500 transition-colors">
+          <Link href="/ressources/skills" className="hover:text-ink-500 transition-colors">
             Skills
           </Link>
           <span>/</span>
@@ -131,7 +131,7 @@ export default async function SkillPage({ params }: Props) {
             {/* Author */}
             {author && (
               <Link
-                href={`/authors/${author.slug}`}
+                href={`/auteurs/${author.slug}`}
                 className="inline-flex items-center gap-3 mb-6 group"
               >
                 <span

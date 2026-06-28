@@ -40,7 +40,7 @@ export default function AgentsPage() {
             Prévue pour la V3 — Mois 6+
           </p>
           <Link
-            href="/skills"
+            href="/ressources/skills"
             className="inline-block px-6 py-3 bg-forest-900 text-cream-50 text-sm font-sans hover:bg-forest-700 transition-colors"
           >
             Explorer les Skills disponibles →

@@ -35,7 +35,7 @@ function LLMTag({
 
 export default function SkillCard({ skill }: { skill: Skill }) {
   return (
-    <Link href={`/skills/${skill.slug}`} className="group block h-full">
+    <Link href={`/ressources/skills/${skill.slug}`} className="group block h-full">
       <article className="border border-ink-100 bg-cream-100 hover:bg-cream-50 hover:border-ink-200 transition-all duration-200 h-full flex flex-col overflow-hidden">
         {/* Cover image */}
         {skill.image && (

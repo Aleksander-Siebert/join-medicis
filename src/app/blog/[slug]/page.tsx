@@ -80,7 +80,7 @@ export default async function BlogArticlePage({ params }: Props) {
           <div className="flex flex-wrap items-center gap-5 text-sm text-ink-500 font-sans">
             {author && (
               <Link
-                href={`/authors/${author.slug}`}
+                href={`/auteurs/${author.slug}`}
                 className="inline-flex items-center gap-3 group"
               >
                 <span
@@ -135,7 +135,7 @@ export default async function BlogArticlePage({ params }: Props) {
               ← Tous les articles
             </Link>
             <Link
-              href="/skills"
+              href="/ressources/skills"
               className="px-6 py-3 bg-forest-900 text-cream-50 text-sm font-sans hover:bg-forest-700 transition-colors"
             >
               Explorer les Skills →
