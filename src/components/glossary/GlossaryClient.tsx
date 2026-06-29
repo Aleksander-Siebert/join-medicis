@@ -6,7 +6,6 @@ import {
   glossary,
   ALPHABET,
   getBucket,
-  tierLabels,
   type GlossaryTerm,
 } from "@/lib/glossary";
 
@@ -88,21 +87,6 @@ const EASTER_EGGS: EasterEgg[] = [
   },
 ];
 
-const TIER_BADGE: Record<1 | 2 | 3, { className: string; label: string }> = {
-  1: {
-    className: "bg-forest-100 text-forest-900",
-    label: tierLabels[1],
-  },
-  2: {
-    className: "bg-[#F5D9C2] text-[#8B4A1A]",
-    label: tierLabels[2],
-  },
-  3: {
-    className: "bg-[#E8EBEF] text-[#2A3845]",
-    label: tierLabels[3],
-  },
-};
-
 export default function GlossaryClient() {
   const [query, setQuery] = useState("");
   const lettersWithContent = useMemo(() => {
@@ -181,9 +165,7 @@ export default function GlossaryClient() {
             Tous les termes <em className="italic text-cream-50">qui comptent</em>.
           </h1>
           <p className="text-base md:text-lg text-cream-50/85 leading-relaxed max-w-2xl font-sans">
-            71 concepts d&rsquo;IA, Growth Marketing et systèmes agentiques, expliqués
-            en une phrase chacun. Pour parler le même langage que vos collègues
-            tech sans passer 2 heures sur arXiv.
+            Chaque terme important de l&rsquo;IA, expliqué.
           </p>
 
           {/* Alphabet nav */}
@@ -322,16 +304,9 @@ export default function GlossaryClient() {
                     <ul className="flex flex-col gap-8">
                       {grouped[letter].map((term) => (
                         <li key={term.slug}>
-                          <div className="flex items-center gap-3 flex-wrap mb-2">
-                            <h3 className="font-serif text-xl md:text-2xl text-forest-900 font-medium">
-                              {term.title}
-                            </h3>
-                            <span
-                              className={`inline-flex items-center px-2 py-0.5 text-[10px] tracking-wide uppercase font-sans font-semibold rounded ${TIER_BADGE[term.tier].className}`}
-                            >
-                              {TIER_BADGE[term.tier].label}
-                            </span>
-                          </div>
+                          <h3 className="font-serif text-xl md:text-2xl text-forest-900 font-medium mb-2">
+                            {term.title}
+                          </h3>
                           <p className="text-ink-900 leading-relaxed font-sans">
                             {term.description}
                           </p>
