@@ -39,7 +39,7 @@ export default function AuthorsPage() {
 
       {/* ===================== THANK YOU ===================== */}
       <section className="px-6 pb-14">
-        <div className="max-w-3xl mx-auto relative overflow-hidden rounded-[24px] p-8 md:p-10 text-cream-50"
+        <div className="max-w-6xl mx-auto relative overflow-hidden rounded-[24px] p-8 md:p-10 text-cream-50"
           style={{ background: "linear-gradient(135deg, #0E3F2D 0%, #1F5B43 60%, #2D7259 120%)" }}
         >
           <span className="absolute -top-8 -right-4 text-[120px] leading-none font-serif text-cream-50/10 select-none" aria-hidden="true">
@@ -74,12 +74,6 @@ export default function AuthorsPage() {
                 href={`/auteurs/${author.slug}`}
                 className="group relative flex flex-col bg-cream-50 border border-ink-100 rounded-[20px] p-6 hover:border-forest-900/30 hover:-translate-y-0.5 transition-all"
               >
-                {/* Badge */}
-                <span className="absolute top-5 right-5 inline-flex items-center gap-1.5 text-[10px] tracking-[0.12em] uppercase font-sans font-bold text-cream-50 bg-forest-600 px-2.5 py-1 rounded-full">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cream-50" aria-hidden="true" />
-                  Contributeur
-                </span>
-
                 {/* Identity */}
                 <div className="flex items-center gap-4 mb-5">
                   <span
@@ -88,7 +82,7 @@ export default function AuthorsPage() {
                   >
                     {initials(author.name)}
                   </span>
-                  <div className="min-w-0 pr-16">
+                  <div className="min-w-0">
                     <h2 className="font-serif text-xl text-ink-900 font-medium leading-tight group-hover:text-forest-900 transition-colors truncate">
                       {author.name}
                     </h2>
@@ -136,13 +130,17 @@ export default function AuthorsPage() {
       {/* ===================== JOIN CTA ===================== */}
       <section className="px-6 pb-24">
         <div className="max-w-3xl mx-auto text-center border-t border-ink-100 pt-16">
-          <h2 className="font-serif text-3xl md:text-4xl font-medium text-ink-900 mb-4">
+          <h2 className="font-sans tracking-tight text-3xl md:text-4xl font-bold text-ink-900 mb-4">
             Envie de nous rejoindre ?
           </h2>
           <p className="text-ink-700 font-sans leading-relaxed max-w-xl mx-auto mb-8">
-            Vous avez un Skill, un workflow ou un guide qui change la donne dans
-            votre quotidien Growth ? Partagez-le. Votre nom rejoindra cette page,
-            et toute la communauté francophone vous en remerciera.
+            Vous avez des connaissances et/ou compétences qui changent la donne
+            dans votre quotidien ? Partagez-le. Votre nom rejoindra cette page et
+            toute la communauté francophone vous en remerciera pour votre aide !
+            <br />
+            <br />
+            Si besoin, vous pourrez personnaliser votre page auteur, il suffit
+            juste de me contacter :)
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link

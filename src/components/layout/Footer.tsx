@@ -19,11 +19,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
-            <Link href="/" className="font-serif text-2xl font-light text-ink-900">
+            <Link href="/" className="font-sans text-2xl font-bold tracking-tight text-ink-900">
               Join Médicis
             </Link>
             <p className="mt-3 text-sm text-ink-500 leading-relaxed font-sans">
-              La bibliothèque IA & Growth pour les marketeurs francophones.
+              La première bibliothèque IA gratuite et accessible pour les
+              marketeurs francophones.
             </p>
             <p className="mt-4 text-xs text-ink-300 tracking-widest uppercase font-sans">
               Open-source · Code MIT · Contenu CC BY 4.0
@@ -37,29 +38,27 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                { href: "/ressources/skills", label: "Skills Claude" },
-                { href: "/ressources/mcp", label: "Serveurs MCP" },
-                { href: "/ressources/projets", label: "Projets Claude" },
                 { href: "/ecosysteme", label: "Écosystème" },
-                { href: "/glossaire", label: "Glossaire" },
+                { href: "/ressources/skills", label: "Skills" },
+                { href: "/ressources/mcp", label: "MCP" },
+                { href: "/ressources/plugins", label: "Plugins", soon: true },
+                { href: "/ressources/automations", label: "Automations", soon: true },
+                { href: "/ressources/agents", label: "Agents IA", soon: true },
               ].map((item) => (
-                <li key={item.href}>
+                <li key={item.href} className="flex items-center gap-2">
                   <Link
                     href={item.href}
                     className="text-sm text-ink-500 hover:text-ink-900 transition-colors font-sans"
                   >
                     {item.label}
                   </Link>
+                  {item.soon && (
+                    <span className="text-xs bg-cream-200 text-ink-300 px-1.5 py-0.5">
+                      Bientôt
+                    </span>
+                  )}
                 </li>
               ))}
-              <li className="flex items-center gap-2">
-                <span className="text-sm text-ink-300 font-sans">Plugins</span>
-                <span className="text-xs bg-cream-200 text-ink-300 px-1.5 py-0.5">Bientôt</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-sm text-ink-300 font-sans">Automations</span>
-                <span className="text-xs bg-cream-200 text-ink-300 px-1.5 py-0.5">Bientôt</span>
-              </li>
             </ul>
           </div>
 
@@ -106,7 +105,8 @@ export default function Footer() {
               Suivre le projet
             </h4>
             <p className="text-sm text-ink-500 leading-relaxed mb-5 font-sans">
-              Nouveaux Skills et ressources chaque semaine sur LinkedIn.
+              Vous pouvez me soutenir sur LinkedIn et suivre les nouveautés de
+              Join Médicis.
             </p>
             <a
               href="https://www.linkedin.com/in/aleksander-siebert/"
