@@ -42,6 +42,7 @@ const MCP_FAQ: FAQItem[] = [
 ];
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/ressources/mcp" },
   title: "Serveurs MCP",
   description:
     "La bibliothèque de serveurs MCP (Model Context Protocol) pour connecter Claude à tes outils favoris.",

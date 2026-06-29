@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const skill = skills.find((s) => s.slug === slug);
   if (!skill) return {};
   return {
+    alternates: { canonical: `/ressources/skills/${slug}` },
     title: skill.name,
     description: skill.description,
   };

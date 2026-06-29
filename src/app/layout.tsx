@@ -4,6 +4,15 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ContributePopup from "@/components/ui/ContributePopup";
+import JsonLd from "@/components/seo/JsonLd";
+import {
+  SITE_URL,
+  SITE_NAME,
+  SITE_DESCRIPTION,
+  OG_IMAGE,
+  organizationSchema,
+  websiteSchema,
+} from "@/lib/seo";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -20,17 +29,32 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Join Médicis — Bibliothèque IA & Growth",
     template: "%s · Join Médicis",
   },
-  description:
-    "La bibliothèque open-source de l'IA & de l'automatisation pour les Growth & Digital Marketers francophones. Skills Claude, guides MCP, projets prêts à l'emploi.",
+  description: SITE_DESCRIPTION,
   keywords: ["IA", "Growth Marketing", "Claude", "Skills", "MCP", "francophone", "automation"],
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    siteName: "Join Médicis",
+    siteName: SITE_NAME,
+    url: SITE_URL,
+    title: "Join Médicis — Bibliothèque IA & Growth",
+    description: SITE_DESCRIPTION,
+    images: [{ url: OG_IMAGE, width: 1920, height: 871, alt: SITE_NAME }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Join Médicis — Bibliothèque IA & Growth",
+    description: SITE_DESCRIPTION,
+    images: [OG_IMAGE],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
 };
 
@@ -42,6 +66,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${fraunces.variable} ${inter.variable}`}>
       <body className="bg-cream-100 text-ink-900 antialiased font-sans">
+        <JsonLd data={[organizationSchema, websiteSchema]} />
         <Navbar />
         <main>{children}</main>
         <Footer />

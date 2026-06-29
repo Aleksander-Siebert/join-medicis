@@ -3,6 +3,8 @@ import Link from "next/link";
 import { authors, skills, blogArticles } from "@/lib/data";
 import SkillCard from "@/components/ui/SkillCard";
 import type { Metadata } from "next";
+import JsonLd from "@/components/seo/JsonLd";
+import { absoluteUrl, breadcrumbSchema } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -15,6 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const author = authors.find((a) => a.slug === slug);
   if (!author) return {};
   return {
+    alternates: { canonical: `/auteurs/${slug}` },
     title: author.name,
     description: author.bio,
   };
@@ -102,8 +105,35 @@ export default async function AuthorPage({ params }: Props) {
     .join("")
     .slice(0, 2);
 
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: author.name,
+    description: author.bio,
+    url: absoluteUrl(`/auteurs/${author.slug}`),
+    jobTitle: author.role,
+    knowsAbout: expertise,
+    sameAs: [
+      author.links?.linkedin,
+      author.links?.github,
+      author.links?.twitter,
+      author.links?.website,
+    ].filter(Boolean),
+    worksFor: { "@type": "Organization", name: "Join Médicis", url: absoluteUrl("/") },
+  };
+
   return (
     <div className="pt-16 min-h-screen bg-cream-100">
+      <JsonLd
+        data={[
+          personSchema,
+          breadcrumbSchema([
+            { name: "Accueil", path: "/" },
+            { name: "Auteurs", path: "/auteurs" },
+            { name: author.name, path: `/auteurs/${author.slug}` },
+          ]),
+        ]}
+      />
       {/* ---------- Profile header ---------- */}
       <section className="border-b border-ink-100 bg-gradient-to-b from-cream-200/70 to-cream-100">
         <div className="max-w-6xl mx-auto px-6 py-14">

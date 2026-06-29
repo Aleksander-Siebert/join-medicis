@@ -6,6 +6,7 @@ import { collections, getCollectionBySlug } from "@/lib/collections";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog" },
   title: "Bibliotheca",
   description:
     "La bibliothèque éditoriale de Join Médicis : Skills, MCP, agents, vibe coding, growth IA, et l'actualité du projet.",

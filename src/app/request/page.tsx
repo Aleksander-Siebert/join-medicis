@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/request" },
   title: "Demander un Skill",
   description:
     "Tu cherches un Skill qui n'existe pas encore dans la bibliothèque ? Fais une demande, on étudie chaque proposition.",

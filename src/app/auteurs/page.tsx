@@ -3,6 +3,7 @@ import { authors, skills } from "@/lib/data";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/auteurs" },
   title: "Auteurs",
   description:
     "Merci aux contributeurs de Join Médicis — Growth marketers, consultants SEO et experts IA qui font vivre la bibliothèque open-source.",

@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resource = ecosystem.find((r) => r.slug === slug);
   if (!resource) return {};
   return {
+    alternates: { canonical: `/ecosysteme/${slug}` },
     title: `${resource.name} — Écosystème`,
     description: resource.tagline,
   };

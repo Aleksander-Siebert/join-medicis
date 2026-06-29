@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { getAllPostSlugs, getPostBySlug } from "@/lib/blog";
 import { authors } from "@/lib/data";
 import type { Metadata } from "next";
+import JsonLd from "@/components/seo/JsonLd";
+import { SITE_URL, SITE_NAME, OG_IMAGE, absoluteUrl, breadcrumbSchema } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -15,6 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(slug);
   if (!post) return {};
   return {
+    alternates: { canonical: `/blog/${slug}` },
     title: post.title,
     description: post.excerpt,
   };
@@ -36,8 +39,35 @@ export default async function BlogArticlePage({ params }: Props) {
 
   const author = authors.find((a) => a.slug === post.authorSlug);
 
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    image: OG_IMAGE,
+    datePublished: post.publishedAt || undefined,
+    dateModified: post.publishedAt || undefined,
+    inLanguage: "fr-FR",
+    mainEntityOfPage: { "@type": "WebPage", "@id": absoluteUrl(`/blog/${slug}`) },
+    author: author
+      ? { "@type": "Person", name: author.name, url: absoluteUrl(`/auteurs/${author.slug}`) }
+      : { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+    publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL, logo: OG_IMAGE },
+    keywords: post.tags.join(", "),
+  };
+
   return (
     <div className="pt-16 min-h-screen">
+      <JsonLd
+        data={[
+          blogPostingSchema,
+          breadcrumbSchema([
+            { name: "Accueil", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: post.title, path: `/blog/${slug}` },
+          ]),
+        ]}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-ink-100 px-6 py-4">
         <div className="max-w-3xl mx-auto flex items-center gap-2 text-xs text-ink-300 font-sans">

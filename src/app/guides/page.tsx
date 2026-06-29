@@ -3,6 +3,7 @@ import { guides } from "@/lib/data";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/guides" },
   title: "Guides MCP",
   description:
     "Guides pas à pas pour connecter Claude à vos outils marketing via le protocole MCP.",

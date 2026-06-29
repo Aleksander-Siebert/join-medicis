@@ -21,6 +21,7 @@ export async function generateMetadata({
   const collection = getCollectionBySlug(slug);
   if (!collection) return {};
   return {
+    alternates: { canonical: `/blog/collections/${slug}` },
     title: collection.label,
     description: collection.description,
   };

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import AuroraGradient from "@/components/effects/AuroraGradient";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact",
   description: "Contactez l'équipe Join Médicis.",
 };

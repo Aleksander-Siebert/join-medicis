@@ -5,6 +5,7 @@ import type { EcosystemCategory } from "@/types";
 import EcosystemLogo from "@/components/ui/EcosystemLogo";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/ecosysteme" },
   title: "Écosystème",
   description:
     "Ressources IA Growth créées par des tiers et recensées éditorialement, classées par catégorie.",

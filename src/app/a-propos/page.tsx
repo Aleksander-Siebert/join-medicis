@@ -4,6 +4,7 @@ import Inspirations from "@/components/about/Inspirations";
 import SupportProject from "@/components/sections/SupportProject";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/a-propos" },
   title: "À propos",
   description:
     "Aleksander Siebert, le projet Join Médicis, la vision, les inspirations et la double licence open-source.",

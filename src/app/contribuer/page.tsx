@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contribuer" },
   title: "Contribuer",
   description:
     "Comment contribuer un Skill ou une ressource à la bibliothèque Join Médicis.",
