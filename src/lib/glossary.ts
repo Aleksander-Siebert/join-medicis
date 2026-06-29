@@ -6,6 +6,8 @@ export type GlossaryTerm = {
   description: string;
   tier: GlossaryTier;
   aliases?: string[];
+  /** Force a specific alphabet bucket (e.g. "#") instead of the first letter. */
+  bucket?: string;
 };
 
 export const tierLabels: Record<GlossaryTier, string> = {
@@ -525,6 +527,95 @@ export const glossary: GlossaryTerm[] = [
       "Discipline consistant à structurer, hiérarchiser et compresser le contexte fourni à un LLM pour optimiser la qualité des réponses.",
     tier: 3,
   },
+
+  // ============ LES IA DU MARCHÉ (regroupées dans la section #) ============
+  {
+    slug: "chatgpt",
+    title: "ChatGPT",
+    description:
+      "Assistant IA conversationnel d'OpenAI, lancé fin 2022. Le plus connu du grand public, propulsé par les modèles GPT.",
+    tier: 1,
+    aliases: ["OpenAI", "GPT"],
+    bucket: "#",
+  },
+  {
+    slug: "claude-ia",
+    title: "Claude",
+    description:
+      "Assistant IA d'Anthropic, réputé pour son raisonnement, sa rédaction longue et son usage agentique (Skills, MCP, Claude Code).",
+    tier: 1,
+    aliases: ["Anthropic"],
+    bucket: "#",
+  },
+  {
+    slug: "gemini",
+    title: "Gemini",
+    description:
+      "Famille de modèles multimodaux de Google, intégrée à Workspace, Android et la recherche. Successeur de Bard.",
+    tier: 1,
+    aliases: ["Google", "Bard"],
+    bucket: "#",
+  },
+  {
+    slug: "perplexity",
+    title: "Perplexity",
+    description:
+      "Moteur de réponse IA qui combine recherche web en temps réel et génération, avec citation des sources. Référence de l'AEO.",
+    tier: 1,
+    bucket: "#",
+  },
+  {
+    slug: "mistral",
+    title: "Mistral (Le Chat)",
+    description:
+      "Laboratoire français d'IA. Ses modèles open-weight et son assistant Le Chat sont la référence souveraine européenne.",
+    tier: 1,
+    aliases: ["Le Chat", "Mistral AI"],
+    bucket: "#",
+  },
+  {
+    slug: "deepseek",
+    title: "DeepSeek",
+    description:
+      "Laboratoire chinois d'IA open-weight, connu pour ses modèles de raisonnement performants à très faible coût.",
+    tier: 1,
+    bucket: "#",
+  },
+  {
+    slug: "grok",
+    title: "Grok",
+    description:
+      "Assistant IA de xAI (Elon Musk), intégré à X, au ton plus provocateur et connecté au flux temps réel du réseau.",
+    tier: 1,
+    aliases: ["xAI"],
+    bucket: "#",
+  },
+  {
+    slug: "llama",
+    title: "Llama",
+    description:
+      "Famille de modèles open-weight de Meta, parmi les plus téléchargés au monde, base de nombreux modèles dérivés.",
+    tier: 1,
+    aliases: ["Meta"],
+    bucket: "#",
+  },
+  {
+    slug: "ollama",
+    title: "Ollama",
+    description:
+      "Outil open-source pour faire tourner des LLM (Llama, Mistral, DeepSeek...) en local sur sa propre machine, sans cloud.",
+    tier: 1,
+    bucket: "#",
+  },
+  {
+    slug: "copilot",
+    title: "Copilot",
+    description:
+      "Assistant IA de Microsoft intégré à Windows, Office 365 et GitHub. S'appuie principalement sur les modèles d'OpenAI.",
+    tier: 1,
+    aliases: ["Microsoft Copilot", "GitHub Copilot"],
+    bucket: "#",
+  },
 ];
 
 /**
@@ -532,6 +623,7 @@ export const glossary: GlossaryTerm[] = [
  * Strips accents (é→e, à→a) and falls back to "#" for non-letter starts.
  */
 export function getBucket(term: GlossaryTerm): string {
+  if (term.bucket) return term.bucket;
   const first = term.title
     .normalize("NFD")
     .replace(/[̀-ͯ]/g, "")

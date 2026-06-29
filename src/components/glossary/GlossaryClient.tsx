@@ -297,7 +297,7 @@ export default function GlossaryClient() {
                   <div className="grid md:grid-cols-[80px_1fr] gap-6">
                     <h2
                       className="font-serif italic text-5xl md:text-6xl text-ink-900 leading-none sticky top-24 self-start"
-                      aria-label={letter === "#" ? "Chiffres" : letter}
+                      aria-label={letter === "#" ? "Les IA du marché" : letter}
                     >
                       {letter}
                     </h2>
