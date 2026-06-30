@@ -96,7 +96,7 @@ export default function ContributeForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className={LABEL} htmlFor="nom_complet">Votre prénom et nom</label>
-          <input id="nom_complet" name="nom_complet" type="text" required className={FIELD} placeholder="Aleksander Siebert" />
+          <input id="nom_complet" name="nom_complet" type="text" required className={FIELD} placeholder="Votre prénom et nom" />
         </div>
         <div>
           <label className={LABEL} htmlFor="email">Votre email</label>
@@ -178,7 +178,7 @@ export default function ContributeForm() {
         </svg>
         <p className="text-xs text-ink-700 font-sans leading-relaxed">
           Vous travaillez pour une ressource déjà listée et un détail est inexact ?
-          Utilisez aussi ce formulaire — l&rsquo;objectif n&rsquo;est jamais de dénigrer,
+          Utilisez aussi ce formulaire, l&rsquo;objectif n&rsquo;est jamais de dénigrer,
           juste d&rsquo;être honnête.
         </p>
       </div>

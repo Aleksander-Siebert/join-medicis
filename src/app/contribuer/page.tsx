@@ -18,8 +18,8 @@ const heroChecks = [
 const pipeline = [
   { n: "1", title: "Soumettez", desc: "Via le formulaire ci-dessous", active: false },
   { n: "2", title: "Je sélectionne", desc: "Validation éditoriale manuelle", active: true },
-  { n: "3", title: "Vous recevez", desc: "Accepté ou refus motivé sous 72 h", active: false },
-  { n: "4", title: "Publication", desc: "+ flair Contributeur sur votre profil", active: false },
+  { n: "3", title: "Réponse", desc: "Un retour en 72h, accepté ou refusé", active: false },
+  { n: "4", title: "Publication", desc: "Une page auteur est créée pour vous remercier !", active: false },
 ];
 
 const checklist = [
@@ -50,14 +50,13 @@ export default function ContributePage() {
           <span className="inline-block text-[11px] tracking-[0.15em] uppercase font-sans font-semibold bg-cream-50/10 text-cream-50 px-3 py-1 rounded-full mb-5">
             Open-source
           </span>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.05] mb-6">
+          <h1 className="font-sans tracking-tight text-4xl md:text-5xl lg:text-6xl font-bold text-cream-50 leading-[1.05] mb-6">
             Contribuer à Join Médicis
           </h1>
           <p className="text-cream-50/85 font-sans leading-relaxed text-base md:text-lg max-w-2xl mx-auto mb-8">
-            Join Médicis ne publie pas tout — et c&rsquo;est voulu. Chaque ressource est
-            testée, vérifiée et sélectionnée par le fondateur avant d&rsquo;apparaître sur le
-            site. Soumettez votre ressource via le formulaire : vous recevrez une réponse
-            sous 72&nbsp;h, acceptée ou non, avec une raison dans les deux cas.
+            Join Médicis ne publie pas tout et c&rsquo;est voulu. Chaque ressource est
+            testée, vérifiée et sélectionnée avant d&rsquo;apparaître sur le site. Soumettez
+            votre ressource via le formulaire : vous recevrez une réponse sous 72h.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
             {heroChecks.map((c) => (
