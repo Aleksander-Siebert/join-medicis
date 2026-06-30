@@ -386,49 +386,55 @@ export default async function AuthorPage({ params }: Props) {
         {/* Sidebar */}
         <aside className="space-y-6 self-start lg:sticky lg:top-24">
           {/* Author stats */}
-          <div className="border border-ink-100 bg-cream-50 p-6">
-            <p className="text-xs tracking-widest uppercase text-ink-300 mb-4 font-sans">
+          <div
+            className="rounded-[25px] p-6 text-cream-50"
+            style={{ background: "linear-gradient(135deg, #0E3F2D 0%, #1F5B43 60%, #2D7259 120%)" }}
+          >
+            <p className="text-xs tracking-widest uppercase text-cream-50/60 mb-4 font-sans">
               Statistiques auteur
             </p>
             <dl className="space-y-3.5 text-sm font-sans">
               <div className="flex items-center justify-between">
-                <dt className="text-ink-500">Skills publiés</dt>
-                <dd className="text-ink-900 font-medium">{authorSkills.length}</dd>
+                <dt className="text-cream-50/75">Skills publiés</dt>
+                <dd className="text-cream-50 font-semibold">{authorSkills.length}</dd>
               </div>
               <div className="flex items-center justify-between">
-                <dt className="text-ink-500">Téléchargements</dt>
-                <dd className="text-forest-900 font-medium">{totalDownloads}</dd>
+                <dt className="text-cream-50/75">Téléchargements</dt>
+                <dd className="text-gold-300 font-semibold">{totalDownloads}</dd>
               </div>
               <div className="flex items-center justify-between">
-                <dt className="text-ink-500">Vues totales</dt>
-                <dd className="text-ink-900 font-medium">{totalViews}</dd>
+                <dt className="text-cream-50/75">Vues totales</dt>
+                <dd className="text-cream-50 font-semibold">{totalViews}</dd>
               </div>
               {lastContribution && (
                 <div className="flex items-center justify-between">
-                  <dt className="text-ink-500">Dernière contribution</dt>
-                  <dd className="text-ink-900 font-medium">{lastContribution}</dd>
+                  <dt className="text-cream-50/75">Dernière contribution</dt>
+                  <dd className="text-cream-50 font-semibold">{lastContribution}</dd>
                 </div>
               )}
               {author.memberSince && (
                 <div className="flex items-center justify-between">
-                  <dt className="text-ink-500">Membre depuis</dt>
-                  <dd className="text-ink-900 font-medium">{author.memberSince}</dd>
+                  <dt className="text-cream-50/75">Membre depuis</dt>
+                  <dd className="text-cream-50 font-semibold">{author.memberSince}</dd>
                 </div>
               )}
             </dl>
           </div>
 
           {/* Write for us */}
-          <div className="border border-ink-100 bg-cream-50 p-6">
-            <p className="text-xs tracking-widest uppercase text-ink-300 mb-2 font-sans">
+          <div
+            className="rounded-[25px] p-6 text-cream-50"
+            style={{ background: "linear-gradient(135deg, #0E3F2D 0%, #1F5B43 60%, #2D7259 120%)" }}
+          >
+            <p className="text-xs tracking-widest uppercase text-cream-50/60 mb-2 font-sans">
               Écrire pour Join Médicis
             </p>
-            <p className="text-sm text-ink-500 leading-relaxed font-sans mb-5">
+            <p className="text-sm text-cream-50/85 leading-relaxed font-sans mb-5">
               Partagez votre expertise avec la communauté Growth &amp; IA francophone.
             </p>
             <Link
               href="/contribuer"
-              className="block text-center text-sm border border-forest-900 text-forest-900 py-2.5 hover:bg-forest-900 hover:text-cream-50 transition-colors font-sans rounded-[8px]"
+              className="block text-center text-sm bg-cream-50 text-forest-900 font-medium py-2.5 hover:bg-cream-100 transition-colors font-sans rounded-[12px]"
             >
               Proposer un Skill
             </Link>
