@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const heroChecks = [
-  "8 critères de qualité",
+  "5 critères de qualité",
   "Validation éditoriale manuelle",
   "Réponse sous 72 h",
 ];
