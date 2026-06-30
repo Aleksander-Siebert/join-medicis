@@ -14,7 +14,7 @@ export interface Author {
   name: string;
   role: string;
   bio: string;
-  /** Photo de profil (chemin public, ex. "/authors/aleksander-siebert.jpg"). À défaut : initiales. */
+  /** Photo de profil (chemin public, ex. "/team/aleksander-siebert.jpg"). À défaut : initiales. */
   avatar?: string;
   /** Bannière personnalisable (chemin public). À défaut : fond vert. */
   banner?: string;

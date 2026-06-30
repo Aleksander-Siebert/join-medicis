@@ -24,8 +24,10 @@ const nextConfig: NextConfig = {
       },
 
       // /authors → /auteurs
+      // :slug([^.]+) exclut les segments avec un point (assets) pour ne pas
+      // intercepter d'éventuels fichiers servis sous /authors/.
       { source: "/authors", destination: "/auteurs", permanent: true },
-      { source: "/authors/:slug*", destination: "/auteurs/:slug*", permanent: true },
+      { source: "/authors/:slug([^.]+)", destination: "/auteurs/:slug", permanent: true },
 
       // /ressources/ecosysteme → /ecosysteme
       { source: "/ressources/ecosysteme", destination: "/ecosysteme", permanent: true },

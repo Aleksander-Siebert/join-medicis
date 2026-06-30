@@ -13,8 +13,8 @@ export const authors: Author[] = [
     name: "Aleksander Siebert",
     role: "Growth Marketer · Fondateur Join Médicis",
     bio: "Growth Marketer francophone obsédé par l'intersection IA & marketing. Fondateur de Join Médicis pour rendre l'IA accessible aux marketeurs sans compétences techniques.",
-    avatar: "/authors/aleksander-siebert.jpg",
-    banner: "/authors/aleksander-banner.jpg",
+    avatar: "/team/aleksander-siebert.jpg",
+    banner: "/team/aleksander-banner.jpg",
     favoriteAI: "Claude",
     tags: ["#Growth", "#IA", "#SEO", "#Claude", "#B2B", "#NoCode"],
     expertise: [
