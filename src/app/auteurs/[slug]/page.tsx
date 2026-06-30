@@ -183,24 +183,30 @@ export default async function AuthorPage({ params }: Props) {
 
         {/* Identity card */}
         <div className="bg-cream-50 border border-ink-100 border-t-0 rounded-b-[16px] px-6 md:px-8 pb-8">
-          {/* Avatar overlapping the banner */}
-          {hasAvatar ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={author.avatar}
-              alt={author.name}
-              width={88}
-              height={88}
-              className="w-[88px] h-[88px] rounded-full object-cover ring-4 ring-cream-50 -mt-11 mb-4"
-            />
-          ) : (
-            <div
-              className="w-[88px] h-[88px] rounded-full bg-forest-900 text-cream-50 flex items-center justify-center font-sans font-bold text-2xl ring-4 ring-cream-50 -mt-11 mb-4"
-              aria-hidden="true"
-            >
-              {initials}
-            </div>
-          )}
+          {/* Avatar overlapping the banner — foreground + link to all authors */}
+          <Link
+            href="/auteurs"
+            aria-label="Voir tous les auteurs"
+            className="relative z-10 inline-block -mt-12 mb-4 rounded-full"
+          >
+            {hasAvatar ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={author.avatar}
+                alt={author.name}
+                width={88}
+                height={88}
+                className="w-[88px] h-[88px] rounded-full object-cover ring-4 ring-cream-50 shadow-[0_8px_24px_-8px_rgba(0,0,0,0.4)] hover:ring-forest-900/30 transition"
+              />
+            ) : (
+              <span
+                className="w-[88px] h-[88px] rounded-full bg-forest-900 text-cream-50 flex items-center justify-center font-sans font-bold text-2xl ring-4 ring-cream-50 shadow-[0_8px_24px_-8px_rgba(0,0,0,0.4)]"
+                aria-hidden="true"
+              >
+                {initials}
+              </span>
+            )}
+          </Link>
 
           {/* Name + favorite AI badge */}
           <div className="flex flex-wrap items-center gap-3 mb-1">

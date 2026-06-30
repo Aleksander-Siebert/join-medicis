@@ -25,8 +25,7 @@ export const authors: Author[] = [
       "Cold Outbound",
       "Stratégie B2B",
     ],
-    quote:
-      "Je crois que l'IA doit être accessible à tous les marketeurs — sans jargon, sans code, sans hype.",
+    quote: "Je veux rendre l'IA accessible pour tout le monde.",
     location: "Basé en France",
     memberSince: "Janvier 2025",
     links: {
