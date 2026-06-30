@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
 import AuroraGradient from "@/components/effects/AuroraGradient";
+import ContactForm from "@/components/contact/ContactForm";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
   title: "Contact",
   description: "Contactez l'équipe Join Médicis.",
 };
-
-const FIELD =
-  "w-full px-4 py-3 bg-cream-50 border border-ink-200 rounded-[12px] text-ink-900 text-sm font-sans placeholder:text-ink-400 focus:border-forest-900 focus:outline-none focus:ring-2 focus:ring-forest-900/15 transition-colors";
-const LABEL =
-  "block text-xs tracking-widest uppercase text-ink-700 mb-2 font-sans font-semibold";
 
 export default function ContactPage() {
   return (
@@ -51,50 +47,7 @@ export default function ContactPage() {
         />
 
         <div className="max-w-lg mx-auto bg-cream-50/95 backdrop-blur-sm border border-ink-100 rounded-[24px] p-8 md:p-10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.35)]">
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className={LABEL}>Prénom</label>
-                <input type="text" className={FIELD} placeholder="Votre prénom" />
-              </div>
-              <div>
-                <label className={LABEL}>Nom</label>
-                <input type="text" className={FIELD} placeholder="Votre nom" />
-              </div>
-            </div>
-
-            <div>
-              <label className={LABEL}>Email</label>
-              <input type="email" className={FIELD} placeholder="votre@email.com" />
-            </div>
-
-            <div>
-              <label className={LABEL}>Sujet</label>
-              <select className={`${FIELD} appearance-none`}>
-                <option value="">Sélectionnez un sujet</option>
-                <option value="skill">Question sur un Skill</option>
-                <option value="contribution">Proposer une contribution</option>
-                <option value="partenariat">Partenariat</option>
-                <option value="autre">Autre</option>
-              </select>
-            </div>
-
-            <div>
-              <label className={LABEL}>Message</label>
-              <textarea
-                rows={5}
-                className={`${FIELD} resize-none`}
-                placeholder="Votre message..."
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full py-3.5 bg-forest-900 text-cream-50 text-sm tracking-wide hover:bg-forest-700 transition-colors font-sans font-medium rounded-[12px]"
-            >
-              Envoyer le message
-            </button>
-          </form>
+          <ContactForm />
 
           <div className="mt-10 pt-8 border-t border-ink-100">
             <p className="text-xs tracking-widest uppercase text-ink-700 mb-4 font-sans font-semibold">
