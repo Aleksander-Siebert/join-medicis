@@ -1,150 +1,168 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import AuroraGradient from "@/components/effects/AuroraGradient";
+import ContributeForm from "@/components/contribuer/ContributeForm";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/contribuer" },
   title: "Contribuer",
   description:
-    "Comment contribuer un Skill ou une ressource à la bibliothèque Join Médicis.",
+    "Proposez un Skill, un serveur MCP ou une ressource à Join Médicis. Chaque soumission est testée et validée manuellement, réponse sous 72 h.",
 };
 
-const steps = [
-  {
-    number: "01",
-    title: "Préparer",
-    desc: "Lisez CONTRIBUTING.md sur GitHub. Vérifiez que la ressource n'existe pas déjà. Assurez-vous d'avoir des métriques de résultat réels à documenter.",
-  },
-  {
-    number: "02",
-    title: "Créer",
-    desc: "Forkez le repo, créez votre fichier depuis _template.md, remplissez le frontmatter YAML et testez sur au moins 3 cas d'usage différents.",
-  },
-  {
-    number: "03",
-    title: "Soumettre",
-    desc: "Ouvrez une Pull Request vers main avec le template fourni. Délai de review : 72h maximum.",
-  },
-  {
-    number: "04",
-    title: "Publier",
-    desc: "Après merge, la ressource apparaît automatiquement sur joinmedicis.com. Vous recevez le flair Contributeur.",
-  },
+const heroChecks = [
+  "8 critères de qualité",
+  "Validation éditoriale manuelle",
+  "Réponse sous 72 h",
+];
+
+const pipeline = [
+  { n: "1", title: "Soumettez", desc: "Via le formulaire ci-dessous", active: false },
+  { n: "2", title: "Je sélectionne", desc: "Validation éditoriale manuelle", active: true },
+  { n: "3", title: "Vous recevez", desc: "Accepté ou refus motivé sous 72 h", active: false },
+  { n: "4", title: "Publication", desc: "+ flair Contributeur sur votre profil", active: false },
 ];
 
 const checklist = [
-  "Frontmatter YAML complet (tous les champs renseignés)",
-  "Skill testé sur au moins 3 cas d'usage différents",
-  "Métriques de résultat documentées (chiffrées ou estimées)",
-  "Étapes d'installation claires (3 max)",
-  "Section compatibilité LLM complète",
-  "Rédigé en français natif (pas une traduction)",
-  "Pas de clé API ou credential dans le fichier",
-  "Licence MIT respectée",
+  "La ressource a été testée en conditions réelles par un humain.",
+  "Elle apporte quelque chose qui n'existe pas encore dans l'écosystème.",
+  "Des métriques de résultat ou cas d'usage concrets sont documentés.",
+  "Aucun credential ou clé API exposé.",
+  "Rédigé en français natif, pas une traduction automatique.",
 ];
+
+function Check() {
+  return (
+    <span className="w-5 h-5 rounded-full bg-forest-100 flex items-center justify-center shrink-0 mt-0.5">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0E3F2D" strokeWidth="3" aria-hidden="true">
+        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  );
+}
 
 export default function ContributePage() {
   return (
     <div className="pt-16 min-h-screen">
-      {/* Header */}
-      <div className="border-b border-ink-100 px-6 py-20">
-        <div className="max-w-3xl mx-auto text-center">
-          <div
-            className="w-px h-16 bg-gradient-to-b from-transparent to-ink-100 mx-auto mb-12"
-            aria-hidden="true"
-          />
-          <p className="text-xs tracking-widest uppercase text-ink-300 mb-4 font-sans">
+      {/* ===================== HERO (green banner) ===================== */}
+      <div className="relative bg-forest-900 text-cream-50 px-6 py-20 overflow-hidden">
+        <AuroraGradient />
+        <div className="relative max-w-3xl mx-auto text-center">
+          <span className="inline-block text-[11px] tracking-[0.15em] uppercase font-sans font-semibold bg-cream-50/10 text-cream-50 px-3 py-1 rounded-full mb-5">
             Open-source
-          </p>
-          <h1 className="font-serif text-5xl font-light text-ink-900 mb-6">
+          </span>
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.05] mb-6">
             Contribuer à Join Médicis
           </h1>
-          <p className="text-ink-500 font-sans leading-relaxed">
-            Chaque ressource publiée a été testée par un humain, dans des
-            conditions réelles. Si vous avez développé un Skill qui fonctionne,
-            partagez-le.
+          <p className="text-cream-50/85 font-sans leading-relaxed text-base md:text-lg max-w-2xl mx-auto mb-8">
+            Join Médicis ne publie pas tout — et c&rsquo;est voulu. Chaque ressource est
+            testée, vérifiée et sélectionnée par le fondateur avant d&rsquo;apparaître sur le
+            site. Soumettez votre ressource via le formulaire : vous recevrez une réponse
+            sous 72&nbsp;h, acceptée ou non, avec une raison dans les deux cas.
           </p>
-        </div>
-      </div>
-
-      {/* Process */}
-      <div className="px-6 py-20">
-        <div className="max-w-3xl mx-auto">
-          <div className="flex items-center gap-5 mb-12">
-            <span className="text-xs tracking-widest uppercase text-ink-300 font-sans shrink-0">
-              Pipeline
-            </span>
-            <div className="flex-1 h-px bg-ink-100" aria-hidden="true" />
-          </div>
-
-          <div className="space-y-12">
-            {steps.map((step) => (
-              <div key={step.number} className="flex gap-8">
-                <span className="font-serif text-5xl font-light text-ink-100 leading-none shrink-0 select-none">
-                  {step.number}
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+            {heroChecks.map((c) => (
+              <span key={c} className="inline-flex items-center gap-2 text-sm text-cream-50/90 font-sans">
+                <span className="w-5 h-5 rounded-full bg-cream-50/15 flex items-center justify-center shrink-0">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </span>
-                <div className="pt-2">
-                  <h3 className="font-serif text-2xl font-light text-ink-900 mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-ink-500 font-sans leading-relaxed">
-                    {step.desc}
-                  </p>
+                {c}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ===================== CONTENT over the fresco ===================== */}
+      <div className="relative px-6 py-20 overflow-hidden">
+        {/* Background painting */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-center bg-no-repeat bg-cover"
+          style={{ backgroundImage: "url('/michelangelo-creation-adam.webp')" }}
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "radial-gradient(ellipse 75% 55% at 50% 30%, rgba(250,247,240,0.88) 0%, rgba(250,247,240,0.7) 55%, rgba(250,247,240,0.45) 100%)",
+          }}
+        />
+
+        <div className="max-w-3xl mx-auto space-y-14">
+          {/* Pipeline — comment ça marche */}
+          <section>
+            <p className="text-xs tracking-[0.15em] uppercase text-forest-900 font-sans font-semibold mb-5">
+              Comment ça marche
+            </p>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+              {pipeline.map((step) => (
+                <div
+                  key={step.n}
+                  className={`rounded-[16px] p-5 text-center border ${
+                    step.active
+                      ? "bg-cream-100 border-forest-900/30"
+                      : "bg-cream-50/95 border-ink-100"
+                  }`}
+                >
+                  <div
+                    className={`w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-3 text-sm font-sans font-semibold ${
+                      step.active ? "bg-forest-900 text-cream-50" : "bg-forest-100 text-forest-900"
+                    }`}
+                  >
+                    {step.n}
+                  </div>
+                  <p className="text-sm font-sans font-semibold text-ink-900 mb-1">{step.title}</p>
+                  <p className="text-xs text-ink-500 font-sans leading-relaxed">{step.desc}</p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+              ))}
+            </div>
+          </section>
 
-      {/* Checklist */}
-      <div className="border-t border-ink-100 px-6 py-16 bg-cream-200">
-        <div className="max-w-3xl mx-auto">
-          <div className="flex items-center gap-5 mb-10">
-            <span className="text-xs tracking-widest uppercase text-ink-300 font-sans shrink-0">
+          {/* Submission form */}
+          <section className="bg-cream-50/95 backdrop-blur-sm border border-ink-100 rounded-[24px] p-8 md:p-10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.35)]">
+            <p className="text-xs tracking-[0.15em] uppercase text-forest-900 font-sans font-semibold mb-1.5">
+              Formulaire de soumission
+            </p>
+            <h2 className="font-serif text-2xl md:text-3xl font-medium text-ink-900 mb-7">
+              Proposer une ressource
+            </h2>
+            <ContributeForm />
+          </section>
+
+          {/* Quality checklist */}
+          <section className="bg-cream-50/95 backdrop-blur-sm border border-ink-100 rounded-[24px] p-8 md:p-10">
+            <p className="text-xs tracking-[0.15em] uppercase text-forest-900 font-sans font-semibold mb-1.5">
               Checklist qualité
-            </span>
-            <div className="flex-1 h-px bg-ink-300" aria-hidden="true" />
-          </div>
-          <p className="text-ink-500 font-sans text-sm mb-8">
-            Règle absolue : aucune ressource non testée ne se publie.
-          </p>
-          <ul className="space-y-3">
-            {checklist.map((item, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <span className="text-forest-900 mt-0.5 shrink-0">✓</span>
-                <span className="text-sm text-ink-700 font-sans">{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+            </p>
+            <h2 className="font-serif text-2xl md:text-3xl font-medium text-ink-900 mb-6">
+              Ce que je vérifie avant d&rsquo;accepter
+            </h2>
+            <ul className="space-y-3">
+              {checklist.map((item) => (
+                <li key={item} className="flex gap-3 items-start">
+                  <Check />
+                  <span className="text-sm text-ink-900 font-sans leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
 
-      {/* CTA */}
-      <div className="border-t border-ink-100 px-6 py-16">
-        <div className="max-w-xl mx-auto text-center">
-          <h2 className="font-serif text-3xl font-light text-ink-900 mb-4">
-            Prêt à contribuer ?
-          </h2>
-          <p className="text-ink-500 font-sans text-sm leading-relaxed mb-8">
-            Commencez par lire CONTRIBUTING.md sur GitHub, puis soumettez
-            votre Pull Request.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          {/* GitHub mention */}
+          <p className="text-sm text-ink-700 font-sans leading-relaxed border-t border-ink-200/60 pt-8">
+            Vous préférez contribuer directement via GitHub ?{" "}
             <a
-              href="https://github.com/aleksander-siebert"
+              href="https://github.com/Aleksander-Siebert/join-medicis"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-forest-900 text-cream-50 text-sm font-sans hover:bg-forest-700 transition-colors"
+              className="text-forest-900 font-medium underline underline-offset-4 hover:text-forest-700 transition-colors"
             >
-              Voir le repo GitHub →
-            </a>
-            <Link
-              href="/contact"
-              className="px-6 py-3 border border-ink-200 text-ink-700 text-sm font-sans hover:border-ink-400 transition-colors"
-            >
-              Une question ?
-            </Link>
-          </div>
+              Le repo est ouvert
+            </a>{" "}
+            — lisez le CONTRIBUTING.md avant d&rsquo;ouvrir une PR.
+          </p>
         </div>
       </div>
     </div>
