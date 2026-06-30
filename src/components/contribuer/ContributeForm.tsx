@@ -114,11 +114,13 @@ export default function ContributeForm() {
         <label className={LABEL} htmlFor="type">Type de ressource</label>
         <select id="type" name="type" required className={`${FIELD} appearance-none`} defaultValue="">
           <option value="" disabled>Sélectionnez un type</option>
-          <option value="Skill Claude">Skill Claude</option>
-          <option value="Serveur MCP">Serveur MCP</option>
           <option value="Ressource écosystème">Ressource écosystème (outil, individu, communauté…)</option>
-          <option value="Workflow / Automation">Workflow / Automation</option>
-          <option value="Autre">Autre</option>
+          <option value="Skills">Skills</option>
+          <option value="MCP">MCP</option>
+          <option value="Plugins">Plugins</option>
+          <option value="Automations">Automations</option>
+          <option value="Agents IA">Agents IA</option>
+          <option value="Autres">Autres</option>
         </select>
       </div>
 
