@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import Link from "next/link";
 import { authors, skills } from "@/lib/data";
 import type { Metadata } from "next";
@@ -16,6 +18,16 @@ function initials(name: string) {
     .join("")
     .slice(0, 2)
     .toUpperCase();
+}
+
+/** True if a /public asset exists (same photo source as the author page). */
+function publicFileExists(p?: string): boolean {
+  if (!p) return false;
+  try {
+    return fs.existsSync(path.join(process.cwd(), "public", p.replace(/^\//, "")));
+  } catch {
+    return false;
+  }
 }
 
 export default function AuthorsPage() {
@@ -81,12 +93,23 @@ export default function AuthorsPage() {
               >
                 {/* Identity */}
                 <div className="flex items-center gap-4 mb-5">
-                  <span
-                    className="w-14 h-14 rounded-full bg-forest-900 text-cream-50 flex items-center justify-center font-sans font-bold text-lg shrink-0"
-                    aria-hidden="true"
-                  >
-                    {initials(author.name)}
-                  </span>
+                  {publicFileExists(author.avatar) ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={author.avatar}
+                      alt={author.name}
+                      width={56}
+                      height={56}
+                      className="w-14 h-14 rounded-full object-cover shrink-0"
+                    />
+                  ) : (
+                    <span
+                      className="w-14 h-14 rounded-full bg-forest-900 text-cream-50 flex items-center justify-center font-sans font-bold text-lg shrink-0"
+                      aria-hidden="true"
+                    >
+                      {initials(author.name)}
+                    </span>
+                  )}
                   <div className="min-w-0">
                     <h2 className="font-serif text-xl text-ink-900 font-medium leading-tight group-hover:text-forest-900 transition-colors truncate">
                       {author.name}
