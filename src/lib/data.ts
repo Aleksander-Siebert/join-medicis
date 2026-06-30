@@ -353,13 +353,60 @@ export const ecosystem: EcosystemResource[] = [
       "Les Skills officiels de Lemlist pour personnaliser les séquences d'outreach avec Claude.",
     description:
       "Lemlist met à disposition des Skills officiels pour piloter ses séquences de cold outreach directement avec Claude. L'objectif : personnaliser à l'échelle sans perdre la voix de marque, et industrialiser la rédaction des emails et des relances.",
-    url: "https://www.lemlist.com",
+    url: "https://www.lemlist.com/fr/claude-skills",
     type: "Skills",
     lang: "EN + FR",
     highlights: [
       "Personnalisation des séquences d'outreach assistée par IA",
       "Pensé pour les équipes Sales & Growth B2B",
       "Compatible avec les workflows lemlist existants",
+    ],
+    whatYouGet: [
+      {
+        icon: "skill",
+        title: "3 Skills prêtes à l'emploi",
+        desc: "Rédaction d'email de prospection, relance automatique, personnalisation par profil LinkedIn.",
+      },
+      {
+        icon: "file",
+        title: "Guide d'installation pas à pas",
+        desc: "Un fichier à importer dans Claude, aucune configuration complexe.",
+      },
+      {
+        icon: "video",
+        title: "Vidéo de démonstration officielle",
+        desc: "Le résultat concret sur une vraie séquence d'outreach.",
+      },
+    ],
+    strengths: [
+      "Personnalisation réelle, sans copier-coller manuel",
+      "Installation en moins de 5 minutes",
+      "Maintenu activement par l'équipe Lemlist",
+    ],
+    limitations: [
+      "Compte Lemlist payant requis pour l'usage complet",
+      "Pensé pour le B2B SaaS, moins pertinent ailleurs",
+      "Pas encore optimisé pour Claude Code",
+    ],
+    videoUrl: "https://www.youtube.com/watch?v=kF8Cn6C5wts",
+    videoLabel: "Vidéo de présentation",
+    faq: [
+      {
+        q: "Comment installer les Skills Lemlist dans Claude ?",
+        a: "Téléchargez le fichier depuis la page Lemlist, puis importez-le dans Claude via Réglages → Capacités → Skills.",
+      },
+      {
+        q: "Les Skills Lemlist sont-elles gratuites ?",
+        a: "Les Skills sont gratuites à télécharger. Un compte Lemlist payant reste nécessaire pour exploiter pleinement les séquences d'outreach.",
+      },
+      {
+        q: "Faut-il un compte Lemlist actif ?",
+        a: "Pour tester les Skills dans Claude, non. Pour les utiliser sur de vraies campagnes d'outreach, un compte Lemlist actif est requis.",
+      },
+      {
+        q: "Fonctionnent-elles avec Claude Code ?",
+        a: "Elles sont pensées pour Claude (application et API). L'optimisation pour Claude Code n'est pas encore disponible.",
+      },
     ],
   },
   {

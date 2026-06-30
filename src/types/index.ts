@@ -124,4 +124,18 @@ export interface EcosystemResource {
   lang?: string;
   /** Points clés listés sur la page détail. */
   highlights?: string[];
+  /** "Ce qu'on y trouve" : contenu concret de la ressource. */
+  whatYouGet?: { icon?: "skill" | "file" | "video" | "code" | "check"; title: string; desc: string }[];
+  /** Forces, testées en conditions réelles. */
+  strengths?: string[];
+  /** Limites, en toute honnêteté. */
+  limitations?: string[];
+  /** URL YouTube (watch ou embed) d'une vidéo de présentation. */
+  videoUrl?: string;
+  /** Libellé de la vidéo (ex. "Vidéo de présentation"). */
+  videoLabel?: string;
+  /** Créateurs de la ressource. */
+  creators?: { name: string; role: string; contribution: string }[];
+  /** Questions fréquentes spécifiques à la ressource. */
+  faq?: { q: string; a: string }[];
 }

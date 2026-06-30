@@ -34,6 +34,16 @@
   }
 }
 
+@layer components {
+  /* Ecosystem detail page — eyebrow label + category pills */
+  .jm-eyebrow {
+    @apply block text-[11px] tracking-[0.08em] uppercase text-forest-900 font-sans font-semibold mb-3;
+  }
+  .jm-pill {
+    @apply inline-block text-[10px] tracking-wide uppercase text-forest-800 bg-forest-100 px-2.5 py-0.5 rounded-full font-sans;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
