@@ -19,7 +19,11 @@ function initials(name: string) {
 }
 
 export default function AuthorsPage() {
-  const totalSkills = skills.length;
+  const visibleAuthors = authors.filter((a) => !a.hidden);
+  const totalSkills = skills.filter((s) =>
+    visibleAuthors.some((a) => a.slug === s.authorSlug),
+  ).length;
+  const placeholderCount = 3;
 
   return (
     <div className="pt-16 min-h-screen bg-cream-100">
@@ -30,8 +34,8 @@ export default function AuthorsPage() {
             Les Auteurs
           </h1>
           <p className="text-ink-700 font-sans text-lg">
-            <span className="text-forest-900 font-semibold">{authors.length}</span>{" "}
-            contributeur{authors.length > 1 ? "s" : ""} font vivre{" "}
+            <span className="text-forest-900 font-semibold">{visibleAuthors.length}</span>{" "}
+            contributeur{visibleAuthors.length > 1 ? "s" : ""} font vivre{" "}
             <span className="text-forest-900 font-semibold">{totalSkills}</span>{" "}
             ressource{totalSkills > 1 ? "s" : ""} sur Join Médicis.
           </p>
@@ -60,7 +64,7 @@ export default function AuthorsPage() {
       {/* ===================== AUTHORS GRID ===================== */}
       <section className="px-6 pb-20">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {authors.map((author) => {
+          {visibleAuthors.map((author) => {
             const authorSkills = skills.filter((s) => s.authorSlug === author.slug);
             const count = authorSkills.length;
             const totalDownloads = authorSkills.reduce(
@@ -125,6 +129,27 @@ export default function AuthorsPage() {
               </Link>
             );
           })}
+
+          {/* Placeholders — places à prendre */}
+          {Array.from({ length: placeholderCount }).map((_, i) => (
+            <Link
+              key={`placeholder-${i}`}
+              href="/contribuer"
+              className="group flex flex-col items-center justify-center text-center min-h-[200px] rounded-[20px] border-2 border-dashed border-ink-200 hover:border-forest-900/40 hover:bg-forest-50/30 transition-colors p-6"
+            >
+              <span className="w-12 h-12 rounded-full border-2 border-dashed border-ink-200 group-hover:border-forest-900/50 flex items-center justify-center text-ink-300 group-hover:text-forest-900 transition-colors mb-4">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 5v14M5 12h14" strokeLinecap="round" />
+                </svg>
+              </span>
+              <span className="font-serif text-lg text-ink-400 group-hover:text-forest-900 transition-colors">
+                Cette place vous attend
+              </span>
+              <span className="text-xs text-ink-300 font-sans mt-1">
+                Contribuer →
+              </span>
+            </Link>
+          ))}
         </div>
       </section>
 

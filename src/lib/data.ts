@@ -13,6 +13,9 @@ export const authors: Author[] = [
     name: "Aleksander Siebert",
     role: "Growth Marketer · Fondateur Join Médicis",
     bio: "Growth Marketer francophone obsédé par l'intersection IA & marketing. Fondateur de Join Médicis pour rendre l'IA accessible aux marketeurs sans compétences techniques.",
+    avatar: "/authors/aleksander-siebert.jpg",
+    banner: "/authors/aleksander-banner.jpg",
+    favoriteAI: "Claude",
     tags: ["#Growth", "#IA", "#SEO", "#Claude", "#B2B", "#NoCode"],
     expertise: [
       "Growth Marketing",
@@ -33,6 +36,7 @@ export const authors: Author[] = [
   },
   {
     slug: "jeremy-goillot",
+    hidden: true,
     name: "Jérémy Goillot",
     role: "Head of Growth · Spendesk",
     bio: "10+ ans en Growth B2B. Spécialiste cold outbound, content marketing et architecture de funnels.",
@@ -51,6 +55,7 @@ export const authors: Author[] = [
   },
   {
     slug: "claire-martin",
+    hidden: true,
     name: "Claire Martin",
     role: "Senior SEO Consultant",
     bio: "Consultante SEO indépendante, ex-Doctolib. Spécialiste briefs éditoriaux et architectures de clusters pour le marché francophone.",
@@ -69,6 +74,7 @@ export const authors: Author[] = [
   },
   {
     slug: "corey-haines",
+    hidden: true,
     name: "Corey Haines",
     role: "Marketing Skills · marketingskills.io",
     bio: "Auteur de la bibliothèque open-source marketingskills (MIT). Spécialiste SEO programmatique et AI SEO. Ses Skills sont republiés ici avec attribution.",

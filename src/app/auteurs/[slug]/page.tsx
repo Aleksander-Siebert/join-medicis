@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { authors, skills, blogArticles } from "@/lib/data";
@@ -5,6 +7,29 @@ import SkillCard from "@/components/ui/SkillCard";
 import type { Metadata } from "next";
 import JsonLd from "@/components/seo/JsonLd";
 import { absoluteUrl, breadcrumbSchema } from "@/lib/seo";
+
+/** True if a /public asset actually exists (graceful image fallback at build). */
+function publicFileExists(p?: string): boolean {
+  if (!p) return false;
+  try {
+    return fs.existsSync(path.join(process.cwd(), "public", p.replace(/^\//, "")));
+  } catch {
+    return false;
+  }
+}
+
+function relativeDays(iso?: string): string | null {
+  if (!iso) return null;
+  const then = new Date(iso).getTime();
+  if (Number.isNaN(then)) return null;
+  const days = Math.floor((Date.now() - then) / 86_400_000);
+  if (days <= 0) return "Aujourd'hui";
+  if (days === 1) return "Hier";
+  if (days < 30) return `Il y a ${days} jours`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `Il y a ${months} mois`;
+  return `Il y a ${Math.floor(months / 12)} an(s)`;
+}
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -36,12 +61,6 @@ const GitHubIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   </svg>
 );
 
-const TwitterIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-  </svg>
-);
-
 const GlobeIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
     <circle cx="12" cy="12" r="9" strokeWidth={1.5} />
@@ -56,12 +75,6 @@ const MapPinIcon = ({ className = "w-3.5 h-3.5" }: { className?: string }) => (
   </svg>
 );
 
-const MailIcon = ({ className = "w-3.5 h-3.5" }: { className?: string }) => (
-  <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-    <rect x="3" y="5" width="18" height="14" rx="2" strokeWidth={1.5} />
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.5 7l8.5 6 8.5-6" />
-  </svg>
-);
 
 /* Map des catégories de Skills vers des hashtags / domaines lisibles */
 const CATEGORY_LABELS: Record<string, { tag: string; focus: string }> = {
@@ -105,6 +118,17 @@ export default async function AuthorPage({ params }: Props) {
     .join("")
     .slice(0, 2);
 
+  const hasAvatar = publicFileExists(author.avatar);
+  const hasBanner = publicFileExists(author.banner);
+
+  // Dernière contribution : skill le plus récent
+  const lastPublished = authorSkills
+    .map((s) => s.publishedAt)
+    .filter(Boolean)
+    .sort()
+    .at(-1);
+  const lastContribution = relativeDays(lastPublished);
+
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -135,118 +159,136 @@ export default async function AuthorPage({ params }: Props) {
         ]}
       />
       {/* ---------- Profile header ---------- */}
-      <section className="border-b border-ink-100 bg-gradient-to-b from-cream-200/70 to-cream-100">
-        <div className="max-w-6xl mx-auto px-6 py-14">
-          <div className="flex flex-col sm:flex-row items-start gap-7">
-            {/* Avatar */}
+      <section className="max-w-6xl mx-auto px-6 pt-10">
+        {/* Banner */}
+        <div className="relative h-28 md:h-36 rounded-t-[16px] overflow-hidden bg-forest-900">
+          {hasBanner && (
             <div
-              className="w-24 h-24 rounded-full bg-forest-900 text-cream-50 flex items-center justify-center font-serif text-3xl shrink-0 ring-4 ring-cream-50"
+              className="absolute inset-0 bg-center bg-cover"
+              style={{ backgroundImage: `url('${author.banner}')` }}
+              aria-hidden="true"
+            />
+          )}
+          {!hasBanner && (
+            <span className="absolute right-3 top-3 inline-flex items-center gap-1.5 bg-cream-50/85 text-forest-900 text-[11px] px-2.5 py-1 rounded-md font-sans">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <circle cx="8.5" cy="10" r="1.5" />
+                <path d="M21 16l-5-5L5 21" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Bannière personnalisable
+            </span>
+          )}
+        </div>
+
+        {/* Identity card */}
+        <div className="bg-cream-50 border border-ink-100 border-t-0 rounded-b-[16px] px-6 md:px-8 pb-8">
+          {/* Avatar overlapping the banner */}
+          {hasAvatar ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={author.avatar}
+              alt={author.name}
+              width={88}
+              height={88}
+              className="w-[88px] h-[88px] rounded-full object-cover ring-4 ring-cream-50 -mt-11 mb-4"
+            />
+          ) : (
+            <div
+              className="w-[88px] h-[88px] rounded-full bg-forest-900 text-cream-50 flex items-center justify-center font-sans font-bold text-2xl ring-4 ring-cream-50 -mt-11 mb-4"
               aria-hidden="true"
             >
               {initials}
             </div>
+          )}
 
-            <div className="min-w-0">
-              <h1 className="font-serif text-3xl md:text-4xl font-light text-ink-900 mb-1.5">
-                {author.name}
-              </h1>
-              <p className="text-sm text-ink-500 font-sans mb-4">{author.role}</p>
+          {/* Name + favorite AI badge */}
+          <div className="flex flex-wrap items-center gap-3 mb-1">
+            <h1 className="font-serif text-2xl md:text-3xl font-semibold text-ink-900">
+              {author.name}
+            </h1>
+            {author.favoriteAI && (
+              <span className="inline-flex items-center gap-1.5 bg-cream-50 border border-ink-100 text-ink-500 text-xs px-2.5 py-1 rounded-full font-sans">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0E3F2D" strokeWidth="1.8" aria-hidden="true">
+                  <path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3z" strokeLinejoin="round" />
+                </svg>
+                IA préférée · {author.favoriteAI}
+              </span>
+            )}
+          </div>
+          <p className="text-sm text-ink-500 font-sans mb-3">{author.role}</p>
 
-              {/* Hashtags */}
-              {tags.length > 0 && (
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {tags.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs font-sans bg-forest-100 text-forest-800 px-2.5 py-1 rounded-full"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              )}
-
-              {/* Location + email */}
-              {(author.location || author.email) && (
-                <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-ink-500 font-sans mb-5">
-                  {author.location && (
-                    <span className="inline-flex items-center gap-1.5">
-                      <MapPinIcon /> {author.location}
-                    </span>
-                  )}
-                  {author.email && (
-                    <a
-                      href={`mailto:${author.email}`}
-                      className="inline-flex items-center gap-1.5 hover:text-ink-900 transition-colors"
-                    >
-                      <MailIcon /> {author.email}
-                    </a>
-                  )}
-                </div>
-              )}
-
-              {/* Subscribe + social */}
-              <div className="flex flex-wrap items-center gap-4">
-                <Link
-                  href="/contribuer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-forest-900 text-cream-50 text-sm hover:bg-forest-700 transition-colors font-sans"
+          {/* Hashtags */}
+          {tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-3">
+              {tags.map((t) => (
+                <span
+                  key={t}
+                  className="text-xs font-sans bg-forest-50 text-forest-800 px-2.5 py-1 rounded-md"
                 >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18 9v3m0 0v3m0-3h3m-3 0h-3M9 12a4 4 0 100-8 4 4 0 000 8zm0 0c-3.3 0-6 2-6 4.5V18h9" />
-                  </svg>
-                  S&rsquo;abonner à cet auteur
-                </Link>
-
-                {author.links && (
-                  <div className="flex items-center gap-3 text-ink-300">
-                    {author.links.linkedin && (
-                      <a
-                        href={author.links.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="LinkedIn"
-                        className="hover:text-forest-900 transition-colors"
-                      >
-                        <LinkedInIcon className="w-[18px] h-[18px]" />
-                      </a>
-                    )}
-                    {author.links.twitter && (
-                      <a
-                        href={author.links.twitter}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Twitter / X"
-                        className="hover:text-forest-900 transition-colors"
-                      >
-                        <TwitterIcon className="w-[18px] h-[18px]" />
-                      </a>
-                    )}
-                    {author.links.github && (
-                      <a
-                        href={author.links.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="GitHub"
-                        className="hover:text-forest-900 transition-colors"
-                      >
-                        <GitHubIcon className="w-[18px] h-[18px]" />
-                      </a>
-                    )}
-                    {author.links.website && (
-                      <a
-                        href={author.links.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Site web"
-                        className="hover:text-forest-900 transition-colors"
-                      >
-                        <GlobeIcon className="w-[18px] h-[18px]" />
-                      </a>
-                    )}
-                  </div>
-                )}
-              </div>
+                  {t}
+                </span>
+              ))}
             </div>
+          )}
+
+          {/* Location */}
+          {author.location && (
+            <p className="inline-flex items-center gap-1.5 text-xs text-ink-500 font-sans mb-5">
+              <MapPinIcon /> {author.location}
+            </p>
+          )}
+
+          {/* LinkedIn button + icon buttons */}
+          <div className="flex items-center gap-2.5">
+            <a
+              href={author.links?.linkedin ?? "https://www.linkedin.com/"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-forest-900 text-cream-50 text-sm font-medium hover:bg-forest-700 transition-colors rounded-[8px] font-sans"
+            >
+              <LinkedInIcon className="w-[15px] h-[15px]" />
+              Suivre sur LinkedIn
+            </a>
+
+            {author.links?.github && (
+              <a
+                href={author.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="w-[38px] h-[38px] rounded-[8px] border border-ink-100 bg-cream-50 flex items-center justify-center text-forest-900 hover:border-forest-900/40 transition-colors"
+              >
+                <GitHubIcon className="w-4 h-4" />
+              </a>
+            )}
+            {author.links?.website && (
+              <a
+                href={author.links.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Site web"
+                className="w-[38px] h-[38px] rounded-[8px] border border-ink-100 bg-cream-50 flex items-center justify-center text-forest-900 hover:border-forest-900/40 transition-colors"
+              >
+                <GlobeIcon className="w-4 h-4" />
+              </a>
+            )}
+            <a
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+                absoluteUrl(`/auteurs/${author.slug}`),
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Partager ce profil"
+              className="w-[38px] h-[38px] rounded-[8px] border border-ink-100 bg-cream-50 flex items-center justify-center text-forest-900 hover:border-forest-900/40 transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+                <circle cx="18" cy="5" r="3" />
+                <circle cx="6" cy="12" r="3" />
+                <circle cx="18" cy="19" r="3" />
+                <path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" strokeLinecap="round" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
@@ -355,6 +397,12 @@ export default async function AuthorPage({ params }: Props) {
                 <dt className="text-ink-500">Vues totales</dt>
                 <dd className="text-ink-900 font-medium">{totalViews}</dd>
               </div>
+              {lastContribution && (
+                <div className="flex items-center justify-between">
+                  <dt className="text-ink-500">Dernière contribution</dt>
+                  <dd className="text-ink-900 font-medium">{lastContribution}</dd>
+                </div>
+              )}
               {author.memberSince && (
                 <div className="flex items-center justify-between">
                   <dt className="text-ink-500">Membre depuis</dt>
@@ -374,20 +422,10 @@ export default async function AuthorPage({ params }: Props) {
             </p>
             <Link
               href="/contribuer"
-              className="block text-center text-sm border border-forest-900 text-forest-900 py-2.5 hover:bg-forest-900 hover:text-cream-50 transition-colors font-sans"
+              className="block text-center text-sm border border-forest-900 text-forest-900 py-2.5 hover:bg-forest-900 hover:text-cream-50 transition-colors font-sans rounded-[8px]"
             >
               Proposer un Skill
             </Link>
-          </div>
-
-          {/* Partner slot */}
-          <div className="border border-dashed border-ink-100 p-6 text-center">
-            <p className="text-[10px] tracking-widest uppercase text-ink-300 mb-3 font-sans">
-              Partenaire
-            </p>
-            <p className="text-xs text-ink-400 font-sans">
-              Cet emplacement met en avant les partenaires de Join Médicis.
-            </p>
           </div>
         </aside>
       </div>

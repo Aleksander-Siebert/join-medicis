@@ -14,7 +14,14 @@ export interface Author {
   name: string;
   role: string;
   bio: string;
+  /** Photo de profil (chemin public, ex. "/authors/aleksander-siebert.jpg"). À défaut : initiales. */
   avatar?: string;
+  /** Bannière personnalisable (chemin public). À défaut : fond vert. */
+  banner?: string;
+  /** IA préférée affichée en badge (ex. "Claude"). */
+  favoriteAI?: string;
+  /** Masque l'auteur de la grille /auteurs et du sitemap (non-contributeur). */
+  hidden?: boolean;
   /** Hashtags affichés sous le nom. À défaut, dérivés des Skills de l'auteur. */
   tags?: string[];
   /** Domaines d'expertise (pills). À défaut, dérivés des catégories de ses Skills. */

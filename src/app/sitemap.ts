@@ -45,8 +45,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({ ...url(`/ressources/skills/${s.slug}`), changeFrequency: "monthly", priority: 0.8 });
   }
 
-  // Authors detail
-  for (const a of authors) {
+  // Authors detail (only real contributors)
+  for (const a of authors.filter((x) => !x.hidden)) {
     entries.push({ ...url(`/auteurs/${a.slug}`), changeFrequency: "monthly", priority: 0.5 });
   }
 
