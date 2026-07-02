@@ -63,12 +63,12 @@ export default function AuthorsPage() {
             ♥
           </span>
           <p className="relative font-serif text-2xl md:text-3xl font-medium leading-snug mb-3">
-            Merci. Sincèrement.
+            Merci sincèrement !
           </p>
           <p className="relative text-cream-50/90 font-sans leading-relaxed max-w-2xl">
-            Chaque Skill, chaque guide, chaque ligne de doc publiée ici existe
-            grâce à des praticiens qui ont accepté de partager ce qui marche, gratuitement et
-            en open-source. Sans eux, Join Médicis ne serait qu&rsquo;une page blanche.
+            Chaque Skill, chaque guide, chaque ressource publiée ici existe grâce
+            à des experts qui ont accepté de partager ce qui marche, gratuitement et
+            en open-source avec vous. Sans eux, Join Médicis ne serait qu&rsquo;une page blanche.
           </p>
         </div>
       </section>
