@@ -105,7 +105,7 @@ export default function Inspirations() {
           ))}
         </div>
 
-        <div className="mt-14 max-w-2xl space-y-4 text-ink-700 font-sans leading-relaxed">
+        <div className="mt-14 max-w-2xl mx-auto text-center space-y-4 text-ink-700 font-sans leading-relaxed">
           <p>
             J&rsquo;ai d&rsquo;autres sources d&rsquo;inspiration, mais je garde ce jardin
             secret. Vous en découvrirez davantage en explorant le site.
