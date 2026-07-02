@@ -39,37 +39,65 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-start">
           <div>
             <h1 className="font-sans tracking-tight text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 leading-[1.05] mb-10">
-              Je fais du Growth depuis dix ans,
+              Je fais du marketing depuis plusieurs années
               <br />
               <em className="italic text-forest-900">
-                et de l&rsquo;IA appliquée depuis le jour où Claude est arrivé.
+                et de l&rsquo;IA appliquée depuis l&rsquo;arrivée de ChatGPT.
               </em>
             </h1>
 
             <div className="space-y-5 text-ink-900 leading-relaxed font-sans text-base md:text-lg max-w-2xl">
               <p>
-                J&rsquo;ai découvert Claude en 2023, en cherchant à automatiser un
-                workflow Growth qui me prenait des heures chaque semaine.
+                J&rsquo;ai découvert l&rsquo;IA comme tout le monde. Je ne fais pas de
+                machine learning depuis 2015 et je ne m&rsquo;autoproclame pas
+                «&nbsp;expert IA&nbsp;», contrairement à ce que l&rsquo;on pourrait penser
+                de quelqu&rsquo;un qui lance un projet sur les fonctionnalités avancées de
+                l&rsquo;IA.
               </p>
               <p>
-                À l&rsquo;époque, je faisais du Growth & Digital Marketing :
-                outbound, SEO, contenu, automation. Le métier classique,
-                trouver ce qui marche, scaler ce qui marche, recommencer.
+                Mon premier vrai contact avec ChatGPT date de 2023, pendant mon échange
+                Erasmus en Lituanie. Un ami en cybersécurité me l&rsquo;avait conseillé pour
+                m&rsquo;aider à rédiger mon rapport de stage. Pour être honnête, je n&rsquo;y
+                croyais pas vraiment au début.
               </p>
               <p>
-                Et l&rsquo;IA s&rsquo;est invitée dans toutes les conversations,
-                presque toujours mal. Les marketeurs francophones se débattaient
-                avec la même friction : 90 % de la doc en anglais, 100 % des
-                ressources publiques calibrées pour le marché US, et zéro guide
-                concret pour livrer en français.
+                J&rsquo;ai fait mes propres tests tout au long de l&rsquo;année 2024 à travers
+                mes cours et mes projets. Comme la majorité des gens, je trouvais
+                l&rsquo;outil incroyable, mais je me limitais aux fonctionnalités basiques.
+                Le vrai déclic a eu lieu pendant mon stage chez Pixmania. J&rsquo;ai commencé
+                à réellement apprendre : les prompts, les fonctionnalités avancées, et
+                surtout les GPTs personnalisés. Le potentiel de l&rsquo;IA pour transformer
+                notre secteur est devenu une évidence.
               </p>
               <p>
-                Alors j&rsquo;ai commencé à documenter ce que je faisais. Puis à
-                partager. Puis à structurer ce qui est devenu Join Médicis :
-                une bibliothèque <em className="italic">gratuite</em>,{" "}
-                <em className="italic">open-source</em>, en français. Skills
-                Claude, MCP, agents, workflows n8n. Exactement ce que
-                j&rsquo;aurais voulu trouver au démarrage.
+                Puis est arrivée l&rsquo;année 2025. L&rsquo;IA s&rsquo;est invitée dans toutes
+                les conversations, et souvent de la mauvaise manière. Le FOMO et la peur
+                d&rsquo;être remplacé ont pris le dessus. LinkedIn a découvert que le mot
+                «&nbsp;IA&nbsp;» générait de l&rsquo;engagement, ce qui a attiré une vague
+                d&rsquo;infopreneurs et de gourous.
+              </p>
+              <p>
+                En cherchant à me former et à monter en compétence, je me suis heurté à un
+                mur. J&rsquo;interagissais avec différents contenus, mais les ressources
+                étaient soit verrouillées derrière des formations payantes, soit beaucoup
+                trop génériques pour être actionnables.
+              </p>
+              <p>
+                J&rsquo;ai donc décidé de prendre les choses en main. L&rsquo;objectif :
+                développer la solution dont j&rsquo;avais besoin. Une bibliothèque{" "}
+                <em className="italic">gratuite</em>, <em className="italic">open-source</em>,
+                pensée pour aider les marketeurs à vraiment exploiter l&rsquo;IA. Je l&rsquo;ai
+                créée pour moi, mais aussi pour les connaissances de mon réseau qui ne
+                savaient pas par où commencer.
+              </p>
+              <p>
+                Nous sommes en 2026. Join Médicis est lancé. Vous découvrez ici ce projet et
+                la personne derrière, qui essaie simplement d&rsquo;aider l&rsquo;écosystème à
+                progresser.
+              </p>
+              <p>
+                N&rsquo;hésitez pas à contribuer ou à me faire des retours. Ce projet est fait
+                POUR vous et PAR vous. Je n&rsquo;en suis que le bâtisseur.
               </p>
             </div>
 
@@ -152,25 +180,36 @@ export default function AboutPage() {
           </div>
 
           <h2 className="font-sans tracking-tight text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 leading-[1.05] mb-10 max-w-4xl">
-            Rendre accessible{" "}
-            <em className="italic text-forest-900">aux marketeurs</em> les
-            fonctions avancées de l&rsquo;IA.
+            Rendre les fonctions avancées de l&rsquo;IA{" "}
+            <em className="italic text-forest-900">accessibles aux marketeurs</em>.
           </h2>
 
           <div className="space-y-5 text-ink-900 leading-relaxed font-sans text-base md:text-lg max-w-3xl">
             <p>
-              Skills, agents IA, MCP, automatisations. La majorité de ces
-              briques sont déjà disponibles, mais leur accès reste verrouillé
-              par la barrière de la langue, le jargon technique, et la culture
-              US des early adopters.
+              Vous entendez sûrement parler de Skills, de MCP, d&rsquo;automatisations
+              ou d&rsquo;agents IA. Ces outils semblent incroyables, mais comment y
+              accéder concrètement ?
             </p>
             <p>
-              Join Médicis partage des ressources et de la documentation{" "}
-              <em className="italic">gratuitement</em>, en français, en{" "}
-              <em className="italic">open-source</em>. L&rsquo;objectif : que
-              chaque marketer francophone puisse intégrer Claude (ou Mistral,
-              ou Gemini) dans son workflow en moins de trente minutes, sans
-              passer par un consultant, sans formation payante, sans terminal.
+              La majorité de ces briques existent déjà. Pourtant, leur accès reste
+              verrouillé par la barrière de la langue, le jargon technique, ou
+              simplement le brouillard de ne pas savoir par où commencer.
+            </p>
+            <p>
+              Join Médicis partage des ressources et de la documentation.{" "}
+              <em className="italic">Gratuitement.</em> En français. En{" "}
+              <em className="italic">open-source.</em>
+            </p>
+            <p>
+              L&rsquo;objectif est simple : permettre à chaque marketeur de déployer
+              des Skills, des MCP, des agents ou des workflows en moins de trente
+              minutes. Sans passer par un consultant. Sans formation payante. Sans
+              terminal. Sans se perdre dans la dernière tendance technique qui sort
+              toutes les deux semaines.
+            </p>
+            <p>
+              C&rsquo;est mon objectif et ma vision des choses. Si elle vous parle,
+              rejoignez le mouvement.
             </p>
           </div>
         </div>

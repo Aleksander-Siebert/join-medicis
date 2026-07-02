@@ -3,7 +3,7 @@ const inspirations = [
     name: "Solomei",
     url: "https://www.solomei.ai/",
     reason:
-      "Le style Renaissance et la beauté d'utiliser l'IA dans un nouveau contexte éditorial.",
+      "L'inspiration de la Renaissance italienne. C'est la démonstration qu'on peut utiliser l'IA dans un contexte à la fois créatif et technique.",
     tilt: -1.6,
     tapeColor: "#F5D9C2",
   },
@@ -11,7 +11,7 @@ const inspirations = [
     name: "Lawve",
     url: "https://lawve.ai/fr",
     reason:
-      "L'idée de créer un écosystème open-source et accessible à tout le monde.",
+      "Sans eux, Join Médicis n'existerait pas. Anciennement Lawvable, c'est une bibliothèque IA gratuite destinée aux professionnels du droit. Si vous passez par là : merci.",
     tilt: 1.2,
     tapeColor: "#E8F1ED",
   },
@@ -19,7 +19,7 @@ const inspirations = [
     name: "Anis Ayari",
     url: "https://anisayari.com/fr",
     reason:
-      "Ses points de vue et son expertise sur l'IA qui me font apprendre des choses nouvelles à chaque post.",
+      "Un créateur avec un angle précis et concret sur l'IA. Son expertise partagée en vidéo m'apprend de nouvelles choses à chaque fois. Si vous lisez ceci, Anis : je serais ravi d'échanger et d'avoir vos retours.",
     tilt: -1.1,
     tapeColor: "#F2E8F0",
   },
@@ -27,23 +27,23 @@ const inspirations = [
     name: "Silicon Carne",
     url: "https://siliconcarne.substack.com/",
     reason:
-      "Carlos Diaz est le GOAT. On apprend plein de choses avec son ton tranché et son angle franco-américain.",
+      "J'avais besoin de piment. Carlos Diaz a apporté le style et la vision qui manquaient au projet pour le rendre actionnable. Maintenant, j'ai les yeux qui piquent un peu.",
     tilt: 1.4,
     tapeColor: "#F5E8D4",
   },
   {
-    name: "Caroline Mignaux",
-    url: "https://www.carolinemignaux.com/",
+    name: "The Roum",
+    url: "https://www.youtube.com/@TheRoum",
     reason:
-      "L'inspiration absolue pour le personal branding et la cohérence éditoriale sur la durée.",
+      "Le talk-show sur l'IA de ce début d'année 2026. Leur approche est claire : décortiquer un métier et tester des solutions IA en direct. Je m'en inspire dans mon approche.",
     tilt: -1.3,
     tapeColor: "#F2E5D8",
   },
   {
-    name: "Mike Oss",
+    name: "Mike OSS",
     url: "https://mikeoss.com/",
     reason:
-      "Pour le côté open-source et la démonstration que n'importe qui peut faire avancer les choses à sa façon.",
+      "La preuve que chacun peut faire avancer les choses à sa façon. Si vous ne le connaissez pas, vous passez à côté du combat de David contre Goliath, version IA, dans le secteur juridique.",
     tilt: 1.5,
     tapeColor: "#E8EBEF",
   },
@@ -103,6 +103,18 @@ export default function Inspirations() {
               </div>
             </a>
           ))}
+        </div>
+
+        <div className="mt-14 max-w-2xl space-y-4 text-ink-700 font-sans leading-relaxed">
+          <p>
+            J&rsquo;ai d&rsquo;autres sources d&rsquo;inspiration, mais je garde ce jardin
+            secret. Vous en découvrirez davantage en explorant le site.
+          </p>
+          <p>
+            En parlant d&rsquo;exploration : j&rsquo;ai caché quelques easter eggs un peu
+            partout. Petit indice : cherchez du côté de l&rsquo;espace qui explique le
+            vocabulaire technique.
+          </p>
         </div>
       </div>
     </section>
