@@ -26,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog",
     "/auteurs",
     "/guides",
+    "/roadmap",
     "/contribuer",
     "/request",
     "/a-propos",

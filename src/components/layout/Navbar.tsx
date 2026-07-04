@@ -86,6 +86,11 @@ const I = {
       <path d="M16 8l-2 6-6 2 2-6 6-2z" strokeLinecap="round" strokeLinejoin="round" />
     </>
   ),
+  roadmap: (
+    <>
+      <path d="M9 20l-5-2V5l5 2m0 13l6-2m-6 2V7m6 11l5 2V7l-5-2m0 13V5m0 2L9 5" strokeLinecap="round" strokeLinejoin="round" />
+    </>
+  ),
 };
 
 /* Tile color palettes — on-brand variety (forest / gold / blue / slate / terracotta / plum) */
@@ -137,11 +142,12 @@ const MENUS: Menu[] = [
   {
     id: "apropos",
     label: "À propos",
-    activePrefix: ["/contact", "/blog", "/a-propos"],
+    activePrefix: ["/contact", "/blog", "/a-propos", "/roadmap"],
     items: [
       { label: "Contact", desc: "Une question ? Écrivez-nous directement", href: "/contact", icon: I.contact, tile: "slate" },
       { label: "Growth with Claude 🐙", desc: "Notre newsletter Growth & IA sur LinkedIn", href: "https://www.linkedin.com/newsletters/growth-with-claude%F0%9F%90%99-7443262733011189760/", icon: I.newsletter, tile: "terracotta", external: true },
       { label: "Blog", desc: "Articles, analyses et retours d'expérience", href: "/blog", icon: I.blog, tile: "plum" },
+      { label: "Roadmap", desc: "Suivez l'avancée du projet et votez", href: "/roadmap", icon: I.roadmap, tile: "gold" },
       { label: "Join Médicis", desc: "La vision et l'histoire du projet", href: "/a-propos", icon: I.about, tile: "forest" },
     ],
   },
