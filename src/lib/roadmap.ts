@@ -39,10 +39,10 @@ export const roadmap: RoadmapColumn[] = [
     accent: "#5B8AB8",
     items: [
       "🔌 Page Plugins disponible + ressources associées",
-      "⚙️ Page Automations — workflows n8n, Make et Zapier disponibles",
-      "🤖 Page Agents IA — premiers agents prêts à déployer",
+      "⚙️ Page Automations : workflows n8n, Make et Zapier disponibles",
+      "🤖 Page Agents IA : premiers agents prêts à déployer",
       "🧠 Nouveaux Skills et guides MCP",
-      "📦 Skills Packs disponibles — ressources groupées pour simplifier la vie des équipes marketing",
+      "📦 Skills Packs disponibles : ressources groupées pour simplifier la vie des équipes marketing",
     ],
   },
   {
@@ -65,7 +65,7 @@ export const roadmapFaq: { q: string; a: string }[] = [
   },
   {
     q: "Comment contribuer une ressource au projet ?",
-    a: "Join Médicis est open source et vit grâce aux contributions. Vous pouvez proposer un Skill, un template, un guide ou une correction via une Pull Request sur GitHub. Pour en savoir plus sur le processus, rendez-vous sur la page Contribuer — tout y est expliqué étape par étape.",
+    a: "Join Médicis est open source et vit grâce aux contributions. Vous pouvez proposer un Skill, un template, un guide ou une correction via une Pull Request sur GitHub. Pour en savoir plus sur le processus, rendez-vous sur la page Contribuer : tout y est expliqué étape par étape.",
   },
   {
     q: "Comment suggérer une idée absente de la roadmap ?",

@@ -22,13 +22,9 @@ function publicFileExists(p: string): boolean {
 }
 
 const BANNER = "/images/roadmap/davinci-architecture.jpg";
-const VITRUVIAN = "/images/roadmap/davinci-vitruvian.jpg";
-const STUDY = "/images/roadmap/davinci-study.jpg";
 
 export default function RoadmapPage() {
   const hasBanner = publicFileExists(BANNER);
-  const hasVitruvian = publicFileExists(VITRUVIAN);
-  const hasStudy = publicFileExists(STUDY);
 
   return (
     <div className="pt-16 min-h-screen bg-cream-100">
@@ -38,7 +34,7 @@ export default function RoadmapPage() {
         {hasBanner && (
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-center bg-cover opacity-[0.18]"
+            className="absolute inset-0 bg-center bg-cover opacity-40"
             style={{ backgroundImage: `url('${BANNER}')` }}
           />
         )}
@@ -48,7 +44,7 @@ export default function RoadmapPage() {
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 70% at 50% 40%, rgba(250,247,240,0.82) 0%, rgba(250,247,240,0.65) 60%, rgba(250,247,240,0.5) 100%)",
+              "radial-gradient(ellipse 80% 70% at 50% 45%, rgba(250,247,240,0.7) 0%, rgba(250,247,240,0.45) 60%, rgba(250,247,240,0.25) 100%)",
           }}
         />
 
@@ -60,7 +56,7 @@ export default function RoadmapPage() {
             Roadmap
           </h1>
           <p className="text-base md:text-lg text-ink-900 leading-relaxed font-sans max-w-2xl mx-auto mb-8">
-            <span className="font-semibold">Construisons ensemble</span> — Join Médicis est
+            <span className="font-semibold">Construisons ensemble.</span> Join Médicis est
             construit par vous et pour vous. Cette roadmap est publique pour que chacun
             puisse suivre l&rsquo;avancée du projet, voter pour les prochaines fonctionnalités
             et contribuer en partageant des ressources !
@@ -95,7 +91,7 @@ export default function RoadmapPage() {
               <span className="text-forest-900 group-hover:underline underline-offset-2">
                 r/JoinMedicis
               </span></span>{" "}
-              — le subreddit officiel du projet pour suivre les updates, discuter de
+              : le subreddit officiel du projet pour suivre les updates, discuter de
               Growth × IA et voter pour les prochaines features. Le thread de vote est épinglé.
             </p>
           </a>
@@ -104,15 +100,6 @@ export default function RoadmapPage() {
 
       {/* ===================== KANBAN ===================== */}
       <section className="relative px-6 md:px-10 py-20 overflow-hidden">
-        {/* Decorative Vitruvian, very faint, top-right */}
-        {hasVitruvian && (
-          <div
-            aria-hidden="true"
-            className="hidden lg:block absolute -top-6 right-6 w-64 h-64 bg-center bg-contain bg-no-repeat opacity-[0.06] pointer-events-none"
-            style={{ backgroundImage: `url('${VITRUVIAN}')` }}
-          />
-        )}
-
         <div className="relative max-w-7xl mx-auto">
           <div className="flex items-center gap-6 mb-10 ornament-line">
             <span className="text-xs tracking-[0.2em] uppercase text-forest-900 font-sans font-semibold shrink-0">
@@ -162,15 +149,6 @@ export default function RoadmapPage() {
 
       {/* ===================== PARTICIPER (FAQ) ===================== */}
       <section className="relative px-6 md:px-10 py-20 border-t border-ink-100 overflow-hidden">
-        {/* Decorative study plate, faint, bottom-left */}
-        {hasStudy && (
-          <div
-            aria-hidden="true"
-            className="hidden lg:block absolute bottom-0 left-4 w-52 h-72 bg-center bg-contain bg-no-repeat opacity-[0.06] pointer-events-none"
-            style={{ backgroundImage: `url('${STUDY}')` }}
-          />
-        )}
-
         <div className="relative max-w-3xl mx-auto">
           <p className="text-xs tracking-[0.2em] uppercase text-forest-900 font-sans font-semibold mb-4">
             Participer
