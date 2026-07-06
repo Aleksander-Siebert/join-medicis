@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function EcosystemePage() {
   return (
-    <div className="pt-16 min-h-screen">
+    <div className="pt-16 min-h-screen bg-page-gradient">
       {/* ===================== HERO (green banner) ===================== */}
       <div className="relative bg-forest-900 text-cream-50 px-6 py-20 overflow-hidden">
         <AuroraGradient />
