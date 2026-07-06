@@ -463,4 +463,54 @@ export const ecosystem: EcosystemResource[] = [
       "Environnement de référence de Join Médicis",
     ],
   },
+
+  // ============ LEADERS D'OPINION ============
+  {
+    slug: "anis-ayari",
+    name: "Anis Ayari",
+    org: "Anis Ayari",
+    category: "leaders",
+    tagline: "Expertise concrète sur l'IA, partagée en vidéo, avec un angle précis.",
+    description:
+      "Anis Ayari partage une expertise concrète et actionnable sur l'IA, principalement en vidéo. Un angle clair, sans hype, qui aide à monter en compétence sur les usages réels de l'IA.",
+    url: "https://anisayari.com/fr",
+    type: "Créateur IA",
+    lang: "FR",
+  },
+  {
+    slug: "silicon-carne",
+    name: "Silicon Carne",
+    org: "Carlos Diaz",
+    category: "leaders",
+    tagline: "Le podcast tech au ton tranché, angle franco-américain.",
+    description:
+      "Silicon Carne, animé par Carlos Diaz, est un podcast / newsletter tech au ton tranché et à l'angle franco-américain. On y apprend beaucoup sur l'IA, la tech et l'entrepreneuriat.",
+    url: "https://siliconcarne.substack.com/",
+    type: "Podcast / Newsletter",
+    lang: "FR",
+  },
+  {
+    slug: "the-roum",
+    name: "The Roum",
+    org: "The Roum",
+    category: "leaders",
+    tagline: "Le talk-show IA qui décortique un métier et teste des solutions en direct.",
+    description:
+      "The Roum est un talk-show sur l'IA lancé début 2026. Son approche : décortiquer un métier et tester des solutions IA en direct. Une source d'inspiration directe pour l'approche de Join Médicis.",
+    url: "https://www.youtube.com/@TheRoum",
+    type: "Talk-show IA",
+    lang: "FR",
+  },
+  {
+    slug: "mike-oss",
+    name: "Mike OSS",
+    org: "Mike OSS",
+    category: "leaders",
+    tagline: "David contre Goliath, version IA, dans le secteur juridique.",
+    description:
+      "Mike OSS est la preuve que chacun peut faire avancer les choses à sa façon. Un combat de David contre Goliath, version IA, dans le secteur juridique open source.",
+    url: "https://mikeoss.com/",
+    type: "Open source",
+    lang: "EN + FR",
+  },
 ];

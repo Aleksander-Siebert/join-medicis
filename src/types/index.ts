@@ -101,6 +101,7 @@ export interface CategoryItem {
 export type EcosystemCategory =
   | "entreprises"
   | "individus"
+  | "leaders"
   | "gouvernement"
   | "autres";
 

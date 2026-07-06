@@ -11,6 +11,7 @@ type Props = { params: Promise<{ slug: string }> };
 const CATEGORY_LABELS: Record<EcosystemCategory, string> = {
   entreprises: "Entreprises",
   individus: "Individus",
+  leaders: "Leaders d'opinion",
   gouvernement: "Gouvernement",
   autres: "Autres",
 };

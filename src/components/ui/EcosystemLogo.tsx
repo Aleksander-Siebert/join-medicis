@@ -14,19 +14,23 @@ function monogram(org: string): string {
 export default function EcosystemLogo({
   resource,
   size = 48,
+  shape = "square",
   className = "",
 }: {
   resource: EcosystemResource;
   size?: number;
+  /** "square" = coins arrondis à ~25% (entreprises) · "round" = cercle (individus / leaders). */
+  shape?: "square" | "round";
   className?: string;
 }) {
-  const radius = "rounded-xl";
+  // Round → cercle ; Square → coins arrondis à 25% de la taille.
+  const borderRadius = shape === "round" ? 9999 : Math.round(size * 0.25);
 
   if (resource.logo) {
     return (
       <div
-        className={`relative shrink-0 overflow-hidden ${radius} bg-cream-50 border border-ink-100 ${className}`}
-        style={{ width: size, height: size }}
+        className={`relative shrink-0 overflow-hidden bg-cream-50 border border-ink-100 ${className}`}
+        style={{ width: size, height: size, borderRadius }}
       >
         <Image
           src={resource.logo}
@@ -41,8 +45,8 @@ export default function EcosystemLogo({
 
   return (
     <div
-      className={`shrink-0 flex items-center justify-center ${radius} bg-forest-900 text-cream-50 font-serif ${className}`}
-      style={{ width: size, height: size, fontSize: size * 0.36 }}
+      className={`shrink-0 flex items-center justify-center bg-forest-900 text-cream-50 font-serif ${className}`}
+      style={{ width: size, height: size, fontSize: size * 0.36, borderRadius }}
       aria-hidden="true"
     >
       {monogram(resource.org)}
