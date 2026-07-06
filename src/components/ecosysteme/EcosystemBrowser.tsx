@@ -70,7 +70,7 @@ function ResourceCard({
   return (
     <Link
       href={`/ecosysteme/${item.slug}`}
-      className="group flex flex-col bg-cream-50 border border-ink-100 p-6 rounded-[25px] hover:border-forest-600 hover:shadow-[0_2px_24px_-12px_rgba(26,51,40,0.4)] transition-all duration-200"
+      className="group flex flex-col bg-cream-50 border border-ink-100 p-6 rounded-[25px] hover:border-forest-600 hover:shadow-[0_2px_24px_-12px_rgba(26,51,40,0.4)] transition-all duration-200 shadow-[0_1px_2px_rgba(26,51,40,0.04)]"
     >
       {/* Logo + meta */}
       <div className="flex items-start gap-4 mb-4">
@@ -152,7 +152,7 @@ export default function EcosystemBrowser() {
   return (
     <>
       {/* Filters */}
-      <div className="border-b border-ink-100 px-6 py-5 sticky top-16 bg-[#FBFBFC]/90 backdrop-blur-sm z-10">
+      <div className="border-b border-ink-100 px-6 py-5 sticky top-16 bg-cream-100/95 backdrop-blur-sm z-10">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row gap-4 items-start sm:items-center flex-wrap">
           {/* Search */}
           <div className="relative">

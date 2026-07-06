@@ -20,7 +20,7 @@ const LinkedInIcon = () => (
 
 export default function AboutPage() {
   return (
-    <div className="pt-16 min-h-screen bg-page-gradient">
+    <div className="pt-16 min-h-screen bg-cream-100">
       {/* ============================================================ */}
       {/* HERO eyebrow */}
       {/* ============================================================ */}
