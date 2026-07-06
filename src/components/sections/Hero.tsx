@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { siteStats } from "@/lib/data";
+import { siteStats, authors } from "@/lib/data";
+
+const contributeursCount = authors.filter((a) => !a.hidden).length;
 
 const GitHubIcon = () => (
   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -9,9 +11,12 @@ const GitHubIcon = () => (
 
 const statsData = [
   { value: String(siteStats.skillsCount), label: "Skills disponibles" },
-  { value: String(siteStats.projetsCount), label: "Projets Claude" },
-  { value: String(siteStats.guidesCount), label: "Guides MCP" },
+  {
+    value: String(contributeursCount),
+    label: contributeursCount > 1 ? "contributeurs" : "contributeur",
+  },
   { value: "MIT", label: "Licence" },
+  { value: "100%", label: "gratuit & open-source" },
 ];
 
 export default function Hero() {
@@ -58,9 +63,9 @@ export default function Hero() {
           className="font-sans tracking-tight text-5xl md:text-6xl lg:text-7xl font-bold text-ink-900 leading-[1.1] mb-6"
           style={{ textShadow: "0 1px 24px rgba(250,247,240,0.85)" }}
         >
-          La bibliothèque IA & Growth
+          La bibliothèque IA gratuite et open-source
           <br />
-          <span className="text-forest-900">pour les marketeurs francophones</span>
+          <span className="text-forest-900">pour les marketeurs</span>
         </h1>
 
         {/* Tagline */}
@@ -68,8 +73,8 @@ export default function Hero() {
           className="text-base md:text-lg text-ink-900 max-w-2xl mx-auto leading-relaxed mb-14 font-sans font-medium"
           style={{ textShadow: "0 1px 12px rgba(250,247,240,0.85)" }}
         >
-          Skills Claude, projets prêts à l&rsquo;emploi, guides MCP, workflows n8n.
-          Tout en français, tout gratuit, tout open-source.
+          Retrouvez facilement des ressources gratuites tels que des Skills, des MCP,
+          des workflows et des agents IA. Fait pour les marketers par des marketers !
         </p>
 
         {/* CTAs */}

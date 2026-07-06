@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import GoldenSpiral from "@/components/effects/GoldenSpiral";
 
 const BLOG_URL = "https://join-medicis.vercel.app/blog";
 const HOVER_OPEN_DELAY = 220;
@@ -16,38 +17,40 @@ type Feature = {
 const features: Feature[] = [
   {
     label: "Skills",
-    description: "Compétences spécialisées prêtes à charger dans Claude",
+    description:
+      "Des compétences spécialisées prêtes à charger dans Claude, ChatGPT, Gemini, Mistral et autres.",
     details:
-      "Une Skill Claude est un fichier SKILL.md qui regroupe un prompt système, des instructions de rôle, des exemples et des règles métier. Vous chargez la Skill dans Claude (Pro, Teams, ou API) et elle s'active automatiquement quand le contexte le justifie. Joignez-y des templates, des frameworks d'analyse, ou des workflows Growth complets en quelques secondes.",
+      "Une Skill est un fichier qui regroupe un prompt système, des instructions de rôle, des exemples et des règles métier. Vous la chargez dans votre IA (Claude, ChatGPT, Gemini, Mistral) et elle s'active quand le contexte le justifie. Joignez-y des templates, des frameworks d'analyse, ou des workflows Growth complets en quelques secondes.",
     cta: "Lire le guide complet sur les Skills",
   },
   {
     label: "MCP",
-    description: "Serveurs Model Context Protocol pour connecter vos outils",
+    description:
+      "Les différents Model Context Protocol pour connecter vos outils à l'IA.",
     details:
-      "Le Model Context Protocol (MCP) est le standard ouvert qui permet à Claude de se connecter à vos outils : HubSpot, Notion, Linear, Sheets, votre base Postgres... Un serveur MCP expose des actions (lire, écrire, requêter) que Claude peut appeler en temps réel. La bibliothèque rassemble les serveurs MCP les plus utiles aux Growth Marketers.",
+      "Le Model Context Protocol (MCP) est le standard ouvert qui permet à l'IA de se connecter à vos outils : HubSpot, Notion, Linear, Sheets, votre base Postgres... Un serveur MCP expose des actions (lire, écrire, requêter) que l'IA peut appeler en temps réel. La bibliothèque rassemble les serveurs MCP les plus utiles aux marketeurs.",
     cta: "Découvrir les serveurs MCP",
   },
   {
     label: "Plugins",
-    description: "Extensions pour personnaliser vos workflows",
+    description: "Des packs complets pour personnaliser vos workflows.",
     details:
-      "Les plugins étendent les capacités natives de Claude : connecteurs SaaS, automatisations conditionnelles, validation de données, exports formatés. Idéal pour transformer un assistant générique en outil sur-mesure pour votre stack Marketing (CRM, ESP, analytics, ads).",
+      "Les plugins étendent les capacités natives de l'IA : connecteurs SaaS, automatisations conditionnelles, validation de données, exports formatés. Idéal pour transformer un assistant générique en outil sur-mesure pour votre stack Marketing (CRM, ESP, analytics, ads).",
     cta: "Voir les plugins disponibles",
   },
   {
-    label: "Agent AI",
-    description: "Agents autonomes qui exécutent des tâches Growth",
+    label: "Automation",
+    description: "Des workflows complets sur n8n, Zapier et Make.",
+    details:
+      "Les workflows n8n, Zapier et Make orchestrent des chaînes d'actions multi-outils : ingestion de données, scoring IA, déclenchement de séquences, reporting. Vous récupérez des recettes prêtes à importer et les adaptez à votre stack en quelques clics.",
+    cta: "Parcourir les workflows",
+  },
+  {
+    label: "Agents IA",
+    description: "Des agents autonomes qui exécutent vos tâches et vos besoins.",
     details:
       "Un agent IA exécute des tâches complexes en plusieurs étapes sans supervision continue : enrichir une liste de leads, qualifier des comptes, lancer une campagne de cold email, monitorer des mentions de marque. Les agents combinent Skills + MCP + logique métier pour automatiser ce qui prenait des journées.",
     cta: "Construire votre premier agent",
-  },
-  {
-    label: "Automation",
-    description: "Workflows n8n et Make orchestrés de bout en bout",
-    details:
-      "Les workflows n8n et Make orchestrent des chaînes d'actions multi-outils : ingestion de données, scoring IA via Claude, déclenchement de séquences, reporting. Vous récupérez des recettes prêtes à importer et les adaptez à votre stack en quelques clics.",
-    cta: "Parcourir les workflows",
   },
 ];
 
@@ -104,30 +107,37 @@ export default function Mission() {
 
   return (
     <section className="relative py-24 px-6 border-t border-ink-100 overflow-hidden">
-      <div className="max-w-5xl mx-auto">
+      {/* Golden ratio decoration */}
+      <GoldenSpiral
+        className="hidden lg:block absolute -right-16 top-8 w-[420px] h-auto opacity-[0.07] pointer-events-none"
+        stroke="#0E3F2D"
+      />
+
+      <div className="relative max-w-5xl mx-auto">
         <div className="flex items-center gap-6 mb-16 ornament-line">
           <span className="text-xs tracking-[0.2em] uppercase text-forest-900 font-sans font-semibold shrink-0">
             La mission
           </span>
         </div>
 
-        <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 items-start">
+        {/* Golden ratio : colonnes 1.618 : 1, alignées en haut */}
+        <div className="grid lg:grid-cols-[1.618fr_1fr] gap-16 items-start">
           <div>
             <p className="text-xs tracking-widest uppercase text-ink-700 mb-5 font-sans font-medium">
               Pourquoi Join Médicis
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl font-normal text-ink-900 leading-[1.05] mb-8">
+            <h2 className="font-sans tracking-tight text-4xl md:text-5xl font-bold text-ink-900 leading-[1.05] mb-8">
               Une bibliothèque <em className="italic text-forest-900">gratuite</em> et open-source.
             </h2>
             <p className="text-base md:text-lg text-ink-900 leading-relaxed font-sans drop-cap">
-              Join Médicis aide les marketers francophones à utiliser facilement
-              des fonctionnalités IA avancées — Skills, MCP, Plugins, Agents IA
-              et automatisations — sans avoir à passer des heures à lire de la
-              documentation en anglais.
+              Join Médicis aide les marketers francophones à utiliser facilement les
+              fonctionnalités avancées de l&rsquo;IA tels que les Skills, MCP, Plugins,
+              Agents IA et automation, sans avoir à passer des heures à lire de la
+              documentation en anglais ou à payer pour avoir accès à ces ressources.
             </p>
           </div>
 
-          <div className="lg:pt-12">
+          <div>
             <p className="text-xs tracking-widest uppercase text-ink-700 mb-6 font-sans font-medium">
               Ce que vous y trouverez · cliquez pour en savoir plus
             </p>
