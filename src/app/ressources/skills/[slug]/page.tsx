@@ -4,9 +4,11 @@ import { skills, authors } from "@/lib/data";
 import { getSkillStats } from "@/lib/skill-stats";
 import SkillCard from "@/components/ui/SkillCard";
 import SkillTabs from "@/components/ui/SkillTabs";
+import SkillInstallTabs from "@/components/ui/SkillInstallTabs";
+import SkillVariants from "@/components/ui/SkillVariants";
 import LiveSkillStats from "@/components/ui/LiveSkillStats";
 import SkillDownloadButton from "@/components/ui/SkillDownloadButton";
-import FAQ from "@/components/sections/FAQ";
+import SkillFaqDetails from "@/components/ui/SkillFaqDetails";
 import { buildSkillFaq } from "@/lib/skill-faq";
 import type { Metadata } from "next";
 import type { LLMSupport } from "@/types";
@@ -238,15 +240,21 @@ export default async function SkillPage({ params }: Props) {
         </div>
       </div>
 
-      {/* Tabs */}
+      {/* Installation multi-outils (Claude / ChatGPT / Gemini / Mistral · Vibe) */}
+      <SkillInstallTabs skill={skill} />
+
+      {/* Tabs — À propos (explication) / Contenu / Démo */}
       <SkillTabs skill={skill} />
 
-      {/* FAQ */}
+      {/* Variantes sectorielles — entre l'explication et la FAQ */}
+      <SkillVariants skill={skill} />
+
+      {/* FAQ — <details>/<summary> natif + schema FAQPage JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <FAQ
+      <SkillFaqDetails
         items={faqItems}
         eyebrow="FAQ"
         title={`« ${skill.name} » — questions fréquentes`}

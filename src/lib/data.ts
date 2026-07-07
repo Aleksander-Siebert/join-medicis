@@ -112,6 +112,16 @@ export const skills: Skill[] = [
     publishedAt: "2026-03-12",
     downloads: 342,
     views: 1820,
+    problem:
+      "Sans contexte, l'IA répond de façon générique : elle ne connaît ni ton produit, ni ton ICP, ni tes canaux, ni ta stack. Résultat, tu réexpliques ton business à chaque nouvelle conversation et tu passes plus de temps à cadrer qu'à produire.",
+    solution:
+      "Growth Context donne à ton IA une mémoire persistante de ton business : produit, positionnement, cible (ICP), canaux d'acquisition et stack outillée. Une fois chargé dans un Projet, chaque conversation démarre avec ce contexte déjà en tête — les réponses sont pertinentes dès le premier message, sans réexplication.",
+    whyRecommended:
+      "C'est le prérequis recommandé avant tous les autres Skills : Brief SEO, Cold Email, Audit CRO… gagnent tous en pertinence quand l'IA connaît déjà ton contexte. Installe-le en premier, une seule fois par projet.",
+    variants: [
+      { sector: "E-commerce", name: "Growth Context — E-commerce", slug: "growth-context-ecommerce" },
+      { sector: "SaaS B2B", name: "Growth Context — SaaS B2B", slug: "growth-context-saas-b2b" },
+    ],
   },
   {
     slug: "cold-email-b2b-fr",

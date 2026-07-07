@@ -51,6 +51,21 @@ export default function SkillTabs({ skill }: { skill: Skill }) {
 }
 
 function AboutTab({ skill }: { skill: Skill }) {
+  const problem =
+    skill.problem ??
+    `Sans ce Skill, ${skill.name.toLowerCase()} se fait à la main : les marketeurs passent en moyenne plusieurs heures par semaine sur cette tâche, sans systématisation ni reproductibilité à l'échelle.`;
+  const solution =
+    skill.solution ??
+    "Avec ce Skill configuré dans un Projet, chaque demande produit un résultat structuré, calibré pour le marché français, en quelques minutes.";
+
+  const metrics = [
+    { label: "Temps économisé", value: skill.timeSaved },
+    ...(skill.resultMetric
+      ? [{ label: "Résultat observé", value: skill.resultMetric }]
+      : []),
+    { label: "Testé par", value: `${skill.testedBy} membres` },
+  ];
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
       <div>
@@ -60,52 +75,29 @@ function AboutTab({ skill }: { skill: Skill }) {
         <h3 className="font-serif text-2xl font-light text-ink-900 mb-4">
           Ce que ce Skill change
         </h3>
-        <p className="text-ink-500 leading-relaxed font-sans text-sm">
-          Placeholder — Ce Skill résout le problème de la génération manuelle
-          de {skill.name.toLowerCase()}. Les marketeurs passent en moyenne
-          plusieurs heures par semaine sur cette tâche, sans possibilité de
-          systématisation ni de reproductibilité à l'échelle.
-        </p>
-        <p className="text-ink-500 leading-relaxed font-sans text-sm mt-4">
-          Avec ce Skill configuré dans un Projet Claude, chaque demande
-          produit un résultat structuré, calibré pour le marché français, en
-          moins de 3 minutes.
-        </p>
+        <p className="text-ink-500 leading-relaxed font-sans text-sm">{problem}</p>
+        <p className="text-ink-500 leading-relaxed font-sans text-sm mt-4">{solution}</p>
       </div>
 
       <div>
         <p className="text-xs tracking-widest uppercase text-ink-300 mb-4 font-sans">
-          Installation — 3 étapes
+          Pourquoi c&rsquo;est recommandé
         </p>
-        <div className="space-y-6">
-          {[
-            {
-              step: "01",
-              label: "Télécharger",
-              desc: "Cliquez sur « Télécharger le Skill » pour obtenir le fichier .md",
-            },
-            {
-              step: "02",
-              label: "Configurer",
-              desc: "Ouvrez claude.ai → Nouveau Projet → Instructions du projet → Collez le contenu",
-            },
-            {
-              step: "03",
-              label: "Utiliser",
-              desc: "Commencez à converser. Le Skill s'active automatiquement.",
-            },
-          ].map((item) => (
-            <div key={item.step} className="flex gap-5">
-              <span className="font-serif text-4xl font-light text-ink-100 leading-none shrink-0">
-                {item.step}
-              </span>
-              <div>
-                <p className="text-sm font-medium text-ink-700 mb-1 font-sans">{item.label}</p>
-                <p className="text-sm text-ink-500 font-sans">{item.desc}</p>
-              </div>
+        {skill.whyRecommended && (
+          <p className="text-ink-500 leading-relaxed font-sans text-sm mb-8">
+            {skill.whyRecommended}
+          </p>
+        )}
+        <dl className="divide-y divide-ink-100 border-y border-ink-100">
+          {metrics.map((m) => (
+            <div key={m.label} className="flex items-baseline justify-between gap-4 py-3">
+              <dt className="text-xs tracking-widest uppercase text-ink-300 font-sans">
+                {m.label}
+              </dt>
+              <dd className="font-serif text-lg text-ink-900">{m.value}</dd>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
     </div>
   );

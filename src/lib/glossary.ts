@@ -566,11 +566,11 @@ export const glossary: GlossaryTerm[] = [
   },
   {
     slug: "mistral",
-    title: "Mistral (Le Chat)",
+    title: "Mistral (Vibe)",
     description:
-      "Laboratoire français d'IA. Ses modèles open-weight et son assistant Le Chat sont la référence souveraine européenne.",
+      "Laboratoire français d'IA. Ses modèles open-weight et son assistant Vibe (ex-« Le Chat », renommé fin mai 2026) sont la référence souveraine européenne.",
     tier: 1,
-    aliases: ["Le Chat", "Mistral AI"],
+    aliases: ["Vibe", "Le Chat", "Mistral AI"],
     bucket: "#",
   },
   {

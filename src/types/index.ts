@@ -62,6 +62,14 @@ export interface Skill {
   views?: number;
   /** FAQ spécifique au Skill. À défaut, 5 questions sont générées depuis ses données. */
   faq?: FAQItem[];
+  /** Problème concret que le Skill résout (bloc « À propos »). À défaut, texte générique. */
+  problem?: string;
+  /** Ce que le Skill fait concrètement (bloc « À propos »). À défaut, texte générique. */
+  solution?: string;
+  /** Pourquoi il est recommandé (ex. « prérequis avant tous les autres Skills »). */
+  whyRecommended?: string;
+  /** Variantes sectorielles disponibles (e-commerce, SaaS B2B…). */
+  variants?: { sector: string; name: string; slug?: string }[];
 }
 
 export interface FAQItem {

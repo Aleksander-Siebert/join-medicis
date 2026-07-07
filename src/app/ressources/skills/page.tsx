@@ -23,7 +23,7 @@ const SKILLS_FAQ: FAQItem[] = [
   {
     question: "Je peux utiliser un Skill sur ChatGPT ou Gemini ?",
     answer:
-      "Oui, dans la majorité des cas. Chaque fiche Skill indique le niveau de compatibilité par LLM : « ✓ » = optimisé, « ~ » = fonctionne mais résultats légèrement différents. Sur ChatGPT, tu colles le contenu dans un Custom GPT. Sur Gemini, dans les Gems. Sur Mistral Le Chat, dans les Personas.",
+      "Oui, dans la majorité des cas. Chaque fiche Skill indique le niveau de compatibilité par LLM : « ✓ » = optimisé, « ~ » = fonctionne mais résultats légèrement différents. Sur ChatGPT, tu colles le contenu dans un Custom GPT. Sur Gemini, dans un Gem. Sur Mistral (Vibe, ex-« Le Chat »), tu ajoutes le fichier à la bibliothèque de documents de ton espace de travail.",
   },
   {
     question: "Quelle est la différence avec un prompt qu'on trouve sur internet ?",
