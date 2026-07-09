@@ -1,20 +1,17 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ecosystem } from "@/lib/data";
+import { ecosystem, ECOSYSTEM_CATEGORIES } from "@/lib/data";
 import type { EcosystemCategory } from "@/types";
 import EcosystemLogo from "@/components/ui/EcosystemLogo";
 import JsonLd from "@/components/seo/JsonLd";
 
 type Props = { params: Promise<{ slug: string }> };
 
-const CATEGORY_LABELS: Record<EcosystemCategory, string> = {
-  entreprises: "Entreprises",
-  individus: "Individus",
-  leaders: "Leaders d'opinion",
-  gouvernement: "Gouvernement",
-  autres: "Autres",
-};
+// Libellés dérivés de la source unique (ECOSYSTEM_CATEGORIES dans data.ts).
+const CATEGORY_LABELS = Object.fromEntries(
+  ECOSYSTEM_CATEGORIES.map((c) => [c.id, c.label]),
+) as Record<EcosystemCategory, string>;
 
 export function generateStaticParams() {
   return ecosystem.map((r) => ({ slug: r.slug }));

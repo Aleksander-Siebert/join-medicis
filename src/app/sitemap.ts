@@ -1,19 +1,15 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
-import { skills, authors } from "@/lib/data";
+import { skills, authors, ecosystem } from "@/lib/data";
 import { collections } from "@/lib/collections";
-import { getAllPostSlugs } from "@/lib/blog";
-import { ecosystem } from "@/lib/data";
+import { getAllPosts } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  const url = (path: string) => `${SITE_URL}${path}`;
 
-  const url = (path: string): MetadataRoute.Sitemap[number] => ({
-    url: `${SITE_URL}${path}`,
-    lastModified: now,
-  });
-
-  // Static, indexable routes
+  // Static, indexable routes.
+  // Pas de lastModified artificiel : un « modifié à l'instant » permanent
+  // est un signal que Google apprend à ignorer.
   const staticPaths = [
     "/",
     "/ressources/skills",
@@ -36,34 +32,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const entries: MetadataRoute.Sitemap = staticPaths.map((p) => ({
-    ...url(p),
+    url: url(p),
     changeFrequency: p === "/" ? "weekly" : "monthly",
     priority: p === "/" ? 1 : 0.7,
   }));
 
-  // Skills detail
+  // Skills detail — date réelle de publication quand elle existe
   for (const s of skills) {
-    entries.push({ ...url(`/ressources/skills/${s.slug}`), changeFrequency: "monthly", priority: 0.8 });
+    entries.push({
+      url: url(`/ressources/skills/${s.slug}`),
+      ...(s.publishedAt ? { lastModified: new Date(s.publishedAt) } : {}),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    });
   }
 
   // Authors detail (only real contributors)
   for (const a of authors.filter((x) => !x.hidden)) {
-    entries.push({ ...url(`/auteurs/${a.slug}`), changeFrequency: "monthly", priority: 0.5 });
+    entries.push({ url: url(`/auteurs/${a.slug}`), changeFrequency: "monthly", priority: 0.5 });
   }
 
-  // Blog posts
-  for (const slug of getAllPostSlugs()) {
-    entries.push({ ...url(`/blog/${slug}`), changeFrequency: "monthly", priority: 0.6 });
+  // Blog posts — date réelle de publication
+  for (const post of getAllPosts()) {
+    entries.push({
+      url: url(`/blog/${post.slug}`),
+      ...(post.publishedAt ? { lastModified: new Date(post.publishedAt) } : {}),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    });
   }
 
   // Blog collections
   for (const c of collections) {
-    entries.push({ ...url(`/blog/collections/${c.slug}`), changeFrequency: "monthly", priority: 0.5 });
+    entries.push({ url: url(`/blog/collections/${c.slug}`), changeFrequency: "monthly", priority: 0.5 });
   }
 
   // Ecosystem detail
   for (const e of ecosystem) {
-    entries.push({ ...url(`/ecosysteme/${e.slug}`), changeFrequency: "monthly", priority: 0.4 });
+    entries.push({ url: url(`/ecosysteme/${e.slug}`), changeFrequency: "monthly", priority: 0.4 });
   }
 
   return entries;

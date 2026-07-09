@@ -4,8 +4,53 @@ import {
   CategoryItem,
   Author,
   BlogArticle,
+  EcosystemCategory,
   EcosystemResource,
 } from "@/types";
+
+/**
+ * Source unique des catégories de l'écosystème : ordre d'affichage, libellés,
+ * descriptions et forme du logo. Utilisée par la page /ecosysteme (blocs +
+ * filtres) et par les fiches détail (label de catégorie).
+ */
+export const ECOSYSTEM_CATEGORIES: {
+  id: EcosystemCategory;
+  label: string;
+  description: string;
+  shape: "square" | "round";
+}[] = [
+  {
+    id: "entreprises",
+    label: "Entreprises",
+    description: "Éditeurs, plateformes et outils qui construisent avec l'IA.",
+    shape: "square",
+  },
+  {
+    id: "individus",
+    label: "Individus",
+    description: "Créateurs, experts et communautés qui font avancer le domaine.",
+    shape: "round",
+  },
+  {
+    id: "leaders",
+    label: "Leaders d'opinion",
+    description:
+      "Les voix qu'on suit vraiment : créateurs, podcasts et talk-shows qui décryptent l'IA au quotidien.",
+    shape: "round",
+  },
+  {
+    id: "gouvernement",
+    label: "Gouvernement",
+    description: "Institutions publiques et ressources officielles.",
+    shape: "square",
+  },
+  {
+    id: "autres",
+    label: "Autres",
+    description: "Ressources qui n'entrent pas dans les catégories ci-dessus.",
+    shape: "square",
+  },
+];
 
 export const authors: Author[] = [
   {

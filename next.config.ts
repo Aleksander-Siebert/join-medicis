@@ -1,14 +1,30 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images: {
-    // Autorise les images distantes (https) en plus des images locales dans /public.
-    remotePatterns: [{ protocol: "https", hostname: "**" }],
-  },
+  // Toutes les images du site sont locales (/public). Ne PAS ajouter
+  // remotePatterns avec un wildcard : cela transforme /_next/image en
+  // proxy ouvert vers n'importe quelle image du web.
   experimental: {
     // Anime les transitions de route en utilisant l'API View Transitions du navigateur.
     // Chromium-only pour l'instant ; Safari/Firefox font la navigation classique.
     viewTransition: true,
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          // Empêche le sniffing MIME des réponses.
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          // Interdit l'embarquement du site en iframe (clickjacking).
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          // N'envoie que l'origine aux sites tiers.
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          // Le site n'utilise ni caméra, ni micro, ni géolocalisation.
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+        ],
+      },
+    ];
   },
   async redirects() {
     return [

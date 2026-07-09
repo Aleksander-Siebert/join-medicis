@@ -2,49 +2,9 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ecosystem } from "@/lib/data";
+import { ecosystem, ECOSYSTEM_CATEGORIES } from "@/lib/data";
 import type { EcosystemCategory, EcosystemResource } from "@/types";
 import EcosystemLogo from "@/components/ui/EcosystemLogo";
-
-/** Ordre + libellés des blocs. Les individus et leaders ont un logo rond. */
-const CATEGORY_ORDER: {
-  id: EcosystemCategory;
-  label: string;
-  description: string;
-  shape: "square" | "round";
-}[] = [
-  {
-    id: "entreprises",
-    label: "Entreprises",
-    description: "Éditeurs, plateformes et outils qui construisent avec l'IA.",
-    shape: "square",
-  },
-  {
-    id: "individus",
-    label: "Individus",
-    description: "Créateurs, experts et communautés qui font avancer le domaine.",
-    shape: "round",
-  },
-  {
-    id: "leaders",
-    label: "Leaders d'opinion",
-    description:
-      "Les voix qu'on suit vraiment : créateurs, podcasts et talk-shows qui décryptent l'IA au quotidien.",
-    shape: "round",
-  },
-  {
-    id: "gouvernement",
-    label: "Gouvernement",
-    description: "Institutions publiques et ressources officielles.",
-    shape: "square",
-  },
-  {
-    id: "autres",
-    label: "Autres",
-    description: "Ressources qui n'entrent pas dans les catégories ci-dessus.",
-    shape: "square",
-  },
-];
 
 function ArrowIcon() {
   return (
@@ -121,7 +81,7 @@ export default function EcosystemBrowser() {
 
   // On ne garde que les catégories qui contiennent au moins une ressource.
   const activeCategories = useMemo(
-    () => CATEGORY_ORDER.filter((c) => ecosystem.some((r) => r.category === c.id)),
+    () => ECOSYSTEM_CATEGORIES.filter((c) => ecosystem.some((r) => r.category === c.id)),
     []
   );
 

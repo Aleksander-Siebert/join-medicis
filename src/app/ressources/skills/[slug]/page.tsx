@@ -13,8 +13,6 @@ import { buildSkillFaq } from "@/lib/skill-faq";
 import type { Metadata } from "next";
 import type { LLMSupport } from "@/types";
 
-export const dynamic = "force-dynamic";
-
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {

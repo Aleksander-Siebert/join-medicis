@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const POLL_INTERVAL_MS = 8000;
+const POLL_INTERVAL_MS = 30000;
 
 type Props = {
   slug: string;
@@ -45,6 +45,9 @@ export default function LiveSkillStats({ slug, initialViews, initialDownloads }:
         /* silent */
       }
     };
+    // La page est statique : on rafraîchit immédiatement au montage,
+    // puis on poll pour suivre les compteurs des autres visiteurs.
+    tick();
     const id = window.setInterval(tick, POLL_INTERVAL_MS);
     return () => {
       cancelled = true;

@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     title: "Join Médicis — Bibliothèque IA & Growth",
     description: SITE_DESCRIPTION,
-    images: [{ url: OG_IMAGE, width: 1920, height: 871, alt: SITE_NAME }],
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME }],
   },
   twitter: {
     card: "summary_large_image",

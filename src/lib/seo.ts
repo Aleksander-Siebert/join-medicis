@@ -2,7 +2,8 @@ export const SITE_URL = "https://join-medicis.vercel.app";
 export const SITE_NAME = "Join Médicis";
 export const SITE_DESCRIPTION =
   "La première bibliothèque IA gratuite et open-source pour les marketeurs francophones. Skills Claude, serveurs MCP, agents IA, guides et workflows.";
-export const OG_IMAGE = `${SITE_URL}/michelangelo-creation-adam.webp`;
+// JPG 1200×630 : LinkedIn (canal principal) ne supporte pas le WebP en og:image.
+export const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 export const SOCIAL_LINKS = [
   "https://www.linkedin.com/in/aleksander-siebert/",
