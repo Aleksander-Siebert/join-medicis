@@ -198,12 +198,6 @@ export default function AuthorsPage() {
             >
               Contribuer →
             </Link>
-            <Link
-              href="/request"
-              className="px-7 py-3.5 border border-ink-300 text-ink-900 text-sm font-sans font-medium hover:border-forest-900 hover:text-forest-900 transition-colors rounded-[12px]"
-            >
-              Demander un Skill
-            </Link>
           </div>
         </div>
       </section>

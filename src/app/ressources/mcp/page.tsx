@@ -150,7 +150,7 @@ export default function MCPPage() {
               Linear, GA4…)
             </p>
             <Link
-              href="/request"
+              href="/contribuer"
               className="inline-block px-6 py-3 border border-ink-200 text-ink-700 text-sm hover:border-ink-400 hover:text-ink-900 transition-colors font-sans"
             >
               Demander un nouveau MCP →

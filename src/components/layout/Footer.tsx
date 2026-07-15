@@ -72,7 +72,6 @@ export default function Footer() {
                 { href: "/blog", label: "Blog" },
                 { href: "/auteurs", label: "Auteurs" },
                 { href: "/contribuer", label: "Contribuer" },
-                { href: "/request", label: "Demander un Skill" },
                 { href: "/a-propos", label: "À propos" },
                 { href: "/contact", label: "Contact" },
               ].map((item) => (

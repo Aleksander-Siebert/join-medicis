@@ -45,6 +45,9 @@ const nextConfig: NextConfig = {
       { source: "/authors", destination: "/auteurs", permanent: true },
       { source: "/authors/:slug([^.]+)", destination: "/auteurs/:slug", permanent: true },
 
+      // /request (page « Demander un Skill » supprimée) → /contribuer
+      { source: "/request", destination: "/contribuer", permanent: true },
+
       // /ressources/ecosysteme → /ecosysteme
       { source: "/ressources/ecosysteme", destination: "/ecosysteme", permanent: true },
       {
