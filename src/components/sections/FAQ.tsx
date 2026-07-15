@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import type { FAQItem } from "@/types";
+import FleurDeLys from "@/components/ui/FleurDeLys";
 
 export type { FAQItem };
 
@@ -49,20 +50,6 @@ const defaultFaqs: FAQItem[] = [
   },
 ];
 
-function ChevronDown({ open }: { open: boolean }) {
-  return (
-    <svg
-      className={`w-4 h-4 text-ink-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      aria-hidden="true"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-    </svg>
-  );
-}
-
 type FAQProps = {
   items?: FAQItem[];
   eyebrow?: string;
@@ -91,34 +78,44 @@ export default function FAQ({
           <p className="text-ink-500 font-sans leading-relaxed">{subtitle}</p>
         </div>
 
-        <ul className="divide-y divide-ink-100 border-y border-ink-100">
+        <ul className="space-y-3">
           {items.map((faq, i) => {
             const isOpen = open === i;
             return (
               <li key={faq.question}>
-                <button
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  aria-expanded={isOpen}
-                  className="w-full flex items-center justify-between gap-6 py-5 text-left group"
-                >
-                  <span
-                    className={`font-serif text-lg leading-snug transition-colors ${
-                      isOpen ? "text-ink-900" : "text-ink-700 group-hover:text-ink-900"
-                    }`}
-                  >
-                    {faq.question}
-                  </span>
-                  <ChevronDown open={isOpen} />
-                </button>
                 <div
-                  className={`grid transition-all duration-300 ease-out ${
-                    isOpen ? "grid-rows-[1fr] opacity-100 pb-6" : "grid-rows-[0fr] opacity-0"
+                  className={`rounded-[18px] border border-forest-900 bg-forest-900 transition-colors ${
+                    isOpen ? "" : "hover:bg-forest-700 hover:border-forest-700"
                   }`}
                 >
-                  <div className="overflow-hidden">
-                    <p className="text-sm text-ink-500 leading-relaxed font-sans pr-10">
-                      {faq.answer}
-                    </p>
+                  <button
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    aria-expanded={isOpen}
+                    className="w-full flex items-center justify-between gap-5 px-6 py-5 text-left"
+                  >
+                    <span className="font-sans font-bold text-cream-50 text-base md:text-lg leading-snug">
+                      {faq.question}
+                    </span>
+                    <FleurDeLys
+                      className={`w-5 h-5 shrink-0 text-cream-50 transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  <div
+                    className={`grid transition-all duration-300 ease-out ${
+                      isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="px-6 pb-6">
+                        <div className="border-t border-dashed border-cream-50/25 pt-4">
+                          <p className="text-sm text-cream-50/80 leading-relaxed font-sans">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </li>

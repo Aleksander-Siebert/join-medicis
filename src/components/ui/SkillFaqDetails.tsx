@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { FAQItem } from "@/types";
+import FleurDeLys from "@/components/ui/FleurDeLys";
 
 /**
  * FAQ en HTML natif <details>/<summary> : entièrement crawlable (le texte des
@@ -32,26 +33,26 @@ export default function SkillFaqDetails({
           )}
         </div>
 
-        <div className="divide-y divide-ink-100 border-y border-ink-100">
+        <div className="space-y-3">
           {items.map((faq, i) => (
-            <details key={faq.question} className="group py-1" open={i === 0}>
-              <summary className="flex items-center justify-between gap-6 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                <span className="font-serif text-lg leading-snug text-ink-700 group-open:text-ink-900 transition-colors">
+            <details
+              key={faq.question}
+              className="group rounded-[18px] border border-forest-900 bg-forest-900 [&:not([open])]:hover:bg-forest-700 [&:not([open])]:hover:border-forest-700 transition-colors"
+              open={i === 0}
+            >
+              <summary className="flex items-center justify-between gap-5 px-6 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                <span className="font-sans font-bold text-cream-50 text-base md:text-lg leading-snug">
                   {faq.question}
                 </span>
-                <svg
-                  className="w-4 h-4 text-ink-400 shrink-0 transition-transform duration-200 group-open:rotate-180"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-                </svg>
+                <FleurDeLys className="w-5 h-5 shrink-0 text-cream-50 transition-transform duration-300 group-open:rotate-180" />
               </summary>
-              <p className="text-sm text-ink-500 leading-relaxed font-sans pr-10 pb-6">
-                {faq.answer}
-              </p>
+              <div className="px-6 pb-6">
+                <div className="border-t border-dashed border-cream-50/25 pt-4">
+                  <p className="text-sm text-cream-50/80 leading-relaxed font-sans">
+                    {faq.answer}
+                  </p>
+                </div>
+              </div>
             </details>
           ))}
         </div>

@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { ecosystem, ECOSYSTEM_CATEGORIES } from "@/lib/data";
 import type { EcosystemCategory } from "@/types";
 import EcosystemLogo from "@/components/ui/EcosystemLogo";
+import FleurDeLys from "@/components/ui/FleurDeLys";
 import JsonLd from "@/components/seo/JsonLd";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -417,15 +418,17 @@ export default async function EcosystemResourcePage({ params }: Props) {
                 <details
                   key={f.q}
                   open={i === 0}
-                  className="group bg-cream-50 border border-ink-100 rounded-[14px] px-5 py-4"
+                  className="group rounded-[18px] border border-forest-900 bg-forest-900 [&:not([open])]:hover:bg-forest-700 [&:not([open])]:hover:border-forest-700 transition-colors"
                 >
-                  <summary className="flex items-center justify-between gap-4 cursor-pointer list-none text-sm font-sans font-medium text-ink-900">
+                  <summary className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden font-sans font-bold text-cream-50">
                     {f.q}
-                    <svg className="w-4 h-4 text-ink-400 shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                      <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+                    <FleurDeLys className="w-5 h-5 shrink-0 text-cream-50 transition-transform duration-300 group-open:rotate-180" />
                   </summary>
-                  <p className="text-sm text-ink-600 font-sans leading-relaxed mt-3">{f.a}</p>
+                  <div className="px-5 pb-5">
+                    <div className="border-t border-dashed border-cream-50/25 pt-3">
+                      <p className="text-sm text-cream-50/80 font-sans leading-relaxed">{f.a}</p>
+                    </div>
+                  </div>
                 </details>
               ))}
             </div>
