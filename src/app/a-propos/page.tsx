@@ -296,14 +296,14 @@ export default function AboutPage() {
             <p>
               Je cherchais un nom impactant et un style visuel intéressant pour mettre
               en valeur mon projet. Au début, j&rsquo;étais attiré par le côté pixelisé,
-              puis par un style un peu tech, un peu startup à la Apple — mais je trouvais
+              puis par un style un peu tech, un peu startup à la Apple, mais je trouvais
               ça vu et revu. Surtout qu&rsquo;une grande partie de mon site est vibe-codée
               (et je sais que certains peuvent me le reprocher), c&rsquo;est pourquoi j&rsquo;ai
               voulu trouver quelque chose d&rsquo;un peu plus innovant.
             </p>
             <p>
               En continuant mes recherches et en m&rsquo;appuyant sur mes sources
-              d&rsquo;inspiration, je me suis tout de suite tourné vers la Renaissance :
+              d&rsquo;inspiration, je me suis tourné vers la Renaissance :
               une période fascinante de l&rsquo;histoire, avec de grands inventeurs et
               artistes. Des inventeurs et des artistes qui avaient besoin d&rsquo;aide pour
               réaliser leurs projets… un peu comme les marketeurs au 21ᵉ siècle.
@@ -318,11 +318,11 @@ export default function AboutPage() {
               Cependant, il existe déjà beaucoup de sites portant le nom «&nbsp;Médicis&nbsp;»,
               que ce soit en médecine, dans la tech ou ailleurs. J&rsquo;ai donc simplement
               décidé d&rsquo;ajouter «&nbsp;Join&nbsp;» devant, pour créer un effet de mouvement
-              et de communauté — et, surtout, pour avoir un nom de domaine disponible en .com
+              et de communauté, et surtout pour avoir un nom de domaine disponible en .com
               ahaha !
             </p>
             <p>
-              Voilà l&rsquo;histoire derrière le nom de mon projet, en toute transparence :)
+              Voilà l&rsquo;histoire derrière le nom de mon projet :)
             </p>
           </div>
         </div>
@@ -336,7 +336,7 @@ export default function AboutPage() {
       {/* ============================================================ */}
       {/* WHY OPEN SOURCE — Lawve-style cards */}
       {/* ============================================================ */}
-      <section className="relative px-6 md:px-10 py-28 overflow-hidden border-t border-ink-100">
+      <section className="relative px-6 md:px-10 py-28 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-xs tracking-[0.2em] uppercase text-forest-900 font-sans font-semibold mb-4">
@@ -357,7 +357,7 @@ export default function AboutPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <article className="bg-cream-50 border border-ink-100 rounded-[25px] p-8 md:p-10 hover:border-forest-900/30 transition-colors">
+            <article className="flex flex-col bg-cream-50 border border-ink-100 rounded-[25px] p-8 md:p-10 hover:border-forest-900/30 transition-colors">
               <div className="flex items-baseline justify-between mb-6">
                 <p className="text-xs tracking-[0.2em] uppercase text-ink-500 font-sans font-semibold">
                   Code
@@ -380,7 +380,7 @@ export default function AboutPage() {
                 href="https://opensource.org/license/mit"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-forest-900 hover:text-forest-700 transition-colors font-sans font-medium"
+                className="mt-auto inline-flex items-center gap-1.5 text-sm text-forest-900 hover:text-forest-700 transition-colors font-sans font-medium"
               >
                 Texte officiel MIT
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -389,7 +389,7 @@ export default function AboutPage() {
               </a>
             </article>
 
-            <article className="bg-cream-50 border border-ink-100 rounded-[25px] p-8 md:p-10 hover:border-forest-900/30 transition-colors">
+            <article className="flex flex-col bg-cream-50 border border-ink-100 rounded-[25px] p-8 md:p-10 hover:border-forest-900/30 transition-colors">
               <div className="flex items-baseline justify-between mb-6">
                 <p className="text-xs tracking-[0.2em] uppercase text-ink-500 font-sans font-semibold">
                   Ressources
@@ -413,7 +413,7 @@ export default function AboutPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-1.5 text-sm text-forest-900 hover:text-forest-700 transition-colors font-sans font-medium"
+                className="mt-auto inline-flex items-center gap-1.5 text-sm text-forest-900 hover:text-forest-700 transition-colors font-sans font-medium"
               >
                 Me contacter
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
