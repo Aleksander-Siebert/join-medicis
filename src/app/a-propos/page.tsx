@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import AuroraGradient from "@/components/effects/AuroraGradient";
 import Inspirations from "@/components/about/Inspirations";
 import SupportProject from "@/components/sections/SupportProject";
@@ -172,19 +173,17 @@ export default function AboutPage() {
       {/* PROJECT VISION */}
       {/* ============================================================ */}
       <section className="px-6 md:px-10 py-24 border-t border-ink-100">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex items-center gap-6 mb-10 ornament-line">
-            <span className="text-xs tracking-[0.2em] uppercase text-forest-900 font-sans font-semibold shrink-0">
-              La vision
-            </span>
-          </div>
+        <div className="max-w-5xl mx-auto text-center">
+          <p className="text-xs tracking-[0.2em] uppercase text-forest-900 font-sans font-semibold mb-10">
+            La vision
+          </p>
 
-          <h2 className="font-sans tracking-tight text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 leading-[1.05] mb-10 max-w-4xl">
+          <h2 className="font-sans tracking-tight text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 leading-[1.05] mb-10 max-w-4xl mx-auto text-balance">
             Rendre les fonctions avancées de l&rsquo;IA{" "}
             <em className="italic text-forest-900">accessibles aux marketeurs</em>.
           </h2>
 
-          <div className="space-y-5 text-ink-900 leading-relaxed font-sans text-base md:text-lg max-w-3xl">
+          <div className="space-y-5 text-ink-900 leading-relaxed font-sans text-base md:text-lg max-w-3xl mx-auto">
             <p>
               Vous entendez sûrement parler de Skills, de MCP, d&rsquo;automatisations
               ou d&rsquo;agents IA. Ces outils semblent incroyables, mais comment y
@@ -211,6 +210,16 @@ export default function AboutPage() {
               C&rsquo;est mon objectif et ma vision des choses. Si elle vous parle,
               rejoignez le mouvement.
             </p>
+          </div>
+
+          <div className="mt-10">
+            <Link
+              href="/contribuer"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-forest-900 text-cream-50 text-sm md:text-base font-sans font-medium hover:bg-forest-700 transition-colors rounded-[18px]"
+            >
+              Je contribue
+              <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -266,12 +275,14 @@ export default function AboutPage() {
               Pourquoi l&rsquo;open source
             </p>
             <h2 className="font-sans tracking-tight text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 leading-[1.05] mb-5 text-balance">
-              Notre IA, <em className="italic text-forest-900">vos règles</em>.
+              Vos ressources, <em className="italic text-forest-900">vos règles</em> !
             </h2>
             <p className="text-base md:text-lg text-ink-700 max-w-2xl mx-auto leading-relaxed font-sans">
-              Un projet à double nature exige une double licence. Code en MIT,
-              contenu en CC BY 4.0. Le modèle Wikipédia, MDN, et la doc de la
-              plupart des projets open-source matures.
+              Le code du site, les Skills, les guides : tout est entièrement
+              accessible et open-source. Je propose tout ça gratuitement pour
+              permettre à chaque marketeur d&rsquo;accéder facilement à ces
+              ressources, sans avoir à dépenser de l&rsquo;argent pour des
+              fonctionnalités à la portée de tous.
             </p>
           </div>
 
@@ -286,13 +297,14 @@ export default function AboutPage() {
                 </span>
               </div>
               <h3 className="font-sans tracking-tight text-2xl md:text-3xl text-ink-900 font-bold leading-tight mb-4">
-                Aucune autorisation requise.
+                Copiez, adaptez, réutilisez.
               </h3>
               <p className="text-base text-ink-700 leading-relaxed font-sans mb-6">
-                Site Next.js, composants, scripts, serveurs MCP. La licence la
-                plus permissive du paysage software : tu peux copier, modifier,
-                redistribuer, intégrer en commercial, sans rien demander, à
-                condition de conserver la mention de copyright.
+                Tout le code du site est publié sous licence MIT. Concrètement :
+                vous pouvez le copier, le modifier et le réutiliser librement,
+                même pour un projet commercial, sans demander la permission.
+                La seule règle : conserver la petite mention de copyright.
+                Pas de piège, pas de conditions cachées.
               </p>
               <a
                 href="https://opensource.org/license/mit"
@@ -310,36 +322,32 @@ export default function AboutPage() {
             <article className="bg-cream-50 border border-ink-100 rounded-[25px] p-8 md:p-10 hover:border-forest-900/30 transition-colors">
               <div className="flex items-baseline justify-between mb-6">
                 <p className="text-xs tracking-[0.2em] uppercase text-ink-500 font-sans font-semibold">
-                  Contenu
+                  Ressources
                 </p>
                 <span className="font-sans text-xl text-forest-900 font-bold">
-                  CC BY 4.0
+                  0&nbsp;€
                 </span>
               </div>
               <h3 className="font-sans tracking-tight text-2xl md:text-3xl text-ink-900 font-bold leading-tight mb-4">
-                Créditez, c&rsquo;est tout.
+                Gratuit, et ça le restera.
               </h3>
               <p className="text-base text-ink-700 leading-relaxed font-sans mb-6">
-                Skills{" "}
-                <code className="font-mono text-sm bg-cream-200 px-1.5 py-0.5 rounded">
-                  .md
-                </code>
-                , guides, documents de référence. Tu peux les utiliser,
-                modifier, redistribuer (y compris en commercial), à condition
-                de <em className="italic">créditer</em> l&rsquo;auteur et de
-                mentionner Join Médicis.
+                Skills, guides, documentation : tout est accessible gratuitement,
+                sans paywall ni freemium déguisé. Join Médicis a pour objectif de
+                rester gratuit. La meilleure façon de soutenir le projet, c&rsquo;est
+                de le partager sur vos réseaux. Et je suis ouvert aux partenariats,
+                à une condition : qu&rsquo;ils apportent une vraie valeur ajoutée
+                aux utilisateurs.
               </p>
-              <a
-                href="https://creativecommons.org/licenses/by/4.0/deed.fr"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/contact"
                 className="inline-flex items-center gap-1.5 text-sm text-forest-900 hover:text-forest-700 transition-colors font-sans font-medium"
               >
-                Texte officiel CC BY 4.0
+                Me contacter
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M7 17L17 7M17 7H8M17 7v9" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-              </a>
+              </Link>
             </article>
           </div>
         </div>
