@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 };
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/aleksander-siebert/";
+const GIBSON_WIKI_URL = "https://fr.wikipedia.org/wiki/William_Gibson";
 
 const LinkedInIcon = () => (
   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -254,7 +255,74 @@ export default function AboutPage() {
               distribué.
             </blockquote>
             <p className="text-xs tracking-[0.25em] uppercase font-sans font-semibold text-cream-50/85">
-              William Gibson
+              <a
+                href={GIBSON_WIKI_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-cream-50 underline-offset-4 hover:underline transition-colors"
+              >
+                William Gibson
+              </a>
+            </p>
+            <p className="text-sm font-sans text-cream-50/70 mt-2 max-w-md mx-auto lg:mx-0">
+              <a
+                href={GIBSON_WIKI_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-cream-50 underline-offset-4 hover:underline transition-colors"
+              >
+                Écrivain américain et l&rsquo;un des leaders du mouvement cyberpunk.
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* WHY THE NAME — same style as "La vision" */}
+      {/* ============================================================ */}
+      <section className="px-6 md:px-10 py-24 border-t border-ink-100">
+        <div className="max-w-5xl mx-auto text-center">
+          <p className="text-xs tracking-[0.2em] uppercase text-forest-900 font-sans font-semibold mb-10">
+            Pourquoi Join Médicis ?
+          </p>
+
+          <h2 className="font-sans tracking-tight text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 leading-[1.05] mb-10 max-w-4xl mx-auto text-balance">
+            Pourquoi j&rsquo;ai choisi comme nom{" "}
+            <em className="italic text-forest-900">Join Médicis</em> ?
+          </h2>
+
+          <div className="space-y-5 text-ink-900 leading-relaxed font-sans text-base md:text-lg max-w-3xl mx-auto text-left">
+            <p>
+              Je cherchais un nom impactant et un style visuel intéressant pour mettre
+              en valeur mon projet. Au début, j&rsquo;étais attiré par le côté pixelisé,
+              puis par un style un peu tech, un peu startup à la Apple — mais je trouvais
+              ça vu et revu. Surtout qu&rsquo;une grande partie de mon site est vibe-codée
+              (et je sais que certains peuvent me le reprocher), c&rsquo;est pourquoi j&rsquo;ai
+              voulu trouver quelque chose d&rsquo;un peu plus innovant.
+            </p>
+            <p>
+              En continuant mes recherches et en m&rsquo;appuyant sur mes sources
+              d&rsquo;inspiration, je me suis tout de suite tourné vers la Renaissance :
+              une période fascinante de l&rsquo;histoire, avec de grands inventeurs et
+              artistes. Des inventeurs et des artistes qui avaient besoin d&rsquo;aide pour
+              réaliser leurs projets… un peu comme les marketeurs au 21ᵉ siècle.
+            </p>
+            <p>
+              Je me suis repenché sur mes cours d&rsquo;histoire du lycée et je me suis
+              rappelé d&rsquo;une grande famille italienne : la Maison Médicis, connue pour
+              être une dynastie adepte du mécénat et du collectionnisme. Le mécénat et les
+              Médicis : le concept parfait pour mon projet !
+            </p>
+            <p>
+              Cependant, il existe déjà beaucoup de sites portant le nom «&nbsp;Médicis&nbsp;»,
+              que ce soit en médecine, dans la tech ou ailleurs. J&rsquo;ai donc simplement
+              décidé d&rsquo;ajouter «&nbsp;Join&nbsp;» devant, pour créer un effet de mouvement
+              et de communauté — et, surtout, pour avoir un nom de domaine disponible en .com
+              ahaha !
+            </p>
+            <p>
+              Voilà l&rsquo;histoire derrière le nom de mon projet, en toute transparence :)
             </p>
           </div>
         </div>
@@ -275,14 +343,16 @@ export default function AboutPage() {
               Pourquoi l&rsquo;open source
             </p>
             <h2 className="font-sans tracking-tight text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 leading-[1.05] mb-5 text-balance">
-              Vos ressources, <em className="italic text-forest-900">vos règles</em> !
+              Vos ressources, <em className="italic text-forest-900">vos règles</em>{" "}
+              <span className="text-forest-900">!</span>
             </h2>
             <p className="text-base md:text-lg text-ink-700 max-w-2xl mx-auto leading-relaxed font-sans">
-              Le code du site, les Skills, les guides : tout est entièrement
-              accessible et open-source. Je propose tout ça gratuitement pour
-              permettre à chaque marketeur d&rsquo;accéder facilement à ces
-              ressources, sans avoir à dépenser de l&rsquo;argent pour des
-              fonctionnalités à la portée de tous.
+              Que ça soit les Skills, les différentes ressources, les articles et
+              guides. Tout est entièrement accessible{" "}
+              <strong className="font-semibold text-forest-900">gratuitement</strong> et{" "}
+              <strong className="font-semibold text-forest-900">open-source</strong> afin
+              de permettre à chaque marketeur d&rsquo;accéder facilement à des
+              fonctionnalités avancées de l&rsquo;IA.
             </p>
           </div>
 
@@ -297,14 +367,14 @@ export default function AboutPage() {
                 </span>
               </div>
               <h3 className="font-sans tracking-tight text-2xl md:text-3xl text-ink-900 font-bold leading-tight mb-4">
-                Copiez, adaptez, réutilisez.
+                Copiez, adaptez, réutilisez !
               </h3>
               <p className="text-base text-ink-700 leading-relaxed font-sans mb-6">
-                Tout le code du site est publié sous licence MIT. Concrètement :
-                vous pouvez le copier, le modifier et le réutiliser librement,
-                même pour un projet commercial, sans demander la permission.
-                La seule règle : conserver la petite mention de copyright.
-                Pas de piège, pas de conditions cachées.
+                Les ressources partagées sur le site sont publiées sous licence MIT
+                et accessibles directement sur GitHub. Concrètement : vous pouvez les
+                copier, les modifier et les réutiliser librement, même pour un projet
+                commercial ou pour votre entreprise, sans demander la permission.
+                Une seule règle à respecter : conserver la petite mention de copyright.
               </p>
               <a
                 href="https://opensource.org/license/mit"
@@ -329,15 +399,17 @@ export default function AboutPage() {
                 </span>
               </div>
               <h3 className="font-sans tracking-tight text-2xl md:text-3xl text-ink-900 font-bold leading-tight mb-4">
-                Gratuit, et ça le restera.
+                Gratuit pour vous et ça le restera !
               </h3>
               <p className="text-base text-ink-700 leading-relaxed font-sans mb-6">
-                Skills, guides, documentation : tout est accessible gratuitement,
-                sans paywall ni freemium déguisé. Join Médicis a pour objectif de
-                rester gratuit. La meilleure façon de soutenir le projet, c&rsquo;est
-                de le partager sur vos réseaux. Et je suis ouvert aux partenariats,
-                à une condition : qu&rsquo;ils apportent une vraie valeur ajoutée
-                aux utilisateurs.
+                Des Skills, en passant par les agents IA, jusqu&rsquo;à la documentation :
+                tout est accessible gratuitement et facilement, sans paywall ni conditions
+                cachées. Join Médicis a pour objectif de rester gratuit. Pour le moment, le
+                projet tourne avec mes propres moyens : la meilleure façon de le soutenir est
+                donc de le partager sur vos réseaux. Je suis aussi ouvert à des partenariats,
+                tant qu&rsquo;ils sont entièrement transparents, documentés sur le blog, et
+                qu&rsquo;ils respectent une condition essentielle : vous apporter une vraie
+                valeur ajoutée !
               </p>
               <Link
                 href="/contact"
