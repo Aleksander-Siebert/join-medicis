@@ -191,7 +191,7 @@ export default async function EcosystemResourcePage({ params }: Props) {
 
       {/* Breadcrumb */}
       <div className="border-b border-ink-100 px-6 py-4">
-        <div className="max-w-3xl mx-auto flex items-center gap-2 text-xs text-ink-300 font-sans">
+        <div className="max-w-6xl mx-auto flex items-center gap-2 text-xs text-ink-300 font-sans">
           <Link href="/" className="hover:text-ink-500 transition-colors">Accueil</Link>
           <span>/</span>
           <Link href="/ecosysteme" className="hover:text-ink-500 transition-colors">Écosystème</Link>
@@ -200,7 +200,7 @@ export default async function EcosystemResourcePage({ params }: Props) {
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto px-6 py-10 space-y-12">
+      <div className="max-w-6xl mx-auto px-6 py-10">
         {/* ===================== HERO (bannière + logo superposé) ===================== */}
         <header>
           {/* Bannière */}
@@ -270,25 +270,10 @@ export default async function EcosystemResourcePage({ params }: Props) {
           </div>
         </header>
 
-        {/* ===================== EN BREF (résumé de l'entité) ===================== */}
-        <section className="rounded-[16px] border border-ink-100 bg-cream-50 p-6">
-          <p className="jm-eyebrow">En bref</p>
-          <p className="text-ink-700 leading-relaxed font-sans">
-            {resource.summary ?? resource.tagline}
-          </p>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mt-4 text-xs text-ink-500 font-sans">
-            <span><span className="text-ink-400">Éditeur</span> · {resource.org}</span>
-            <span aria-hidden="true" className="w-1 h-1 bg-ink-200 rounded-full" />
-            <span><span className="text-ink-400">Catégorie</span> · {CATEGORY_LABELS[resource.category]}</span>
-            {resource.type && (
-              <>
-                <span aria-hidden="true" className="w-1 h-1 bg-ink-200 rounded-full" />
-                <span><span className="text-ink-400">Type</span> · {resource.type}</span>
-              </>
-            )}
-          </div>
-        </section>
-
+        {/* ===================== CORPS (2 colonnes, façon page auteur) ===================== */}
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14 items-start">
+          {/* Colonne principale */}
+          <div className="lg:col-span-2 space-y-12">
         {/* ===================== À PROPOS (conservé) ===================== */}
         <section>
           <p className="jm-eyebrow">À propos</p>
@@ -446,10 +431,53 @@ export default async function EcosystemResourcePage({ params }: Props) {
             </div>
           </section>
         )}
+          </div>
+
+          {/* Colonne latérale */}
+          <aside className="lg:col-span-1 space-y-6 lg:sticky lg:top-24 self-start">
+            {/* En bref */}
+            <section className="rounded-[16px] border border-ink-100 bg-cream-50 p-6">
+              <p className="jm-eyebrow">En bref</p>
+              <p className="text-sm text-ink-700 leading-relaxed font-sans">
+                {resource.summary ?? resource.tagline}
+              </p>
+              <dl className="mt-5 space-y-2.5 text-xs font-sans border-t border-ink-100 pt-4">
+                <div className="flex justify-between gap-3">
+                  <dt className="text-ink-400">Éditeur</dt>
+                  <dd className="text-ink-700 font-medium text-right">{resource.org}</dd>
+                </div>
+                <div className="flex justify-between gap-3">
+                  <dt className="text-ink-400">Catégorie</dt>
+                  <dd className="text-ink-700 font-medium text-right">{CATEGORY_LABELS[resource.category]}</dd>
+                </div>
+                {resource.type && (
+                  <div className="flex justify-between gap-3">
+                    <dt className="text-ink-400">Type</dt>
+                    <dd className="text-ink-700 font-medium text-right">{resource.type}</dd>
+                  </div>
+                )}
+              </dl>
+            </section>
+
+            {/* Honnêteté + CTA contact */}
+            <section className="rounded-[16px] border border-dashed border-ink-200 p-6 text-center">
+              <p className="text-sm text-ink-600 font-sans leading-relaxed mb-4">
+                Vous travaillez chez {resource.org}, ou un détail vous semble inexact ?
+                L&rsquo;objectif n&rsquo;est jamais de dénigrer une ressource, juste de rester honnête.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-forest-900 text-cream-50 text-sm font-sans font-medium hover:bg-forest-700 transition-colors rounded-[10px]"
+              >
+                Me contacter
+              </Link>
+            </section>
+          </aside>
+        </div>
 
         {/* ===================== DANS LA MÊME CATÉGORIE (conservé) ===================== */}
         {related.length > 0 && (
-          <section className="pt-2">
+          <section className="mt-16">
             <div className="flex items-center gap-5 mb-6">
               <span className="text-xs tracking-widest uppercase text-ink-300 font-sans shrink-0">
                 Dans la même catégorie
@@ -473,20 +501,6 @@ export default async function EcosystemResourcePage({ params }: Props) {
             </div>
           </section>
         )}
-
-        {/* ===================== HONNÊTETÉ + CTA contact ===================== */}
-        <section className="rounded-[16px] border border-dashed border-ink-200 p-6 text-center">
-          <p className="text-sm text-ink-600 font-sans leading-relaxed mb-4 max-w-xl mx-auto">
-            Vous travaillez chez {resource.org}, ou un détail vous semble inexact ?
-            L&rsquo;objectif n&rsquo;est jamais de dénigrer une ressource, juste de rester honnête.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-forest-900 text-cream-50 text-sm font-sans font-medium hover:bg-forest-700 transition-colors rounded-[10px]"
-          >
-            Me contacter
-          </Link>
-        </section>
       </div>
     </div>
   );
