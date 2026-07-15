@@ -411,6 +411,16 @@ export const ecosystem: EcosystemResource[] = [
     url: "https://www.lemlist.com/fr/claude-skills",
     type: "Skills",
     lang: "EN + FR",
+    summary:
+      "Lemlist est une plateforme française de cold outreach multicanal (email, LinkedIn, téléphone) utilisée par les équipes Sales & Growth B2B pour prospecter à l'échelle. Ici, elle met à disposition ses Skills Claude officiels pour personnaliser les séquences de prospection sans perdre sa voix de marque.",
+    shares: ["Skills", "Guide d'installation", "Vidéo démo"],
+    socials: {
+      linkedin: "https://www.linkedin.com/company/lemlist/",
+      twitter: "https://x.com/lemlist",
+      youtube: "https://www.youtube.com/@lemlist",
+      instagram: "https://www.instagram.com/lemlist/",
+      website: "https://www.lemlist.com",
+    },
     highlights: [
       "Personnalisation des séquences d'outreach assistée par IA",
       "Pensé pour les équipes Sales & Growth B2B",

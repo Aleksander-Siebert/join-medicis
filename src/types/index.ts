@@ -125,8 +125,23 @@ export interface EcosystemResource {
   description: string;
   /** Logo : chemin local dans /public (ex. "/ecosystem-logos/lemlist.svg") ou URL https. */
   logo?: string;
-  /** URL officielle de la ressource (CTA externe sur la page détail). */
+  /** Bannière (chemin public, ex. "/ecosystem-banners/lemlist.jpg"). À défaut : fond vert + placeholder. */
+  banner?: string;
+  /** URL officielle de la ressource (CTA externe dofollow sur la page détail). */
   url?: string;
+  /** Résumé court « En bref » pour situer rapidement l'entité (bloc entre le hero et « À propos »). */
+  summary?: string;
+  /** Réseaux / médias officiels de l'entité, affichés en boutons-icônes. */
+  socials?: {
+    linkedin?: string;
+    twitter?: string;
+    youtube?: string;
+    instagram?: string;
+    website?: string;
+    github?: string;
+  };
+  /** Ce qui est partagé (ex. ["Skills", "Guide", "Vidéo"]) — affiché en tags. À défaut : `type`. */
+  shares?: string[];
   /** Étiquette de nature (ex. "Skills", "Outil", "MCP"). */
   type?: string;
   /** Langue(s) (ex. "FR", "EN", "EN + FR"). */
