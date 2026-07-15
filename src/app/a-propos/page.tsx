@@ -183,7 +183,7 @@ export default function AboutPage() {
             <em className="italic text-forest-900">accessibles aux marketeurs</em>.
           </h2>
 
-          <div className="space-y-5 text-ink-900 leading-relaxed font-sans text-base md:text-lg max-w-3xl mx-auto">
+          <div className="space-y-5 text-ink-900 leading-relaxed font-sans text-base md:text-lg max-w-3xl mx-auto text-left">
             <p>
               Vous entendez sûrement parler de Skills, de MCP, d&rsquo;automatisations
               ou d&rsquo;agents IA. Ces outils semblent incroyables, mais comment y
