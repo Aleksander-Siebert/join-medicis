@@ -13,6 +13,8 @@ export type BookCollection = {
   longDescription: string;
   palette: CollectionPalette;
   shapeSeed: number;
+  /** Couleur du texte sur la couverture du livre. "dark" pour les palettes claires (ex. blanc). Défaut : "light". */
+  textTone?: "light" | "dark";
 };
 
 export const collections: BookCollection[] = [
@@ -92,6 +94,30 @@ export const collections: BookCollection[] = [
       "Les annonces de nouvelles Skills, les snapshots produit, les coulisses, les analyses du marché Growth × IA francophone. Un journal éditorial pour suivre l'avancée du projet et la maturation de l'écosystème.",
     palette: { light: "#F2E5D8", mid: "#C77A6E", dark: "#6B2828", accent: "#E8B8AE" },
     shapeSeed: 7,
+  },
+  {
+    slug: "humanitas",
+    label: "Humanitas",
+    shortLabel: "Humanitas",
+    description:
+      "Protéger la personne humaine à l'ère de l'IA : contenus utiles pour les associations, ONG et grandes causes.",
+    longDescription:
+      "Inspirée de l'encyclique « Magnifica Humanitas » du pape Léon XIV sur la protection de la personne humaine à l'ère de l'intelligence artificielle, cette collection partage des contenus utiles, actionnables et pédagogiques pour les associations, les ONG et toutes les structures d'intérêt général. On y aborde aussi les grands enjeux de société : écologie, protection de la personne humaine, éthique de l'IA — pour mettre la technologie au service de l'humain.",
+    palette: { light: "#FFFFFF", mid: "#F1ECE2", dark: "#D6CDBB", accent: "#EFE9DB" },
+    shapeSeed: 8,
+    textTone: "dark",
+  },
+  {
+    slug: "academia",
+    label: "Academia",
+    shortLabel: "Academia",
+    description:
+      "Ressources et articles pour les étudiants, les écoles et les professeurs — dans l'esprit du mécénat.",
+    longDescription:
+      "Academia s'adresse aux étudiants, aux écoles et aux professeurs. Dans l'esprit du mécénat qui inspire Join Médicis, on y partage des ressources et des articles utiles au monde de l'enseignement — même au-delà du strict marketing. L'objectif : rendre le savoir et les outils modernes accessibles à celles et ceux qui apprennent et qui transmettent.",
+    palette: { light: "#F3D9D2", mid: "#C0453B", dark: "#6E1D18", accent: "#E8AFA6" },
+    shapeSeed: 9,
+    textTone: "light",
   },
 ];
 

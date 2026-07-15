@@ -116,7 +116,7 @@ export default async function CollectionPage({
                 {featured.map((post) => (
                   <Link
                     key={post.slug}
-                    href={`/blog/${post.slug}`}
+                    href={`/blog/collections/${slug}/${post.slug}`}
                     className="group p-7 bg-ink-800/40 border border-cream-50/10 hover:border-cream-50/35 transition-colors rounded-[25px] flex flex-col gap-3"
                   >
                     <div className="flex items-center gap-3 text-xs text-cream-50/55 font-sans">

@@ -43,6 +43,16 @@ export function getPostsByCollection(collectionSlug: string): BlogPost[] {
   return getAllPosts().filter((p) => p.collection === collectionSlug);
 }
 
+/**
+ * URL canonique d'un article : imbriquée sous sa collection quand elle existe
+ * (/blog/collections/{collection}/{slug}), sinon /blog/{slug}.
+ */
+export function postHref(post: { slug: string; collection: string | null }): string {
+  return post.collection
+    ? `/blog/collections/${post.collection}/${post.slug}`
+    : `/blog/${post.slug}`;
+}
+
 export function getAllPostSlugs(): string[] {
   if (!fs.existsSync(BLOG_DIR)) return [];
   return fs

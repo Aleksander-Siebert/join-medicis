@@ -148,6 +148,13 @@ export default function BookCover({
   transitionName,
 }: Props) {
   const { w, h } = SIZE_MAP[size];
+  const darkText = collection.textTone === "dark";
+  const headerClass = darkText ? "text-ink-900/60" : "text-white/85";
+  const titleClass = darkText ? "text-ink-900" : "text-white";
+  const titleShadow = darkText
+    ? "0 1px 2px rgba(255,255,255,0.45)"
+    : "0 2px 12px rgba(0,0,0,0.35)";
+  const plateBorder = darkText ? "border-black/10" : "border-white/10";
 
   return (
     <div
@@ -208,20 +215,20 @@ export default function BookCover({
           {/* Inner border to mimic embossed plate */}
           <div
             aria-hidden="true"
-            className="absolute inset-3 border border-white/10 rounded-sm pointer-events-none"
+            className={`absolute inset-3 border ${plateBorder} rounded-sm pointer-events-none`}
           />
 
           {/* Header label */}
-          <span className="absolute top-5 left-5 right-5 text-[10px] tracking-widest text-white/85 font-serif italic">
+          <span className={`absolute top-5 left-5 right-5 text-[10px] tracking-widest ${headerClass} font-serif italic`}>
             The Join Médicis Manual
           </span>
 
           {/* Title */}
           <h3
-            className="absolute left-5 right-6 bottom-5 font-sans font-bold uppercase text-white leading-[1.05] tracking-tight"
+            className={`absolute left-5 right-6 bottom-5 font-sans font-bold uppercase ${titleClass} leading-[1.05] tracking-tight`}
             style={{
               fontSize: size === "lg" ? "1.6rem" : size === "md" ? "1.2rem" : "1rem",
-              textShadow: "0 2px 12px rgba(0,0,0,0.35)",
+              textShadow: titleShadow,
             }}
           >
             {collection.label}

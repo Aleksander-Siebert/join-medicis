@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 import { skills, authors, ecosystem } from "@/lib/data";
 import { collections } from "@/lib/collections";
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts, postHref } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const url = (path: string) => `${SITE_URL}${path}`;
@@ -52,10 +52,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({ url: url(`/auteurs/${a.slug}`), changeFrequency: "monthly", priority: 0.5 });
   }
 
-  // Blog posts — date réelle de publication
+  // Blog posts — URL imbriquée sous la collection, date réelle de publication
   for (const post of getAllPosts()) {
     entries.push({
-      url: url(`/blog/${post.slug}`),
+      url: url(postHref(post)),
       ...(post.publishedAt ? { lastModified: new Date(post.publishedAt) } : {}),
       changeFrequency: "monthly",
       priority: 0.6,

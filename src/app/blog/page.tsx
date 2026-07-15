@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import BookCarousel from "@/components/blog/BookCarousel";
 import SupportProject from "@/components/sections/SupportProject";
 import { collections, getCollectionBySlug } from "@/lib/collections";
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts, postHref } from "@/lib/blog";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
@@ -54,6 +54,7 @@ export default function BlogHomePage() {
             empty="Les statistiques arrivent bientôt."
             items={popular.map((p) => ({
               slug: p.slug,
+              href: postHref(p),
               title: p.title,
               meta: getCollectionBySlug(p.collection ?? "")?.label,
             }))}
@@ -63,6 +64,7 @@ export default function BlogHomePage() {
             empty="Aucune publication pour le moment."
             items={latest.map((p) => ({
               slug: p.slug,
+              href: postHref(p),
               title: p.title,
               meta: formatDate(p.publishedAt),
             }))}
@@ -118,7 +120,7 @@ function ColumnList({
   empty,
 }: {
   title: string;
-  items: { slug: string; title: string; meta?: string }[];
+  items: { slug: string; href: string; title: string; meta?: string }[];
   empty: string;
 }) {
   return (
@@ -133,7 +135,7 @@ function ColumnList({
           {items.map((item) => (
             <li key={item.slug}>
               <Link
-                href={`/blog/${item.slug}`}
+                href={item.href}
                 className="group flex items-center justify-between gap-4 py-4 hover:bg-cream-50/[0.04] -mx-2 px-2 transition-colors"
               >
                 <span className="text-cream-50 group-hover:text-cream-100 font-sans">
