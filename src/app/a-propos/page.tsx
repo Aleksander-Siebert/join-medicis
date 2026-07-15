@@ -350,8 +350,8 @@ export default function AboutPage() {
               Que ça soit les Skills, les différentes ressources, les articles et
               guides. Tout est entièrement accessible{" "}
               <strong className="font-semibold text-forest-900">gratuitement</strong> et{" "}
-              <strong className="font-semibold text-forest-900">open-source</strong> afin
-              de permettre à chaque marketeur d&rsquo;accéder facilement à des
+              <strong className="font-semibold text-forest-900">open-source</strong>{" "}
+              afin de permettre à chaque marketeur d&rsquo;accéder facilement à des
               fonctionnalités avancées de l&rsquo;IA.
             </p>
           </div>
