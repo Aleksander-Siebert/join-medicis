@@ -21,6 +21,8 @@ export interface GlossaryArticle {
   slug: string;
   /** Titre H1 optionnel — à défaut, le titre du terme dans glossary.ts. */
   title?: string;
+  /** Title tag Google, si différent du H1 (ex. « Qu'est-ce qu'un LLM ? »). */
+  metaTitle?: string;
   /** Chapô optionnel affiché sous le H1 — sert aussi de meta description. */
   excerpt?: string;
   /** Dernière mise à jour (ISO), affichée en pied d'article. */
@@ -56,6 +58,7 @@ export function getGlossaryArticle(slug: string): GlossaryArticle | null {
   return {
     slug,
     title: parsed.data.title ? String(parsed.data.title) : undefined,
+    metaTitle: parsed.data.metaTitle ? String(parsed.data.metaTitle) : undefined,
     excerpt: parsed.data.excerpt ? String(parsed.data.excerpt) : undefined,
     updatedAt: parsed.data.updatedAt ? String(parsed.data.updatedAt) : undefined,
     draft: parsed.data.draft === true,

@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     alternates: { canonical: `/glossaire/${slug}` },
-    title: `${term.title} — Définition`,
+    title: article.metaTitle ?? `${term.title} — Définition`,
     description: article.excerpt ?? term.description,
     // Brouillon : consultable en direct pour relecture, mais jamais indexé.
     ...(article.draft ? { robots: { index: false, follow: false } } : {}),
@@ -154,25 +154,24 @@ export default async function GlossaryTermPage({ params }: Props) {
           )}
         </article>
 
-        {/* ===================== CTA CONTRIBUER (sur le fond vert) ===================== */}
+        {/* ===================== CTA DÉCOUVRIR JOIN MÉDICIS (sur le fond vert) ===================== */}
         <section className="max-w-3xl mx-auto mt-10 md:mt-14">
           <div className="rounded-[20px] border border-cream-50/15 bg-cream-50/[0.06] backdrop-blur-sm px-6 py-10 md:px-12 md:py-12">
-            <span className="inline-flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase font-sans font-semibold bg-cream-50/10 text-cream-50 px-3 py-1 rounded-full mb-5">
-              Pour les experts
-            </span>
             <h2 className="font-sans tracking-tight text-3xl md:text-4xl font-bold text-cream-50 leading-[1.05] mb-4">
-              Vous maîtrisez le sujet ?
+              La bibliothèque IA gratuite et open-source
+              <br className="hidden sm:block" />{" "}
+              <em className="italic">pour les marketeurs</em>
             </h2>
             <p className="text-cream-50/80 font-sans leading-relaxed max-w-xl mb-8">
-              Join Médicis est une bibliothèque ouverte : ce glossaire s&rsquo;enrichit
-              grâce à celles et ceux qui pratiquent l&rsquo;IA au quotidien. Complétez une
-              définition, proposez un terme manquant ou partagez une ressource.
+              Retrouvez facilement des ressources gratuites tels que des Skills, des
+              MCP, des workflows et des agents IA. Fait pour les marketers par des
+              marketers !
             </p>
             <ul className="space-y-2.5 mb-9">
               {[
-                "Votre nom et votre profil sur chaque contribution",
-                "Relu, vérifié et publié gratuitement pour tous",
-                "Contenu open-source, réutilisable en CC BY 4.0",
+                "Skills, MCP, workflows et agents IA prêts à l'emploi",
+                "100 % gratuit, sans paywall ni conditions cachées",
+                "Open-source : code MIT, contenu CC BY 4.0",
               ].map((item) => (
                 <li
                   key={item}

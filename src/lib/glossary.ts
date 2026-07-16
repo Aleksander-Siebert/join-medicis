@@ -27,12 +27,12 @@ export const glossary: GlossaryTerm[] = [
     aliases: ["IA"],
   },
   {
-    slug: "modele-de-langage",
-    title: "Modèle de langage (LLM)",
+    slug: "llm",
+    title: "LLM",
     description:
       "Système d'IA entraîné sur d'immenses corpus de texte pour comprendre et générer du langage naturel. Exemples : Claude, GPT, Gemini, Llama.",
     tier: 1,
-    aliases: ["LLM"],
+    aliases: ["Modèle de langage", "Grand modèle de langage"],
   },
   {
     slug: "token-tokenisation",
