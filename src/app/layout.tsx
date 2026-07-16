@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ContributePopup from "@/components/ui/ContributePopup";
 import JsonLd from "@/components/seo/JsonLd";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import {
   SITE_URL,
   SITE_NAME,
@@ -76,6 +77,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <ContributePopup />
+        <SpeedInsights />
       </body>
     </html>
   );
