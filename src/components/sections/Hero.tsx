@@ -1,5 +1,4 @@
 import Link from "next/link";
-import ReactDOM from "react-dom";
 import { siteStats, authors } from "@/lib/data";
 
 const contributeursCount = authors.filter((a) => !a.hidden).length;
@@ -22,13 +21,12 @@ const statsData = [
   { value: "100%", label: "gratuit & open-source" },
 ];
 
+// NOTE : ne pas précharger HERO_IMAGE. L'image pèse 187 Ko ; un
+// ReactDOM.preload en fetchPriority "high" la met en concurrence avec le CSS
+// bloquant (13 Ko) et, sur la 4G lente de Lighthouse, retarde le rendu :
+// testé, le score mobile est tombé à 80. Le navigateur la découvre via le CSS,
+// c'est plus lent en théorie mais meilleur en pratique sur mobile.
 export default function Hero() {
-  // L'image du hero est un background-image CSS : le navigateur ne la découvre
-  // qu'après avoir parsé le CSS, ce qui retarde le LCP. On la précharge pour la
-  // mettre sur le chemin critique immédiatement. ReactDOM.preload émet un seul
-  // <link> dédupliqué dans <head> (un <link> en JSX se retrouvait en double).
-  ReactDOM.preload(HERO_IMAGE, { as: "image", fetchPriority: "high" });
-
   return (
     <section className="relative pt-36 pb-24 px-6 overflow-hidden">
       {/* Background image — Michelangelo, La Création d'Adam (1512), public domain */}
