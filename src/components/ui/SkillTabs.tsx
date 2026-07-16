@@ -160,26 +160,26 @@ function ContentTab({ skill }: { skill: Skill }) {
           skill.md · aperçu des 30 premières lignes
         </div>
         <div className="bg-ink-900 text-cream-100 p-8 font-mono text-sm leading-relaxed overflow-x-auto">
-          <p className="text-ink-300 mb-1">---</p>
-          <p className="text-ink-300 mb-1">name: {skill.slug}</p>
-          <p className="text-ink-300 mb-1">version: {skill.version}</p>
-          <p className="text-ink-300 mb-1">category: {skill.category}</p>
-          <p className="text-ink-300 mb-1">time_saved: &ldquo;{skill.timeSaved}&rdquo;</p>
+          <p className="text-cream-100/60 mb-1">---</p>
+          <p className="text-cream-100/60 mb-1">name: {skill.slug}</p>
+          <p className="text-cream-100/60 mb-1">version: {skill.version}</p>
+          <p className="text-cream-100/60 mb-1">category: {skill.category}</p>
+          <p className="text-cream-100/60 mb-1">time_saved: &ldquo;{skill.timeSaved}&rdquo;</p>
           {skill.resultMetric && (
-            <p className="text-ink-300 mb-1">result_metric: &ldquo;{skill.resultMetric}&rdquo;</p>
+            <p className="text-cream-100/60 mb-1">result_metric: &ldquo;{skill.resultMetric}&rdquo;</p>
           )}
-          <p className="text-ink-300 mb-4">---</p>
+          <p className="text-cream-100/60 mb-4">---</p>
 
           <p className="text-cream-200 mb-1"># {skill.name}</p>
-          <p className="text-ink-500 mb-5">{skill.description}</p>
+          <p className="text-cream-100/75 mb-5">{skill.description}</p>
 
           <p className="text-cream-200 mb-1">## §0 — Identité &amp; paradigme</p>
-          <p className="text-ink-500 mb-5">
+          <p className="text-cream-100/75 mb-5">
             [Définition du rôle et du paradigme — extrait. Le fichier complet
             contient toutes les sections §0 à §N.]
           </p>
           <p className="text-cream-200 mb-1">## §1 — Déclenchement</p>
-          <p className="text-ink-500">
+          <p className="text-cream-100/75">
             [Conditions d&rsquo;activation du Skill...]
           </p>
         </div>

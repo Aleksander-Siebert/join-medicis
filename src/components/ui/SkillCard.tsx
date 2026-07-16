@@ -44,7 +44,8 @@ export default function SkillCard({ skill }: { skill: Skill }) {
               src={skill.image}
               alt={skill.name}
               fill
-              sizes="(max-width: 768px) 100vw, 400px"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+              quality={65}
               className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>

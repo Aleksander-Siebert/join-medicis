@@ -25,7 +25,10 @@ const config: Config = {
           800: "#1A1916",
           700: "#2A2925",
           500: "#525049",
-          300: "#8E8C85",
+          // Texte discret (eyebrows, méta, badges). Assombri depuis #8E8C85 :
+          // l'ancienne valeur ne donnait que 3,15:1 sur cream-100, sous le
+          // minimum WCAG AA (4,5:1). Ici : ~5,1:1 sur cream-100, ~4,7:1 sur cream-200.
+          300: "#6B6963",
           200: "#B6B4AE",
           100: "#D4D2CC",
         },

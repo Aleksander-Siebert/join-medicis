@@ -4,6 +4,11 @@ const nextConfig: NextConfig = {
   // Toutes les images du site sont locales (/public). Ne PAS ajouter
   // remotePatterns avec un wildcard : cela transforme /_next/image en
   // proxy ouvert vers n'importe quelle image du web.
+  images: {
+    // Next 16 n'autorise que les qualités déclarées ici.
+    // 65 : visuels décoratifs des cartes. 75 : défaut.
+    qualities: [65, 75],
+  },
   experimental: {
     // Anime les transitions de route en utilisant l'API View Transitions du navigateur.
     // Chromium-only pour l'instant ; Safari/Firefox font la navigation classique.

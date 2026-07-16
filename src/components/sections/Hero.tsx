@@ -22,6 +22,18 @@ const statsData = [
 export default function Hero() {
   return (
     <section className="relative pt-36 pb-24 px-6 overflow-hidden">
+      {/*
+        L'image du hero est un background-image CSS : le navigateur ne la
+        découvre qu'après avoir parsé le CSS, ce qui retarde le LCP. Ce preload
+        (hissé dans <head> par React) la met sur le chemin critique tout de suite.
+      */}
+      {/* eslint-disable-next-line @next/next/no-head-element */}
+      <link
+        rel="preload"
+        as="image"
+        href="/michelangelo-creation-adam.webp"
+        fetchPriority="high"
+      />
       {/* Background image — Michelangelo, La Création d'Adam (1512), public domain */}
       <div
         aria-hidden="true"

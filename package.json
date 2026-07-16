@@ -20,6 +20,14 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
+  "//browserslist": "Cibles ou Array.at / Object.hasOwn / flat / fromEntries / trimStart sont natifs : evite a Next de les polyfiller (~14 Kio). Ne pas elargir sans raison, sinon SWC retranspile et realourdit le bundle.",
+  "browserslist": [
+    "chrome >= 93",
+    "edge >= 93",
+    "firefox >= 92",
+    "safari >= 15.4",
+    "not dead"
+  ],
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19",
