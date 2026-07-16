@@ -9,7 +9,9 @@ import SkillVariants from "@/components/ui/SkillVariants";
 import LiveSkillStats from "@/components/ui/LiveSkillStats";
 import SkillDownloadButton from "@/components/ui/SkillDownloadButton";
 import SkillFaqDetails from "@/components/ui/SkillFaqDetails";
+import JsonLd from "@/components/seo/JsonLd";
 import { buildSkillFaq } from "@/lib/skill-faq";
+import { breadcrumbSchema } from "@/lib/seo";
 import type { Metadata } from "next";
 import type { LLMSupport } from "@/types";
 
@@ -89,6 +91,14 @@ export default async function SkillPage({ params }: Props) {
 
   return (
     <div className="pt-16 min-h-screen">
+      {/* Fil d'ariane structuré : affiche le chemin de navigation sous le résultat Google */}
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Accueil", path: "/" },
+          { name: "Skills", path: "/ressources/skills" },
+          { name: skill.name, path: `/ressources/skills/${skill.slug}` },
+        ])}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-ink-100 px-6 py-4">
         <div className="max-w-5xl mx-auto flex items-center gap-2 text-xs text-ink-300 font-sans">

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import type { FAQItem } from "@/types";
 import FleurDeLys from "@/components/ui/FleurDeLys";
+import JsonLd from "@/components/seo/JsonLd";
 
 export type { FAQItem };
 
@@ -65,8 +66,22 @@ export default function FAQ({
 }: FAQProps = {}) {
   const [open, setOpen] = useState<number | null>(0);
 
+  // Schema FAQPage dérivé des questions réellement affichées : le balisage ne
+  // peut donc pas diverger du contenu (règle de Google). Rendu côté serveur au
+  // premier rendu, donc bien présent dans le HTML pour les crawlers.
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+
   return (
     <section className="border-t border-ink-100 px-6 py-24">
+      <JsonLd data={faqSchema} />
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-14">
           <p className="text-xs tracking-widest uppercase text-ink-300 mb-4 font-sans">

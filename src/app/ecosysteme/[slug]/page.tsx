@@ -8,6 +8,7 @@ import type { EcosystemCategory } from "@/types";
 import EcosystemLogo from "@/components/ui/EcosystemLogo";
 import FleurDeLys from "@/components/ui/FleurDeLys";
 import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -188,7 +189,17 @@ export default async function EcosystemResourcePage({ params }: Props) {
 
   return (
     <div className="pt-16 min-h-screen bg-cream-100">
-      {faqJsonLd && <JsonLd data={faqJsonLd} />}
+      <JsonLd
+        data={[
+          // Fil d'ariane structuré : chemin de navigation sous le résultat Google
+          breadcrumbSchema([
+            { name: "Accueil", path: "/" },
+            { name: "Écosystème", path: "/ecosysteme" },
+            { name: resource.name, path: `/ecosysteme/${resource.slug}` },
+          ]),
+          ...(faqJsonLd ? [faqJsonLd] : []),
+        ]}
+      />
 
       {/* Breadcrumb */}
       <div className="border-b border-ink-100 px-6 py-4">

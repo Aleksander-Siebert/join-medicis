@@ -32,10 +32,10 @@ export default function Hero() {
         (~20 Ko). next/image génère ce srcset et `priority` précharge la bonne
         taille — c'est l'élément LCP de la page.
       */}
-      <div aria-hidden="true" className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10">
         <Image
           src={HERO_IMAGE}
-          alt=""
+          alt="La Création d'Adam, fresque de Michel-Ange à la chapelle Sixtine (1512)"
           fill
           priority
           sizes="100vw"
