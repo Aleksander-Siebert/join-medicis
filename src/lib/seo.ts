@@ -1,6 +1,8 @@
-// Domaine canonique du site. Le www est la version servie en 200 ;
-// l'apex (joinmedicis.com) redirige vers celle-ci côté Vercel.
-export const SITE_URL = "https://www.joinmedicis.com";
+// Domaine canonique du site : l'apex est la version servie en 200 par Vercel
+// (www.joinmedicis.com y redirige en 308). Doit toujours correspondre au
+// domaine « Primary » configuré dans Vercel, sinon canonicals et sitemap
+// pointent vers des URLs qui redirigent (Google refuse alors le sitemap).
+export const SITE_URL = "https://joinmedicis.com";
 export const SITE_NAME = "Join Médicis";
 export const SITE_DESCRIPTION =
   "La première bibliothèque IA gratuite et open-source pour les marketeurs francophones. Skills Claude, serveurs MCP, agents IA, guides et workflows.";
