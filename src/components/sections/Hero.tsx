@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteStats, authors } from "@/lib/data";
 
 const contributeursCount = authors.filter((a) => !a.hidden).length;
@@ -21,20 +22,26 @@ const statsData = [
   { value: "100%", label: "gratuit & open-source" },
 ];
 
-// NOTE : ne pas précharger HERO_IMAGE. L'image pèse 187 Ko ; un
-// ReactDOM.preload en fetchPriority "high" la met en concurrence avec le CSS
-// bloquant (13 Ko) et, sur la 4G lente de Lighthouse, retarde le rendu :
-// testé, le score mobile est tombé à 80. Le navigateur la découvre via le CSS,
-// c'est plus lent en théorie mais meilleur en pratique sur mobile.
 export default function Hero() {
   return (
     <section className="relative pt-36 pb-24 px-6 overflow-hidden">
-      {/* Background image — Michelangelo, La Création d'Adam (1512), public domain */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-center bg-no-repeat bg-cover"
-        style={{ backgroundImage: `url('${HERO_IMAGE}')` }}
-      />
+      {/*
+        Image de fond — Michelangelo, La Création d'Adam (1512), domaine public.
+        Servie via next/image et NON en background-image CSS : le fichier source
+        fait 1920x871 (187 Ko), or un mobile n'a besoin que de la variante 640w
+        (~20 Ko). next/image génère ce srcset et `priority` précharge la bonne
+        taille — c'est l'élément LCP de la page.
+      */}
+      <div aria-hidden="true" className="absolute inset-0 -z-10">
+        <Image
+          src={HERO_IMAGE}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
       {/* Slightly stronger halo behind text — fresco is more textured than Monet */}
       <div
         aria-hidden="true"
