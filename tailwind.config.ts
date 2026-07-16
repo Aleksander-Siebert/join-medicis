@@ -95,6 +95,18 @@ const config: Config = {
             "code::after": { content: '""' },
           },
         },
+        // Variante pour les pages du glossaire : tout en Inter, texte noir
+        // (style Ahrefs), au lieu des titres serif de la variante editorial.
+        glossaire: {
+          css: {
+            "--tw-prose-body": theme("colors.ink.900"),
+            "--tw-prose-headings": theme("colors.ink.900"),
+            h1: { fontFamily: theme("fontFamily.sans").toString(), fontWeight: "700", letterSpacing: "-0.02em" },
+            h2: { fontFamily: theme("fontFamily.sans").toString(), fontWeight: "700", letterSpacing: "-0.02em" },
+            h3: { fontFamily: theme("fontFamily.sans").toString(), fontWeight: "600", letterSpacing: "-0.01em" },
+            h4: { fontFamily: theme("fontFamily.sans").toString(), fontWeight: "600" },
+          },
+        },
       }),
     },
   },

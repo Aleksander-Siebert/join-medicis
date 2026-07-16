@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
 import AuroraGradient from "@/components/effects/AuroraGradient";
 import {
   glossary,
@@ -87,7 +88,13 @@ const EASTER_EGGS: EasterEgg[] = [
   },
 ];
 
-export default function GlossaryClient() {
+export default function GlossaryClient({
+  linkedSlugs = [],
+}: {
+  /** Slugs ayant un article publié : seuls ceux-là ont une page à lier. */
+  linkedSlugs?: string[];
+}) {
+  const linked = useMemo(() => new Set(linkedSlugs), [linkedSlugs]);
   const [query, setQuery] = useState("");
   const lettersWithContent = useMemo(() => {
     const set = new Set<string>();
@@ -305,7 +312,16 @@ export default function GlossaryClient() {
                       {grouped[letter].map((term) => (
                         <li key={term.slug}>
                           <h3 className="font-serif text-xl md:text-2xl text-forest-900 font-medium mb-2">
-                            {term.title}
+                            {linked.has(term.slug) ? (
+                              <Link
+                                href={`/glossaire/${term.slug}`}
+                                className="hover:underline underline-offset-4 decoration-forest-600/40"
+                              >
+                                {term.title}
+                              </Link>
+                            ) : (
+                              term.title
+                            )}
                           </h3>
                           <p className="text-ink-900 leading-relaxed font-sans">
                             {term.description}

@@ -3,6 +3,7 @@ import { SITE_URL } from "@/lib/seo";
 import { skills, authors, ecosystem } from "@/lib/data";
 import { collections } from "@/lib/collections";
 import { getAllPosts, postHref } from "@/lib/blog";
+import { getPublishedGlossarySlugs } from "@/lib/glossary-content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const url = (path: string) => `${SITE_URL}${path}`;
@@ -69,6 +70,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Ecosystem detail
   for (const e of ecosystem) {
     entries.push({ url: url(`/ecosysteme/${e.slug}`), changeFrequency: "monthly", priority: 0.4 });
+  }
+
+  // Glossaire — uniquement les articles publiés (les brouillons sont noindex).
+  for (const slug of getPublishedGlossarySlugs()) {
+    entries.push({ url: url(`/glossaire/${slug}`), changeFrequency: "monthly", priority: 0.5 });
   }
 
   return entries;

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import GlossaryClient from "@/components/glossary/GlossaryClient";
 import JsonLd from "@/components/seo/JsonLd";
 import { glossary } from "@/lib/glossary";
+import { getPublishedGlossarySlugs } from "@/lib/glossary-content";
 import { SITE_URL, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -42,7 +43,9 @@ export default function GlossaryPage() {
           ]),
         ]}
       />
-      <GlossaryClient />
+      {/* Seuls les termes ayant un article publié deviennent cliquables :
+          les autres n'ont pas de page (404), on ne peut donc pas les lier. */}
+      <GlossaryClient linkedSlugs={getPublishedGlossarySlugs()} />
     </div>
   );
 }
