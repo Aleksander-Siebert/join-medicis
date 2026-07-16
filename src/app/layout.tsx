@@ -56,6 +56,11 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
+  // Vérification Google Search Console (propriété « préfixe d'URL »).
+  // La propriété « Domaine » se vérifie, elle, par un enregistrement DNS TXT.
+  verification: {
+    google: "ZXg_clZQwUqd5VXJ1j0nnI2MnVJStsql8ZxeafUaZME",
+  },
 };
 
 export default function RootLayout({

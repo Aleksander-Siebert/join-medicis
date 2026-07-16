@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import Aurora from "@/components/effects/Aurora";
+import { SITE_URL } from "@/lib/seo";
 
 const LINKEDIN_PROFILE = "https://www.linkedin.com/in/aleksander-siebert/";
 // TODO: replace with the real LinkedIn newsletter URL once published
 const NEWSLETTER_URL = "https://www.linkedin.com/in/aleksander-siebert/recent-activity/newsletter/";
-const SITE_URL = "https://join-medicis.vercel.app";
 const SHARE_TEXT =
   "Join Médicis — bibliothèque open-source Skills Claude, MCP & Growth IA pour marketers francophones.";
 

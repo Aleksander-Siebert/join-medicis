@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import GoldenSpiral from "@/components/effects/GoldenSpiral";
+import { SITE_URL } from "@/lib/seo";
 
-const BLOG_URL = "https://join-medicis.vercel.app/blog";
+const BLOG_URL = `${SITE_URL}/blog`;
 const HOVER_OPEN_DELAY = 220;
 const HOVER_CLOSE_DELAY = 180;
 
