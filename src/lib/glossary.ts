@@ -30,7 +30,7 @@ export const glossary: GlossaryTerm[] = [
     slug: "llm",
     title: "LLM",
     description:
-      "Système d'IA entraîné sur d'immenses corpus de texte pour comprendre et générer du langage naturel. Exemples : Claude, GPT, Gemini, Llama.",
+      "Système d'IA entraîné sur d'immenses volumes de texte pour comprendre et générer du langage humain. Il prédit le mot suivant le plus probable, ce qui lui permet de rédiger, résumer ou traduire. Exemples : Claude, GPT, Gemini, Llama, Mistral.",
     tier: 1,
     aliases: ["Modèle de langage", "Grand modèle de langage"],
   },
