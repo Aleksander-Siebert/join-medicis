@@ -1,7 +1,10 @@
 import Link from "next/link";
+import ReactDOM from "react-dom";
 import { siteStats, authors } from "@/lib/data";
 
 const contributeursCount = authors.filter((a) => !a.hidden).length;
+
+const HERO_IMAGE = "/michelangelo-creation-adam.webp";
 
 const GitHubIcon = () => (
   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -20,25 +23,19 @@ const statsData = [
 ];
 
 export default function Hero() {
+  // L'image du hero est un background-image CSS : le navigateur ne la découvre
+  // qu'après avoir parsé le CSS, ce qui retarde le LCP. On la précharge pour la
+  // mettre sur le chemin critique immédiatement. ReactDOM.preload émet un seul
+  // <link> dédupliqué dans <head> (un <link> en JSX se retrouvait en double).
+  ReactDOM.preload(HERO_IMAGE, { as: "image", fetchPriority: "high" });
+
   return (
     <section className="relative pt-36 pb-24 px-6 overflow-hidden">
-      {/*
-        L'image du hero est un background-image CSS : le navigateur ne la
-        découvre qu'après avoir parsé le CSS, ce qui retarde le LCP. Ce preload
-        (hissé dans <head> par React) la met sur le chemin critique tout de suite.
-      */}
-      {/* eslint-disable-next-line @next/next/no-head-element */}
-      <link
-        rel="preload"
-        as="image"
-        href="/michelangelo-creation-adam.webp"
-        fetchPriority="high"
-      />
       {/* Background image — Michelangelo, La Création d'Adam (1512), public domain */}
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-10 bg-center bg-no-repeat bg-cover"
-        style={{ backgroundImage: "url('/michelangelo-creation-adam.webp')" }}
+        style={{ backgroundImage: `url('${HERO_IMAGE}')` }}
       />
       {/* Slightly stronger halo behind text — fresco is more textured than Monet */}
       <div
