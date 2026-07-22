@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import BookCarousel from "@/components/blog/BookCarousel";
-import SupportProject from "@/components/sections/SupportProject";
 import { collections, getCollectionBySlug } from "@/lib/collections";
 import { getAllPosts, postHref } from "@/lib/blog";
 
@@ -107,9 +106,6 @@ export default function BlogHomePage() {
           </ul>
         </div>
       </section>
-
-      {/* Soutenir le projet — Aurora forest section */}
-      <SupportProject />
     </div>
   );
 }
