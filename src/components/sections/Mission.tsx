@@ -107,7 +107,7 @@ export default function Mission() {
   const open = openIndex !== null ? features[openIndex] : null;
 
   return (
-    <section className="relative py-24 px-6 border-t border-ink-100 overflow-hidden">
+    <section className="relative py-24 px-6 overflow-hidden">
       {/* Golden ratio decoration */}
       <GoldenSpiral
         className="hidden lg:block absolute -right-16 top-8 w-[420px] h-auto opacity-[0.07] pointer-events-none"
@@ -121,14 +121,14 @@ export default function Mission() {
           </span>
         </div>
 
-        {/* Golden ratio : colonnes 1.618 : 1, alignées en haut */}
-        <div className="grid lg:grid-cols-[1.618fr_1fr] gap-16 items-start">
+        {/* Colonnes 40 % / 60 % */}
+        <div className="grid lg:grid-cols-[2fr_3fr] gap-16 items-start">
           <div>
             <p className="text-xs tracking-widest uppercase text-ink-700 mb-5 font-sans font-medium">
               Pourquoi Join Médicis
             </p>
             <h2 className="font-sans tracking-tight text-4xl md:text-5xl font-bold text-ink-900 leading-[1.05] mb-8">
-              Une bibliothèque <em className="italic text-forest-900">gratuite</em> et open-source.
+              Une bibliothèque gratuite et open-source.
             </h2>
             <p className="text-base md:text-lg text-ink-900 leading-relaxed font-sans drop-cap">
               Join Médicis aide les marketers francophones à utiliser facilement les
@@ -140,7 +140,7 @@ export default function Mission() {
 
           <div>
             <p className="text-xs tracking-widest uppercase text-ink-700 mb-6 font-sans font-medium">
-              Ce que vous y trouverez · cliquez pour en savoir plus
+              Survolez pour découvrir les différentes fonctionnalités !
             </p>
             <ul className="flex flex-col divide-y divide-ink-100 border-y border-ink-100">
               {features.map((f, i) => (

@@ -54,7 +54,7 @@ export default function Hero() {
       {/* Soft bottom fade to next section */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-transparent to-cream-50"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-transparent to-cream-100"
       />
 
       {/* Decorative top line — Solomei-inspired */}
@@ -64,14 +64,6 @@ export default function Hero() {
       />
 
       <div className="relative max-w-4xl mx-auto text-center">
-        {/* Overline label */}
-        <p
-          className="text-xs tracking-widest uppercase text-ink-900 mb-10 font-sans font-semibold"
-          style={{ textShadow: "0 1px 10px rgba(250,247,240,0.85)" }}
-        >
-          Bibliothèque open-source · Francophone · Growth Marketing
-        </p>
-
         {/* Heading — Inter (matches the old navbar tagline), large and dark over the fresco */}
         <h1
           className="font-sans tracking-tight text-5xl md:text-6xl lg:text-7xl font-bold text-ink-900 leading-[1.1] mb-6"

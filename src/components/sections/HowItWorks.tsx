@@ -165,7 +165,7 @@ export default function HowItWorks() {
   const [active, setActive] = useState<number | null>(0);
 
   return (
-    <section className="relative py-24 px-6 border-t border-ink-100 bg-cream-50 overflow-hidden">
+    <section className="relative py-24 px-6 overflow-hidden">
       {/* Subtle dot grid background */}
       <div
         aria-hidden="true"

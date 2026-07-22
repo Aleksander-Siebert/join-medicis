@@ -80,7 +80,7 @@ export default function FAQ({
   };
 
   return (
-    <section className="border-t border-ink-100 px-6 py-24">
+    <section className="px-6 py-24">
       <JsonLd data={faqSchema} />
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-14">

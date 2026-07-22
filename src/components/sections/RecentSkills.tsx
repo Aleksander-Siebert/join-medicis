@@ -6,7 +6,7 @@ export default function RecentSkills() {
   const recent = skills.slice(0, 3);
 
   return (
-    <section className="py-20 px-6 border-t border-ink-100">
+    <section className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-5">
