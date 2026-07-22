@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { ThinkingOrb } from "thinking-orbs";
 import { skills, publishedSkills } from "@/lib/data";
 import SkillCard from "@/components/ui/SkillCard";
 import SkillsIntro from "@/components/sections/SkillsIntro";
@@ -53,9 +54,28 @@ const SKILLS_FAQ: FAQItem[] = [
   },
 ];
 
+/** Délai avant d'afficher les résultats — assez court pour rester fluide,
+ *  assez long pour laisser voir l'animation de recherche. */
+const SEARCH_DELAY_MS = 400;
+
 export default function SkillsPage() {
   const [category, setCategory] = useState("all");
   const [search, setSearch] = useState("");
+
+  // La recherche est différée : `search` suit la frappe, `appliedSearch` ne se
+  // met à jour qu'à la fin de la saisie. Entre les deux, on affiche l'orbe.
+  const [appliedSearch, setAppliedSearch] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
+
+  useEffect(() => {
+    if (search === appliedSearch) return;
+    setIsSearching(true);
+    const timer = setTimeout(() => {
+      setAppliedSearch(search);
+      setIsSearching(false);
+    }, SEARCH_DELAY_MS);
+    return () => clearTimeout(timer);
+  }, [search, appliedSearch]);
 
   // Catégories réellement disponibles aujourd'hui.
   const categories = useMemo(
@@ -69,8 +89,8 @@ export default function SkillsPage() {
   const filtered = useMemo(() => {
     return skills.filter((s) => {
       if (category !== "all" && s.category !== category) return false;
-      if (search) {
-        const q = search.toLowerCase();
+      if (appliedSearch) {
+        const q = appliedSearch.toLowerCase();
         if (
           !s.name.toLowerCase().includes(q) &&
           !s.description.toLowerCase().includes(q) &&
@@ -104,21 +124,32 @@ export default function SkillsPage() {
       {/* Filters */}
       <div className="border-b border-ink-100 px-6 py-5 sticky top-16 bg-cream-100/95 backdrop-blur-sm z-10">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row gap-4 items-start sm:items-center flex-wrap">
-          {/* Search */}
+          {/* Search — la loupe cède la place à l'orbe pendant la recherche */}
           <div className="relative">
-            <svg
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-5 h-5">
+              {isSearching ? (
+                <ThinkingOrb
+                  state="searching"
+                  size={20}
+                  theme="light"
+                  aria-label="Recherche en cours"
+                />
+              ) : (
+                <svg
+                  className="w-4 h-4 text-ink-300"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              )}
+            </span>
             <input
               type="text"
               placeholder="Rechercher un Skill..."
@@ -152,10 +183,19 @@ export default function SkillsPage() {
       <div className="px-6 py-10">
         <div className="max-w-7xl mx-auto">
           <p className="text-xs text-ink-300 mb-8 tracking-widest uppercase font-sans">
-            {filtered.length} résultat{filtered.length !== 1 ? "s" : ""}
+            {isSearching
+              ? "Recherche…"
+              : `${filtered.length} résultat${filtered.length !== 1 ? "s" : ""}`}
           </p>
 
-          {filtered.length > 0 ? (
+          {isSearching ? (
+            <div className="py-32 flex flex-col items-center justify-center gap-5">
+              <ThinkingOrb state="searching" size={64} theme="light" aria-label="" />
+              <p className="text-sm text-ink-500 font-sans">
+                Recherche dans la bibliothèque…
+              </p>
+            </div>
+          ) : filtered.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-ink-100">
               {filtered.map((skill) => (
                 <div key={skill.slug} className="bg-cream-100">
