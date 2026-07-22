@@ -40,7 +40,7 @@ const steps: Step[] = [
     title: "Développez vos premiers workflows",
     description:
       "Automatisez vos tâches marketing avec des workflows IA connectés à vos outils, de bout en bout.",
-    href: "/ressources/automations",
+    href: "/blog/collections/agents-automation",
     icon: (
       <>
         <circle cx="6" cy="6" r="2.5" />
@@ -88,20 +88,15 @@ export default function BeginnerPath() {
               <Link
                 key={step.title}
                 href={step.href}
-                className="group flex flex-col bg-cream-50 border border-ink-100 hover:border-forest-900/30 hover:bg-cream-100 transition-all p-7 rounded-[25px]"
+                className="group flex flex-col items-center text-center bg-cream-50 border border-ink-100 hover:border-forest-900/30 hover:bg-cream-100 transition-all p-7 rounded-[25px]"
               >
-                {/* Numéro d'étape */}
-                <span className="text-xs text-ink-300 font-sans tabular-nums mb-5">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-
-                {/* Tuile icône colorée */}
+                {/* Tuile icône colorée, centrée en haut */}
                 <span
-                  className="inline-flex items-center justify-center w-11 h-11 rounded-[12px] mb-5"
+                  className="inline-flex items-center justify-center w-14 h-14 rounded-[16px] mb-6"
                   style={{ backgroundColor: accent.bg, color: accent.fg }}
                   aria-hidden="true"
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                     {step.icon}
                   </svg>
                 </span>
@@ -114,12 +109,12 @@ export default function BeginnerPath() {
                 </p>
 
                 <span
-                  className="mt-6 inline-flex items-center gap-1.5 text-xs font-sans font-semibold transition-all"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-sans font-semibold transition-all"
                   style={{ color: accent.fg }}
                 >
                   Découvrir
                   <svg
-                    className="w-3 h-3 group-hover:translate-x-0.5 transition-transform"
+                    className="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
