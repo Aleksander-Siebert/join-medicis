@@ -11,7 +11,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         serif: ["var(--font-fraunces)", "Georgia", "serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["var(--font-roboto)", "system-ui", "sans-serif"],
       },
       colors: {
         cream: {
