@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Roboto } from "next/font/google";
+import { Montserrat, Roboto } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -16,12 +16,13 @@ import {
   websiteSchema,
 } from "@/lib/seo";
 
-const fraunces = Fraunces({
+// Police d'affichage (titres). Occupe la clé Tailwind `serif` héritée de
+// Fraunces : les ~90 classes `font-serif` du site pointent donc ici.
+const montserrat = Montserrat({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  variable: "--font-fraunces",
+  variable: "--font-montserrat",
   display: "swap",
-  axes: ["SOFT", "WONK", "opsz"],
 });
 
 const roboto = Roboto({
@@ -74,7 +75,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${fraunces.variable} ${roboto.variable}`}>
+    <html lang="fr" className={`${montserrat.variable} ${roboto.variable}`}>
       <body className="bg-cream-100 text-ink-900 antialiased font-sans">
         <JsonLd data={[organizationSchema, websiteSchema]} />
         <Navbar />

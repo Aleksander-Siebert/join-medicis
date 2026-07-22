@@ -10,7 +10,10 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["var(--font-fraunces)", "Georgia", "serif"],
+        // Clé `serif` conservée (héritée de Fraunces) pour ne pas réécrire les
+        // ~90 classes `font-serif` du site : elle rend désormais du Montserrat,
+        // utilisé comme police d'affichage pour les titres.
+        serif: ["var(--font-montserrat)", "system-ui", "sans-serif"],
         sans: ["var(--font-roboto)", "system-ui", "sans-serif"],
       },
       colors: {
