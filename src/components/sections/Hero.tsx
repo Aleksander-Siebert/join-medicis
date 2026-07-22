@@ -64,9 +64,14 @@ export default function Hero() {
       />
 
       <div className="relative max-w-4xl mx-auto text-center">
-        {/* Heading — Inter (matches the old navbar tagline), large and dark over the fresco */}
+        {/*
+          Titre en IM Fell English (font-serif). Cette police n'a qu'une graisse
+          (400) : pas de font-bold, qui déclencherait un faux gras synthétisé,
+          disgracieux sur un serif ancien. Pas de tracking-tight non plus, pensé
+          pour les sans-serif géométriques et trop serré ici.
+        */}
         <h1
-          className="font-sans tracking-tight text-5xl md:text-6xl lg:text-7xl font-bold text-ink-900 leading-[1.1] mb-6"
+          className="font-serif text-5xl md:text-6xl lg:text-7xl text-ink-900 leading-[1.1] mb-6"
           style={{ textShadow: "0 1px 24px rgba(250,247,240,0.85)" }}
         >
           La bibliothèque IA gratuite et open-source
