@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Skill } from "@/types";
 
 const categoryLabels: Record<string, string> = {
+  fondation: "Fondation",
   seo: "SEO & Contenu",
   prospection: "Prospection",
   cro: "CRO & Conversion",
@@ -34,6 +35,31 @@ function LLMTag({
 }
 
 export default function SkillCard({ skill }: { skill: Skill }) {
+  // Skill annoncé mais pas encore publié : carte compacte, non cliquable.
+  // On masque les stats (temps gagné, testeurs, LLM) qui n'ont pas encore de sens.
+  if (skill.comingSoon) {
+    return (
+      <article className="border border-dashed border-ink-200 bg-cream-100 h-full flex flex-col p-6">
+        <div className="flex items-start justify-between gap-3 mb-4">
+          <span className="text-xs tracking-widest uppercase text-ink-300 font-sans">
+            {categoryLabels[skill.category] ?? skill.category}
+          </span>
+          <span className="text-xs bg-cream-200 text-ink-500 px-2 py-0.5 rounded font-sans shrink-0">
+            Bientôt
+          </span>
+        </div>
+
+        <h3 className="font-mono text-base text-ink-900 mb-2 leading-snug break-words">
+          {skill.name}
+        </h3>
+
+        <p className="text-sm text-ink-500 leading-relaxed font-sans flex-1">
+          {skill.description}
+        </p>
+      </article>
+    );
+  }
+
   return (
     <Link href={`/ressources/skills/${skill.slug}`} className="group block h-full">
       <article className="border border-ink-100 bg-cream-100 hover:bg-cream-50 hover:border-ink-200 transition-all duration-200 h-full flex flex-col overflow-hidden">

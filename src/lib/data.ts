@@ -276,7 +276,93 @@ export const skills: Skill[] = [
     downloads: 47,
     views: 290,
   },
+
+  /* ================= FONDATION — annoncés, pas encore publiés =================
+   * `comingSoon: true` → carte compacte « Bientôt », non cliquable, exclue du
+   * sitemap, des pages détail et du compteur de Skills. Les champs de stats
+   * ci-dessous sont des valeurs neutres : ils ne sont jamais affichés.
+   */
+  ...([
+    {
+      slug: "brand-context",
+      name: "brand-context",
+      description:
+        "Contexte produit et marque, lu en premier par tous les autres Skills.",
+      tags: ["fondation", "contexte", "marque"],
+    },
+    {
+      slug: "persona-context",
+      name: "persona-context",
+      description:
+        "Contexte ICP en détail : douleurs, objections, vocabulaire, critères de décision.",
+      tags: ["fondation", "contexte", "icp"],
+    },
+    {
+      slug: "tone-of-voice",
+      name: "tone-of-voice",
+      description: "Crée et applique la voix de marque de l'utilisateur.",
+      tags: ["fondation", "contenu", "marque"],
+    },
+    {
+      slug: "stack-outils",
+      name: "stack-outils",
+      description: "Les différents outils disponibles dans votre stack.",
+      tags: ["fondation", "contexte", "outils"],
+    },
+    {
+      slug: "objectives-context",
+      name: "objectives-context",
+      description: "KPIs et priorités du trimestre.",
+      tags: ["fondation", "contexte", "kpi"],
+    },
+    {
+      slug: "rgpd-context",
+      name: "rgpd-context",
+      description:
+        "Fondation conditionnelle : collecte, base légale, conservation, mentions obligatoires.",
+      tags: ["fondation", "conditionnelle", "rgpd"],
+    },
+    {
+      slug: "legal-context",
+      name: "legal-context",
+      description:
+        "Fondation conditionnelle : CGU/CGV, droit de la publicité FR/EU, obligations sectorielles.",
+      tags: ["fondation", "conditionnelle", "juridique"],
+    },
+    {
+      slug: "ethical-marketing",
+      name: "ethical-marketing",
+      description:
+        "Fondation conditionnelle : dark patterns DGCCRF, limites du copywriting, marketing responsable.",
+      tags: ["fondation", "conditionnelle", "ethique"],
+    },
+    {
+      slug: "meeting",
+      name: "meeting",
+      description:
+        "Récapitulatif des transcriptions de réunion et analyse des signaux faibles.",
+      tags: ["fondation", "productivite", "reunion"],
+    },
+    {
+      slug: "weekly-report",
+      name: "weekly-report",
+      description:
+        "Récap et analyse par canal (Paid, SEO…) : data des campagnes, landing pages et créas, TL;DR et diagnostic deep-dive avec hypothèses.",
+      tags: ["fondation", "reporting", "analytics"],
+    },
+  ].map((s) => ({
+    ...s,
+    category: "fondation" as const,
+    comingSoon: true,
+    llm: { claude: "full", chatgpt: "full", gemini: "full" } as const,
+    timeSaved: "",
+    testedBy: 0,
+    version: "",
+  }))),
 ];
+
+/** Skills réellement publiés : pages détail, sitemap et compteurs. */
+export const publishedSkills: Skill[] = skills.filter((s) => !s.comingSoon);
 
 export const guides: Guide[] = [
   {
@@ -391,7 +477,7 @@ export const homeCategories: CategoryItem[] = [
 ];
 
 export const siteStats = {
-  skillsCount: skills.length,
+  skillsCount: publishedSkills.length,
   guidesCount: guides.length,
   membersCount: 47,
   projetsCount: 3,

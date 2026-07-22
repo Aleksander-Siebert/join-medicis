@@ -1,17 +1,23 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { skills } from "@/lib/data";
+import { skills, publishedSkills } from "@/lib/data";
 import SkillCard from "@/components/ui/SkillCard";
+import SkillsIntro from "@/components/sections/SkillsIntro";
+import AuroraGradient from "@/components/effects/AuroraGradient";
 import FAQ, { type FAQItem } from "@/components/sections/FAQ";
 
-const CATEGORIES = [
-  { id: "all", label: "Tous" },
+/** Libellés + ordre d'affichage. Seules les catégories qui contiennent
+ *  au moins un Skill sont proposées dans les filtres. */
+const CATEGORY_LABELS: { id: string; label: string }[] = [
+  { id: "fondation", label: "Fondation" },
   { id: "seo", label: "SEO & Contenu" },
   { id: "prospection", label: "Prospection" },
   { id: "cro", label: "CRO" },
   { id: "analytics", label: "Analytics" },
   { id: "strategie", label: "Stratégie" },
+  { id: "contenu", label: "Contenu" },
+  { id: "mcp", label: "MCP" },
 ];
 
 const SKILLS_FAQ: FAQItem[] = [
@@ -51,6 +57,15 @@ export default function SkillsPage() {
   const [category, setCategory] = useState("all");
   const [search, setSearch] = useState("");
 
+  // Catégories réellement disponibles aujourd'hui.
+  const categories = useMemo(
+    () => [
+      { id: "all", label: "Tous" },
+      ...CATEGORY_LABELS.filter((c) => skills.some((s) => s.category === c.id)),
+    ],
+    []
+  );
+
   const filtered = useMemo(() => {
     return skills.filter((s) => {
       if (category !== "all" && s.category !== category) return false;
@@ -69,21 +84,22 @@ export default function SkillsPage() {
 
   return (
     <div className="pt-16 min-h-screen">
-      {/* Page header */}
-      <div className="border-b border-ink-100 px-6 py-16">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-xs tracking-widest uppercase text-ink-300 mb-3 font-sans">
-            Bibliothèque
-          </p>
-          <h1 className="font-serif text-5xl font-light text-ink-900 mb-3">
-            Skills Claude
+      {/* Page header — fond vert animé, titre et texte blancs en Inter */}
+      <div className="relative bg-forest-900 text-cream-50 px-6 py-20 overflow-hidden">
+        <AuroraGradient />
+        <div className="relative max-w-5xl mx-auto text-center">
+          <h1 className="font-sans tracking-tight text-4xl md:text-5xl lg:text-6xl font-bold text-cream-50 leading-[1.05] mb-6">
+            Skills
           </h1>
-          <p className="text-ink-500 max-w-xl font-sans">
-            {skills.length} Skills testés, documentés et immédiatement
-            déployables sur claude.ai.
+          <p className="text-cream-50/85 font-sans leading-relaxed text-base md:text-lg max-w-2xl mx-auto">
+            {publishedSkills.length} Skills testés, documentés et immédiatement
+            déployables sur Claude, ChatGPT, Gemini ou Mistral.
           </p>
         </div>
       </div>
+
+      {/* Introduction : c'est quoi un Skill + compatibilité par IA */}
+      <SkillsIntro />
 
       {/* Filters */}
       <div className="border-b border-ink-100 px-6 py-5 sticky top-16 bg-cream-100/95 backdrop-blur-sm z-10">
@@ -114,7 +130,7 @@ export default function SkillsPage() {
 
           {/* Category filters */}
           <div className="flex flex-wrap gap-2">
-            {CATEGORIES.map((c) => (
+            {categories.map((c) => (
               <button
                 key={c.id}
                 onClick={() => setCategory(c.id)}

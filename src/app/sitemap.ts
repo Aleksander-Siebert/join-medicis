@@ -38,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Skills detail — date réelle de publication quand elle existe
-  for (const s of skills) {
+  for (const s of skills.filter((x) => !x.comingSoon)) {
     entries.push({
       url: url(`/ressources/skills/${s.slug}`),
       ...(s.publishedAt ? { lastModified: new Date(s.publishedAt) } : {}),

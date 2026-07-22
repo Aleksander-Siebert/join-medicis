@@ -18,8 +18,11 @@ import type { LLMSupport } from "@/types";
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
-  return skills.map((s) => ({ slug: s.slug }));
+  // Les Skills « bientôt » n'ont pas de contenu : pas de page détail.
+  return skills.filter((s) => !s.comingSoon).map((s) => ({ slug: s.slug }));
 }
+
+export const dynamicParams = false;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;

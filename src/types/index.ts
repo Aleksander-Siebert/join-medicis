@@ -1,4 +1,12 @@
-export type Category = "seo" | "prospection" | "cro" | "analytics" | "strategie" | "contenu" | "mcp";
+export type Category =
+  | "fondation"
+  | "seo"
+  | "prospection"
+  | "cro"
+  | "analytics"
+  | "strategie"
+  | "contenu"
+  | "mcp";
 export type LLMSupport = "full" | "partial" | "none";
 export type LLMName = "claude" | "chatgpt" | "gemini" | "mistral";
 
@@ -60,6 +68,11 @@ export interface Skill {
   publishedAt?: string;
   downloads?: number;
   views?: number;
+  /**
+   * Skill annoncé mais pas encore publié : affiché en carte compacte « Bientôt »,
+   * non cliquable, exclu du sitemap, des pages détail et du compteur de Skills.
+   */
+  comingSoon?: boolean;
   /** FAQ spécifique au Skill. À défaut, 5 questions sont générées depuis ses données. */
   faq?: FAQItem[];
   /** Problème concret que le Skill résout (bloc « À propos »). À défaut, texte générique. */
