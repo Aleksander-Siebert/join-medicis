@@ -43,9 +43,9 @@ export default function AboutPage() {
             <h1 className="font-sans tracking-tight text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 leading-[1.05] mb-10">
               Je fais du marketing depuis plusieurs années
               <br />
-              <em className="italic text-forest-900">
+              <span className="text-forest-900">
                 et de l&rsquo;IA appliquée depuis l&rsquo;arrivée de ChatGPT.
-              </em>
+              </span>
             </h1>
 
             <div className="space-y-5 text-ink-900 leading-relaxed font-sans text-base md:text-lg max-w-2xl">
@@ -181,7 +181,7 @@ export default function AboutPage() {
 
           <h2 className="font-sans tracking-tight text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 leading-[1.05] mb-10 max-w-4xl mx-auto text-balance">
             Rendre les fonctions avancées de l&rsquo;IA{" "}
-            <em className="italic text-forest-900">accessibles aux marketeurs</em>.
+            <span className="text-forest-900">accessibles aux marketeurs</span>.
           </h2>
 
           <div className="space-y-5 text-ink-900 leading-relaxed font-sans text-base md:text-lg max-w-3xl mx-auto text-left">
@@ -288,7 +288,7 @@ export default function AboutPage() {
 
           <h2 className="font-sans tracking-tight text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 leading-[1.05] mb-10 max-w-4xl mx-auto text-balance">
             Pourquoi j&rsquo;ai choisi comme nom{" "}
-            <em className="italic text-forest-900">Join Médicis</em> ?
+            <span className="text-forest-900">Join Médicis</span> ?
           </h2>
 
           <div className="space-y-5 text-ink-900 leading-relaxed font-sans text-base md:text-lg max-w-3xl mx-auto text-left">
@@ -342,8 +342,7 @@ export default function AboutPage() {
               Pourquoi l&rsquo;open source
             </p>
             <h2 className="font-sans tracking-tight text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 leading-[1.05] mb-5 text-balance">
-              Vos ressources, <em className="italic text-forest-900">vos règles</em>{" "}
-              <span className="text-forest-900">!</span>
+              Vos ressources, <span className="text-forest-900">vos règles !</span>
             </h2>
             <p className="text-base md:text-lg text-ink-700 max-w-2xl mx-auto leading-relaxed font-sans">
               Que ça soit les Skills, les différentes ressources, les articles et
