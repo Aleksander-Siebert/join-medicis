@@ -216,10 +216,9 @@ export default function AboutPage() {
           <div className="mt-10">
             <Link
               href="/contribuer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-forest-900 text-cream-50 text-sm md:text-base font-sans font-medium hover:bg-forest-700 transition-colors rounded-[18px]"
+              className="inline-flex items-center px-7 py-3.5 bg-forest-900 text-cream-50 text-sm md:text-base font-sans font-medium hover:bg-forest-700 transition-colors rounded-[18px]"
             >
               Je contribue
-              <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>

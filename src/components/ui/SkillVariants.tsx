@@ -27,9 +27,8 @@ export default function SkillVariants({ skill }: { skill: Skill }) {
                     {v.name}
                   </p>
                   {v.slug ? (
-                    <span className="inline-flex items-center gap-1.5 text-sm text-forest-900 font-sans font-medium">
+                    <span className="inline-flex items-center text-sm text-forest-900 font-sans font-medium">
                       Voir la variante
-                      <span aria-hidden="true">→</span>
                     </span>
                   ) : (
                     <span className="text-xs text-ink-300 font-sans">Bientôt disponible</span>

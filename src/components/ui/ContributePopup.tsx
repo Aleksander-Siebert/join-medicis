@@ -66,7 +66,7 @@ export default function ContributePopup() {
             onClick={dismiss}
             className="flex-1 text-center px-4 py-2.5 bg-forest-900 text-cream-50 text-sm hover:bg-forest-700 transition-colors font-sans"
           >
-            Contribuer →
+            Contribuer
           </Link>
           <button
             onClick={dismiss}

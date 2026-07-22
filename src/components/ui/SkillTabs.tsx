@@ -121,7 +121,7 @@ function ContentTab({ skill }: { skill: Skill }) {
             download={`${skill.slug}.md`}
             className="text-xs text-forest-700 hover:text-forest-900 transition-colors font-sans"
           >
-            Télécharger tout →
+            Télécharger tout
           </a>
         </div>
         <ul className="divide-y divide-ink-100 text-sm font-sans">

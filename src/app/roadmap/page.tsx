@@ -87,7 +87,7 @@ export default function RoadmapPage() {
             className="group block text-left max-w-2xl mx-auto bg-cream-50 border border-ink-100 rounded-[16px] p-5 hover:border-forest-900/30 transition-colors"
           >
             <p className="text-sm text-ink-800 font-sans leading-relaxed">
-              🔴 <span className="font-semibold">Rejoignez la communauté sur Reddit →{" "}
+              🔴 <span className="font-semibold">Rejoignez la communauté sur Reddit{" "}
               <span className="text-forest-900 group-hover:underline underline-offset-2">
                 r/JoinMedicis
               </span></span>{" "}

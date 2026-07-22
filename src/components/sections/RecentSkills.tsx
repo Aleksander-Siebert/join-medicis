@@ -39,7 +39,7 @@ export default function RecentSkills() {
             href="/ressources/skills"
             className="inline-flex items-center gap-2 text-sm text-ink-500 hover:text-ink-900 transition-colors border-b border-ink-100 hover:border-ink-400 pb-0.5 font-sans"
           >
-            Voir les {skills.length} Skills disponibles →
+            Voir les {skills.length} Skills disponibles
           </Link>
         </div>
       </div>

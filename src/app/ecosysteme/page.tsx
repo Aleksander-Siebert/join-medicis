@@ -46,10 +46,9 @@ export default function EcosystemePage() {
           </p>
           <Link
             href="/contribuer"
-            className="inline-flex items-center gap-2 px-7 py-3.5 bg-cream-50 text-forest-900 text-sm md:text-base font-sans font-semibold rounded-full hover:bg-cream-100 transition-colors"
+            className="inline-flex items-center px-7 py-3.5 bg-cream-50 text-forest-900 text-sm md:text-base font-sans font-semibold rounded-full hover:bg-cream-100 transition-colors"
           >
             Contribuer à Join Médicis !
-            <span aria-hidden="true">→</span>
           </Link>
         </div>
       </div>

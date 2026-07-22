@@ -58,10 +58,9 @@ export default function ResourceComingSoon({
 
           <Link
             href="/roadmap"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-forest-900 text-cream-50 text-sm font-sans font-medium hover:bg-forest-700 transition-colors rounded-[10px]"
+            className="inline-flex items-center px-6 py-3 bg-forest-900 text-cream-50 text-sm font-sans font-medium hover:bg-forest-700 transition-colors rounded-[10px]"
           >
             Voir la roadmap
-            <span aria-hidden="true">→</span>
           </Link>
         </div>
       </div>

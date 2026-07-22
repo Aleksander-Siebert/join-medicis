@@ -291,7 +291,7 @@ export default function Navbar() {
             href="/contribuer"
             className="px-5 py-2 text-sm bg-forest-900 text-cream-50 hover:bg-forest-700 transition-colors tracking-wide font-sans rounded-[12px]"
           >
-            Join the Renaissance →
+            Join the Renaissance
           </Link>
         </div>
 
@@ -333,7 +333,7 @@ export default function Navbar() {
             onClick={() => setMobile(false)}
             className="block text-center py-3 bg-forest-900 text-cream-50 text-sm font-sans rounded-[12px]"
           >
-            Join the Renaissance →
+            Join the Renaissance
           </Link>
         </div>
       )}

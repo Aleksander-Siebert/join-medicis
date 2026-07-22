@@ -158,7 +158,7 @@ export default function ArticleView({
               href="/ressources/skills"
               className="px-6 py-3 bg-forest-900 text-cream-50 text-sm font-sans hover:bg-forest-700 transition-colors"
             >
-              Explorer les Skills →
+              Explorer les Skills
             </Link>
           </div>
         </div>

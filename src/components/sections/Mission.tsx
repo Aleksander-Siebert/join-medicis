@@ -240,10 +240,9 @@ export default function Mission() {
                 href={BLOG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-forest-900 text-cream-50 text-sm tracking-wide hover:bg-forest-700 transition-colors font-sans"
+                className="inline-flex items-center px-6 py-3 bg-forest-900 text-cream-50 text-sm tracking-wide hover:bg-forest-700 transition-colors font-sans"
               >
                 {open.cta}
-                <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>

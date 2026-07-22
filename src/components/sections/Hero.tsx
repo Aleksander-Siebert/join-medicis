@@ -89,7 +89,7 @@ export default function Hero() {
             href="/ressources/skills"
             className="px-8 py-3.5 bg-forest-900 text-cream-50 text-sm tracking-wide hover:bg-forest-700 transition-colors font-sans"
           >
-            Explorer les Skills →
+            Explorer les Skills
           </Link>
           <a
             href="https://github.com/Aleksander-Siebert/join-medicis"

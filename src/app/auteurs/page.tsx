@@ -169,7 +169,7 @@ export default function AuthorsPage() {
                 Cette place vous attend
               </span>
               <span className="text-xs text-ink-300 font-sans mt-1">
-                Contribuer →
+                Contribuer
               </span>
             </Link>
           ))}
@@ -196,7 +196,7 @@ export default function AuthorsPage() {
               href="/contribuer"
               className="px-7 py-3.5 bg-forest-900 text-cream-50 text-sm font-sans font-medium hover:bg-forest-700 transition-colors rounded-[12px]"
             >
-              Contribuer →
+              Contribuer
             </Link>
           </div>
         </div>

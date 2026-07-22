@@ -109,18 +109,10 @@ export default function BeginnerPath() {
                 </p>
 
                 <span
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-sans font-semibold transition-all"
+                  className="mt-6 inline-flex items-center text-sm font-sans font-semibold transition-all"
                   style={{ color: accent.fg }}
                 >
                   Découvrir
-                  <svg
-                    className="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
                 </span>
               </Link>
             );
