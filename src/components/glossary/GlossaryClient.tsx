@@ -311,16 +311,29 @@ export default function GlossaryClient({
                     <ul className="flex flex-col gap-8">
                       {grouped[letter].map((term) => (
                         <li key={term.slug}>
-                          <h3 className="font-serif text-xl md:text-2xl text-forest-900 font-medium mb-2">
+                          <h3 className="font-serif text-xl md:text-2xl font-medium mb-2">
                             {linked.has(term.slug) ? (
+                              // Terme avec une page : vert vif + soulignement
+                              // permanent pour signaler qu'il est cliquable (façon Ahrefs).
                               <Link
                                 href={`/glossaire/${term.slug}`}
-                                className="hover:underline underline-offset-4 decoration-forest-600/40"
+                                className="inline-flex items-center gap-1.5 text-forest-600 underline decoration-forest-600/40 decoration-2 underline-offset-[3px] hover:text-forest-700 hover:decoration-forest-700 transition-colors"
                               >
                                 {term.title}
+                                <svg
+                                  className="w-4 h-4 shrink-0 opacity-70"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  aria-hidden="true"
+                                >
+                                  <path d="M7 17L17 7M17 7H9M17 7v8" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
                               </Link>
                             ) : (
-                              term.title
+                              // Terme sans page : vert foncé, non cliquable.
+                              <span className="text-forest-900">{term.title}</span>
                             )}
                           </h3>
                           <p className="text-ink-900 leading-relaxed font-sans">
