@@ -10,10 +10,10 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        // Clé `serif` conservée (héritée de Fraunces) pour ne pas réécrire les
-        // ~90 classes `font-serif` du site : elle rend désormais du Montserrat,
-        // utilisé comme police d'affichage pour les titres.
-        serif: ["var(--font-montserrat)", "system-ui", "sans-serif"],
+        // Police d'affichage des titres (~90 classes `font-serif` dans le site).
+        // IM Fell English n'a qu'une graisse (400) : les variantes font-light /
+        // font-medium posées sur des titres rendent donc toutes identiques.
+        serif: ["var(--font-im-fell)", "Georgia", "serif"],
         sans: ["var(--font-roboto)", "system-ui", "sans-serif"],
       },
       colors: {

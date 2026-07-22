@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat, Roboto } from "next/font/google";
+import { IM_Fell_English, Roboto } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -16,12 +16,14 @@ import {
   websiteSchema,
 } from "@/lib/seo";
 
-// Police d'affichage (titres). Occupe la clé Tailwind `serif` héritée de
-// Fraunces : les ~90 classes `font-serif` du site pointent donc ici.
-const montserrat = Montserrat({
+// Police d'affichage (titres), occupe la clé Tailwind `serif`.
+// IM Fell English n'existe qu'en graisse 400 (normal + italique) : les classes
+// font-light / font-medium posées sur des titres rendront donc toutes en 400.
+const imFellEnglish = IM_Fell_English({
   subsets: ["latin"],
+  weight: "400",
   style: ["normal", "italic"],
-  variable: "--font-montserrat",
+  variable: "--font-im-fell",
   display: "swap",
 });
 
@@ -75,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${montserrat.variable} ${roboto.variable}`}>
+    <html lang="fr" className={`${imFellEnglish.variable} ${roboto.variable}`}>
       <body className="bg-cream-100 text-ink-900 antialiased font-sans">
         <JsonLd data={[organizationSchema, websiteSchema]} />
         <Navbar />
