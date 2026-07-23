@@ -16,7 +16,7 @@ L'architecture Transformer, publiée par des chercheurs de Google en 2017, rend 
 
 ## Pourquoi comprendre les LLM change votre façon de travailler
 
-71 % des organisations utilisent désormais l'IA générative dans au moins une fonction métier, selon la dernière enquête McKinsey sur l'état de l'IA. Comprendre le fonctionnement d'un LLM change directement la qualité des résultats obtenus. Un prompt mal construit produit une réponse générique, un prompt qui tient compte de la logique de prédiction du modèle produit un contenu exploitable dès le premier essai.
+[71% des organisations](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) utilisent désormais l'IA générative dans au moins une fonction métier, selon la dernière enquête McKinsey sur l'état de l'IA. Comprendre le fonctionnement d'un LLM change directement la qualité des résultats obtenus. Un prompt mal construit produit une réponse générique, un prompt qui tient compte de la logique de prédiction du modèle produit un contenu exploitable dès le premier essai.
 
 ## Comment fonctionne un LLM
 
